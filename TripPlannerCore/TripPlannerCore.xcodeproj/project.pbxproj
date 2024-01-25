@@ -19,6 +19,7 @@
 		1A67A7EA2B62B80E008E77D0 /* RouteBuilderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7E92B62B80E008E77D0 /* RouteBuilderError.swift */; };
 		1A67A7EC2B62B89B008E77D0 /* Int+Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7EB2B62B89B008E77D0 /* Int+Number.swift */; };
 		1A67A7EE2B62B8DA008E77D0 /* Route+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7ED2B62B8DA008E77D0 /* Route+Extension.swift */; };
+		1A67A7F12B62DDF3008E77D0 /* Sequence+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7F02B62DDF3008E77D0 /* Sequence+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		1A67A7E92B62B80E008E77D0 /* RouteBuilderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilderError.swift; sourceTree = "<group>"; };
 		1A67A7EB2B62B89B008E77D0 /* Int+Number.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Number.swift"; sourceTree = "<group>"; };
 		1A67A7ED2B62B8DA008E77D0 /* Route+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Route+Extension.swift"; sourceTree = "<group>"; };
+		1A67A7F02B62DDF3008E77D0 /* Sequence+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 			children = (
 				1A67A7E42B62B76B008E77D0 /* RouteBuilder */,
 				1A67A7D22B627D89008E77D0 /* Model */,
+				1A67A7EF2B62DDE3008E77D0 /* Utils */,
 				1A67A7DB2B62845D008E77D0 /* PriceCalculator.swift */,
 			);
 			path = TripPlannerCore;
@@ -139,6 +142,14 @@
 				1A67A7E72B62B7C3008E77D0 /* DijkstrasRouteBuilder.swift */,
 			);
 			path = Impl;
+			sourceTree = "<group>";
+		};
+		1A67A7EF2B62DDE3008E77D0 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1A67A7F02B62DDF3008E77D0 /* Sequence+Extension.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,6 +266,7 @@
 				1A67A7EA2B62B80E008E77D0 /* RouteBuilderError.swift in Sources */,
 				1A67A7E82B62B7C3008E77D0 /* DijkstrasRouteBuilder.swift in Sources */,
 				1A67A7DC2B62845D008E77D0 /* PriceCalculator.swift in Sources */,
+				1A67A7F12B62DDF3008E77D0 /* Sequence+Extension.swift in Sources */,
 				1A67A7DE2B628703008E77D0 /* RouteBuilder.swift in Sources */,
 				1A67A7D82B627E7F008E77D0 /* Connection.swift in Sources */,
 				1A67A7D62B627E2A008E77D0 /* Place.swift in Sources */,
