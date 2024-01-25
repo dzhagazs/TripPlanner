@@ -9,4 +9,5 @@ enum RouteBuilderError: Swift.Error, Equatable {
 
     case toNotFound
     case fromNotFound
+    case invalidWeight
 }
