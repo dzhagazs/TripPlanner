@@ -41,22 +41,15 @@ final class RouteBuilderTests: XCTestCase {
                 ("d", "c"),
                 ("c", "b")
             ],
-            calculator: { connection in
+            weights: [
 
-                switch connection {
-
-                case ("a", "d"): return 2
-                case ("a", "c"): return 6
-                case ("d", "b"): return 6
-                case ("d", "c"): return 3
-                case ("c", "b"): return 1
-                default:
-
-                    XCTFail("Attempt to calculate unexisting connection \(connection.0) -> \(connection.1).")
-
-                    return 0
-                }
-            }
+                (("a", "d"), 2),
+                (("a", "c"), 6),
+                (("d", "b"), 6),
+                (("d", "c"), 3),
+                (("c", "b"), 1)
+            ],
+            defaultWeight: nil
         )
     }
 
@@ -91,7 +84,8 @@ final class RouteBuilderTests: XCTestCase {
         from: String = "a",
         to: String = "b",
         with connections: [(String, String)],
-        calculator: @escaping (((String, String)) async throws -> Int) = { _ in 1 },
+        weights: [((String, String), Int)] = [],
+        defaultWeight: Int? = 1,
         file: StaticString = #file,
         line: UInt = #line
 
@@ -103,7 +97,8 @@ final class RouteBuilderTests: XCTestCase {
             from: from,
             to: to,
             with: connections,
-            calculator: calculator,
+            weights: weights,
+            defaultWeight: defaultWeight,
             resultFilter: { ($0.first != nil) ? [$0.first!] : [] },
             file: file,
             line: line
@@ -116,7 +111,8 @@ final class RouteBuilderTests: XCTestCase {
         from: String = "a",
         to: String = "b",
         with connections: [(String, String)],
-        calculator: @escaping (((String, String)) async throws -> Int) = { _ in 1 },
+        weights: [((String, String), Int)] = [],
+        defaultWeight: Int? = 1,
         resultFilter: @escaping ([Route<String, Int>]) -> [Route<String, Int>] = { $0 },
         file: StaticString = #file,
         line: UInt = #line
@@ -126,13 +122,14 @@ final class RouteBuilderTests: XCTestCase {
         execute(file: file, line: line) {
 
             let sut = self.makeSUT()
+            let calculator = WeightCalculatorStub(weights, default: defaultWeight)
 
             let result = try await sut.build(
 
                 from: from,
                 to: to,
                 connections: connections,
-                weightCalculator: calculator
+                weightCalculator: calculator.weight(for:)
             )
 
             XCTAssertEqual(routes, resultFilter(result), file: file, line: line)
