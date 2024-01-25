@@ -95,6 +95,7 @@ final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder {
 
     typealias Weight = W
     typealias RouteElement = E
+    typealias Error = RouteBuilderError
 
     func build(
 
@@ -106,6 +107,7 @@ final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder {
     ) async throws -> [Route<E, W>] {
 
         guard connections.isEmpty == false else { return [] }
+        guard connections.first(where: { $0.1 == to }) != nil else { throw Error.toNotFound }
 
         let weight = try await weightCalculator(connections.first!)
 
