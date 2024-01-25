@@ -84,17 +84,17 @@ final class RouteBuilderTests: XCTestCase {
 
     ) {
 
-            expectToThrow(error, file: file, line: line) {
+        expectToThrow(error, file: file, line: line) {
 
-                let sut = Self.makeSUT()
+            let sut = Self.makeSUT()
 
-                let _ = try await sut.build(
+            let _ = try await sut.build(
 
-                    from: from,
-                    to: to,
-                    connections: connections,
-                    weightCalculator: { _ in 1 }
-                )
-            }
+                from: from,
+                to: to,
+                connections: connections,
+                weightCalculator: { _ in 1 }
+            )
         }
+    }
 }
