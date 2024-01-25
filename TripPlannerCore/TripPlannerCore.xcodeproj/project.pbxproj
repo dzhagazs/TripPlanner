@@ -79,9 +79,9 @@
 		1A67A7BC2B627D37008E77D0 /* TripPlannerCore */ = {
 			isa = PBXGroup;
 			children = (
+				1A67A7E42B62B76B008E77D0 /* RouteBuilder */,
 				1A67A7D22B627D89008E77D0 /* Model */,
 				1A67A7DB2B62845D008E77D0 /* PriceCalculator.swift */,
-				1A67A7DD2B628703008E77D0 /* RouteBuilder.swift */,
 			);
 			path = TripPlannerCore;
 			sourceTree = "<group>";
@@ -111,6 +111,14 @@
 				1A67A7E22B6296E4008E77D0 /* XCTestCase+Extension.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		1A67A7E42B62B76B008E77D0 /* RouteBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				1A67A7DD2B628703008E77D0 /* RouteBuilder.swift */,
+			);
+			path = RouteBuilder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
