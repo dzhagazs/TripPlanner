@@ -54,18 +54,45 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
             return neighbors
         }
 
+        func path(from: E, to: E, parents: [E: E]) -> [E] {
+
+            var path: [E] = []
+            var element = to
+            repeat {
+
+                path.append(element)
+                element = parents[element]!
+
+            } while element != from
+
+            return path.reversed()
+        }
+
         guard connections.isEmpty == false else { return [] }
         try validate(from: from, to: to, connections: connections)
 
-        let nodes = getAllNodes(from: connections)
+        let nodes = getAllNodes(from: connections, ignored: [from])
         var graph: [E: [E: W]] = [:]
         nodes.forEach { graph[$0] = [:] }
         var weights: [E: W] = [:]
         var parents: [E: E] = [:]
         var processed: [E] = []
+        var routes: [Route<E, W>] = []
+
+        // Fill initial weights
+        nodes.forEach { weights[$0] = .upperBound }
+
+        let fromNeighbors = directNeighbors(for: from, with: connections)
+        try await fromNeighbors.asyncForEach { fromNeighbor in
+
+            // Fill start direct neighbors weights
+            weights[fromNeighbor] = try await weightCalculator((from, fromNeighbor))
+
+            // Fill start directNeighbors parents
+            parents[fromNeighbor] = from
+        }
 
         // Fill initial graph
-        // Fill initial weights
         try await nodes.asyncForEach { node in
 
             let neighbors = directNeighbors(for: node, with: connections)
@@ -74,13 +101,12 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
 
                 let weight = try await weightCalculator((node, neighbor))
 
-                guard weight >= 0 else { throw Error.invalidWeight }
+                guard weight >= .zero else { throw Error.invalidWeight }
 
                 neighborsWeights[neighbor] = weight
             }
 
             graph[node] = neighborsWeights
-            weights[node] = .upperBound
         }
 
         var processedElement = lowestWeightElement(weights, processed: processed)
@@ -97,6 +123,14 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
 
                     weights[neighbor] = newWeight
                     parents[neighbor] = element
+                    if neighbor == to {
+
+                        routes.append(.init(
+
+                            path: [from] + path(from: from, to: to, parents: parents),
+                            weight: weights[to]!
+                        ))
+                    }
                 }
             }
             processed.append(element)
@@ -104,7 +138,7 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
 
         } while processedElement != nil
 
-        return [.init(path: [], weight: W.zero)]
+        return routes.sorted(by: { $0.weight < $1.weight })
     }
 
     // MARK: Private
@@ -121,15 +155,18 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
         guard connections.first(where: { $0.0 == from }) != nil else { throw Error.fromNotFound }
     }
 
-    private func getAllNodes(from connections: [Connection]) -> [E] {
+    private func getAllNodes(from connections: [Connection], ignored: [E]) -> [E] {
 
-        connections.reduce(NSMutableOrderedSet()) {
+        let nodes = connections.reduce(NSMutableOrderedSet()) {
 
             $0.add($1.0)
             $0.add($1.1)
 
             return $0
+        }
 
-        }.array as! [E]
+        nodes.minus(NSOrderedSet(array: ignored))
+
+        return nodes.array as! [E]
     }
 }
