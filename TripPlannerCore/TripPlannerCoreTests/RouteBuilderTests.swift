@@ -98,11 +98,3 @@ final class RouteBuilderTests: XCTestCase {
             }
         }
 }
-
-extension Route<String, Int>: Equatable {
-
-    public static func == (lhs: Route, rhs: Route) -> Bool {
-
-        lhs.path == rhs.path && lhs.weight == rhs.weight
-    }
-}
