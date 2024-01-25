@@ -31,6 +31,24 @@ final class RouteBuilderTests: XCTestCase {
         }
     }
 
+    func test_build_returnsEmptyForEmptyInput() {
+
+        execute {
+
+            let sut = Self.makeSUT()
+
+            let routes = try await sut.build(
+
+                from: "a",
+                to: "b",
+                connections: [],
+                weightCalculator: { _ in 1 }
+            )
+
+            XCTAssertEqual(routes, [])
+        }
+    }
+
     // MARK: Private
 
     private static func makeSUT() -> SUT { .init() }
@@ -63,6 +81,8 @@ final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder {
         weightCalculator: ((E, E)) async throws -> W
 
     ) async throws -> [Route<E, W>] {
+
+        guard connections.isEmpty == false else { return [] }
 
         let weight = try await weightCalculator(connections.first!)
 
