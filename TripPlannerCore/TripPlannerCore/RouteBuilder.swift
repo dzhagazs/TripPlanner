@@ -7,10 +7,10 @@
 
 protocol RouteBuilder {
 
-    associatedtype Metric: Equatable, Comparable
+    associatedtype Weight: Equatable, Comparable
 
-    typealias Route = ([Place], Metric)
-    typealias MetricProvider = (Connection) async throws -> Metric
+    typealias Route = ([Place], Weight)
+    typealias WeightCalculator = (Connection) async throws -> Weight
 
-    func build(_ connections: [Connection], metricProvider: MetricProvider) -> Route
+    func build(_ connections: [Connection], weightCalculator: WeightCalculator) async throws -> Route
 }
