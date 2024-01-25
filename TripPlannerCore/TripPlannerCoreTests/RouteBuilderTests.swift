@@ -64,6 +64,8 @@ final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder {
 
     ) async throws -> Route<E, W> {
 
-        .init(path: [], weight: W.zero)
+        let weight = try await weightCalculator(connections.first!)
+
+        return .init(path: [connections.first!.0, connections.first!.1], weight: weight)
     }
 }
