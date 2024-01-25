@@ -11,6 +11,7 @@
 		1A67A7D42B627DCE008E77D0 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7D32B627DCE008E77D0 /* Coordinate.swift */; };
 		1A67A7D62B627E2A008E77D0 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7D52B627E2A008E77D0 /* Place.swift */; };
 		1A67A7D82B627E7F008E77D0 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7D72B627E7F008E77D0 /* Connection.swift */; };
+		1A67A7DC2B62845D008E77D0 /* PriceCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7DB2B62845D008E77D0 /* PriceCalculator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		1A67A7D32B627DCE008E77D0 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		1A67A7D52B627E2A008E77D0 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		1A67A7D72B627E7F008E77D0 /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
+		1A67A7DB2B62845D008E77D0 /* PriceCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceCalculator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				1A67A7D22B627D89008E77D0 /* Model */,
+				1A67A7DB2B62845D008E77D0 /* PriceCalculator.swift */,
 			);
 			path = TripPlannerCore;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A67A7D42B627DCE008E77D0 /* Coordinate.swift in Sources */,
+				1A67A7DC2B62845D008E77D0 /* PriceCalculator.swift in Sources */,
 				1A67A7D82B627E7F008E77D0 /* Connection.swift in Sources */,
 				1A67A7D62B627E2A008E77D0 /* Place.swift in Sources */,
 			);
