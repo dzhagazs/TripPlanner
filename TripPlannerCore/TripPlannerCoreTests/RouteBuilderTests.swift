@@ -66,16 +66,21 @@ final class RouteBuilderTests: XCTestCase {
 
     func test_build_failsIfToIsNotInGraph() {
 
-        expectToFail(.toNotFound, with: [("a", "c")])
-        expectToFail(.toNotFound, with: [("b", "c")])
-        expectToFail(.toNotFound, with: [("b", "c"), ("a", "c"), ("d", "a")])
+        expectToFail(.toNotFound, with: [(("a", "c"), 1)])
+        expectToFail(.toNotFound, with: [(("b", "c"), 1)])
+        expectToFail(.toNotFound, with: [
+
+            (("b", "c"),1),
+            (("a", "c"),1),
+            (("d", "a"),1)]
+        )
     }
 
     func test_build_failsIfFromIsNotInGraph() {
 
-        expectToFail(.fromNotFound, with: [("c", "b")])
-        expectToFail(.fromNotFound, with: [("d", "b")])
-        expectToFail(.fromNotFound, with: [("b", "a"), ("c", "b"), ("d", "a")])
+        expectToFail(.fromNotFound, with: [(("c", "b"), 1)])
+        expectToFail(.fromNotFound, with: [(("d", "b"), 1)])
+        expectToFail(.fromNotFound, with: [(("b", "a"), 1), (("c", "b"), 1), (("d", "a"), 1)])
     }
 
     // MARK: Private
@@ -146,7 +151,7 @@ final class RouteBuilderTests: XCTestCase {
         _ error: Error,
         from: String = "a",
         to: String = "b",
-        with connections: [(String, String)] = [], 
+        with weights: [((String, String), Int)],
         file: StaticString = #file,
         line: UInt = #line
 
@@ -155,13 +160,14 @@ final class RouteBuilderTests: XCTestCase {
         expectToThrow(error, file: file, line: line) {
 
             let sut = self.makeSUT()
+            let calculator = WeightCalculatorStub(weights)
 
             let _ = try await sut.build(
 
                 from: from,
                 to: to,
-                connections: connections,
-                weightCalculator: { _ in 1 }
+                connections: weights.map { $0.0 },
+                weightCalculator: calculator.weight(for:)
             )
         }
     }
