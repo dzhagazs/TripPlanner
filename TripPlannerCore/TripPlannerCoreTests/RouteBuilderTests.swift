@@ -112,9 +112,3 @@ extension Route<String, Int>: Equatable {
         lhs.path == rhs.path && lhs.weight == rhs.weight
     }
 }
-
-enum RouteBuilderError: Swift.Error, Equatable {
-
-    case toNotFound
-    case fromNotFound
-}
