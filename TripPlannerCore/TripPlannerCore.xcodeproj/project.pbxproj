@@ -13,6 +13,7 @@
 		1A67A7D82B627E7F008E77D0 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7D72B627E7F008E77D0 /* Connection.swift */; };
 		1A67A7DC2B62845D008E77D0 /* PriceCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7DB2B62845D008E77D0 /* PriceCalculator.swift */; };
 		1A67A7DE2B628703008E77D0 /* RouteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7DD2B628703008E77D0 /* RouteBuilder.swift */; };
+		1A67A7E02B62916F008E77D0 /* RouteBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7DF2B62916F008E77D0 /* RouteBuilderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +34,7 @@
 		1A67A7D72B627E7F008E77D0 /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
 		1A67A7DB2B62845D008E77D0 /* PriceCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceCalculator.swift; sourceTree = "<group>"; };
 		1A67A7DD2B628703008E77D0 /* RouteBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilder.swift; sourceTree = "<group>"; };
+		1A67A7DF2B62916F008E77D0 /* RouteBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 		1A67A7C62B627D37008E77D0 /* TripPlannerCoreTests */ = {
 			isa = PBXGroup;
 			children = (
+				1A67A7DF2B62916F008E77D0 /* RouteBuilderTests.swift */,
 			);
 			path = TripPlannerCoreTests;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 					};
 					1A67A7C12B627D37008E77D0 = {
 						CreatedOnToolsVersion = 15.0.1;
+						LastSwiftMigration = 1500;
 					};
 				};
 			};
@@ -220,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A67A7E02B62916F008E77D0 /* RouteBuilderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +434,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Q38BNTDW3C;
@@ -437,6 +443,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.testorg.TripPlannerCoreTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -445,6 +452,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Q38BNTDW3C;
