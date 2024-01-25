@@ -53,6 +53,8 @@ final class RouteBuilderTests: XCTestCase {
     func test_build_failsIfToIsNotInGraph() {
 
         expectToFail(.toNotFound, with: [("a", "c")])
+        expectToFail(.toNotFound, with: [("b", "c")])
+        expectToFail(.toNotFound, with: [("b", "c"), ("a", "c"), ("d", "a")])
     }
 
     func test_build_failsIfFromIsNotInGraph() {
