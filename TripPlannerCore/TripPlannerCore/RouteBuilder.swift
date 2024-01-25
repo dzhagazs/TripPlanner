@@ -8,27 +8,28 @@
 protocol RouteBuilder {
 
     associatedtype Weight: Number
+    associatedtype RouteElement: Hashable, Equatable
 
-    typealias Route = ([Place], Weight)
-    typealias WeightCalculator = (Connection) async throws -> Weight
+    typealias WeightCalculator = ((RouteElement, RouteElement)) async throws -> Weight
 
-    func build(_ connections: [Connection], weightCalculator: WeightCalculator) async throws -> Route
+    func build(
+
+        from: RouteElement,
+        to: RouteElement,
+        connections: [(RouteElement, RouteElement)],
+        weightCalculator: WeightCalculator
+
+    ) async throws -> Route<RouteElement, Weight>
+}
+
+struct Route<E, W> {
+
+    let path: [E]
+    let weight: W
 }
 
 protocol Number: Comparable {
 
     static var upperBound: Self { get }
     static var zero: Self { get }
-}
-
-extension Int: Number {
-
-    static var upperBound: Int { .max }
-    static var zero: Int { 0 }
-}
-
-extension Float: Number {
-
-    static var upperBound: Float { .infinity }
-    public static var zero: Float { 0 }
 }
