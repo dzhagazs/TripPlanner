@@ -56,11 +56,27 @@ final class RouteBuilderTests: XCTestCase {
 
             let sut = Self.makeSUT()
 
-            let routes = try await sut.build(
+            let _ = try await sut.build(
 
                 from: "a",
                 to: "b",
                 connections: [("a", "c")],
+                weightCalculator: { _ in 1 }
+            )
+        }
+    }
+
+    func test_build_failsIfFromIsNotInGraph() {
+
+        expectToThrow(Error.toNotFound) {
+
+            let sut = Self.makeSUT()
+
+            let _ = try await sut.build(
+
+                from: "a",
+                to: "b",
+                connections: [("c", "b")],
                 weightCalculator: { _ in 1 }
             )
         }
