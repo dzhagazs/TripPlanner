@@ -12,6 +12,7 @@
 		1A67A7D62B627E2A008E77D0 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7D52B627E2A008E77D0 /* Place.swift */; };
 		1A67A7D82B627E7F008E77D0 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7D72B627E7F008E77D0 /* Connection.swift */; };
 		1A67A7DC2B62845D008E77D0 /* PriceCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7DB2B62845D008E77D0 /* PriceCalculator.swift */; };
+		1A67A7DE2B628703008E77D0 /* RouteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7DD2B628703008E77D0 /* RouteBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +32,7 @@
 		1A67A7D52B627E2A008E77D0 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		1A67A7D72B627E7F008E77D0 /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
 		1A67A7DB2B62845D008E77D0 /* PriceCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceCalculator.swift; sourceTree = "<group>"; };
+		1A67A7DD2B628703008E77D0 /* RouteBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 			children = (
 				1A67A7D22B627D89008E77D0 /* Model */,
 				1A67A7DB2B62845D008E77D0 /* PriceCalculator.swift */,
+				1A67A7DD2B628703008E77D0 /* RouteBuilder.swift */,
 			);
 			path = TripPlannerCore;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 			files = (
 				1A67A7D42B627DCE008E77D0 /* Coordinate.swift in Sources */,
 				1A67A7DC2B62845D008E77D0 /* PriceCalculator.swift in Sources */,
+				1A67A7DE2B628703008E77D0 /* RouteBuilder.swift in Sources */,
 				1A67A7D82B627E7F008E77D0 /* Connection.swift in Sources */,
 				1A67A7D62B627E2A008E77D0 /* Place.swift in Sources */,
 			);
