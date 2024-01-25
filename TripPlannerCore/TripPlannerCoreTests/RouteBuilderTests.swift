@@ -16,38 +16,16 @@ final class RouteBuilderTests: XCTestCase {
 
     func test_build_returnsOriginalConnectionIfPointsAreConnected() {
 
-        execute {
+        expectToBuild(
 
-            let sut = Self.makeSUT()
-
-            let routes = try await sut.build(
-
-                from: "a",
-                to: "b",
-                connections: [("a", "b")],
-                weightCalculator: { _ in 1 }
-            )
-
-            XCTAssertEqual(routes, [Route(path: ["a", "b"], weight: 1)])
-        }
+            [Route(path: ["a", "b"], weight: 1)],
+            with: [("a", "b")]
+        )
     }
 
     func test_build_returnsEmptyForEmptyInput() {
 
-        execute {
-
-            let sut = Self.makeSUT()
-
-            let routes = try await sut.build(
-
-                from: "a",
-                to: "b",
-                connections: [],
-                weightCalculator: { _ in 1 }
-            )
-
-            XCTAssertEqual(routes, [])
-        }
+        expectToBuild([], with: [])
     }
 
     func test_build_failsIfToIsNotInGraph() {
@@ -68,12 +46,43 @@ final class RouteBuilderTests: XCTestCase {
 
     private static func makeSUT() -> SUT { .init() }
 
+    private func expectToBuild(
+
+        _ routes: [Route<String, Int>],
+        from: String = "a",
+        to: String = "b",
+        with connections: [(String, String)],
+        file: StaticString = #file,
+        line: UInt = #line
+
+    ) {
+
+        execute(file: file, line: line) {
+
+            let sut = Self.makeSUT()
+
+            let result = try await sut.build(
+
+                from: from,
+                to: to,
+                connections: connections,
+                weightCalculator: { _ in 1 }
+            )
+
+            XCTAssertEqual(result, routes, file: file, line: line)
+        }
+    }
+
     private func expectToFail(
 
         _ error: Error,
         from: String = "a",
         to: String = "b",
-        with connections: [(String, String)] = [], file: StaticString = #file, line: UInt = #line) {
+        with connections: [(String, String)] = [], 
+        file: StaticString = #file,
+        line: UInt = #line
+
+    ) {
 
             expectToThrow(error, file: file, line: line) {
 
