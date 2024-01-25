@@ -15,6 +15,7 @@
 		1A67A7DE2B628703008E77D0 /* RouteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7DD2B628703008E77D0 /* RouteBuilder.swift */; };
 		1A67A7E02B62916F008E77D0 /* RouteBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7DF2B62916F008E77D0 /* RouteBuilderTests.swift */; };
 		1A67A7E32B6296E4008E77D0 /* XCTestCase+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7E22B6296E4008E77D0 /* XCTestCase+Extension.swift */; };
+		1A67A7E82B62B7C3008E77D0 /* DijkstrasRouteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7E72B62B7C3008E77D0 /* DijkstrasRouteBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +38,7 @@
 		1A67A7DD2B628703008E77D0 /* RouteBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilder.swift; sourceTree = "<group>"; };
 		1A67A7DF2B62916F008E77D0 /* RouteBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilderTests.swift; sourceTree = "<group>"; };
 		1A67A7E22B6296E4008E77D0 /* XCTestCase+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extension.swift"; sourceTree = "<group>"; };
+		1A67A7E72B62B7C3008E77D0 /* DijkstrasRouteBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DijkstrasRouteBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,8 +119,17 @@
 			isa = PBXGroup;
 			children = (
 				1A67A7DD2B628703008E77D0 /* RouteBuilder.swift */,
+				1A67A7E62B62B790008E77D0 /* Impl */,
 			);
 			path = RouteBuilder;
+			sourceTree = "<group>";
+		};
+		1A67A7E62B62B790008E77D0 /* Impl */ = {
+			isa = PBXGroup;
+			children = (
+				1A67A7E72B62B7C3008E77D0 /* DijkstrasRouteBuilder.swift */,
+			);
+			path = Impl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A67A7D42B627DCE008E77D0 /* Coordinate.swift in Sources */,
+				1A67A7E82B62B7C3008E77D0 /* DijkstrasRouteBuilder.swift in Sources */,
 				1A67A7DC2B62845D008E77D0 /* PriceCalculator.swift in Sources */,
 				1A67A7DE2B628703008E77D0 /* RouteBuilder.swift in Sources */,
 				1A67A7D82B627E7F008E77D0 /* Connection.swift in Sources */,
