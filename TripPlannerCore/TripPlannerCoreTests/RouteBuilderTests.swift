@@ -98,3 +98,11 @@ final class RouteBuilderTests: XCTestCase {
         }
     }
 }
+
+extension Route<String, Int>: CustomStringConvertible {
+
+    public var description: String {
+
+        "\n(\(path.map { "\($0)" }.joined(separator: " -> "))): \(weight)"
+    }
+}
