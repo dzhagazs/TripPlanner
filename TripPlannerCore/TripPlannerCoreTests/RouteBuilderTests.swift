@@ -12,6 +12,7 @@ import XCTest
 final class RouteBuilderTests: XCTestCase {
 
     typealias SUT = DijkstrasRouteBuilder<Int, String>
+    typealias Error = RouteBuilderError
 
     func test_build_returnsOriginalConnectionIfPointsAreConnected() {
 
@@ -49,6 +50,22 @@ final class RouteBuilderTests: XCTestCase {
         }
     }
 
+    func test_build_failsIfToIsNotInGraph() {
+
+        expectToThrow(Error.toNotFound) {
+
+            let sut = Self.makeSUT()
+
+            let routes = try await sut.build(
+
+                from: "a",
+                to: "b",
+                connections: [("a", "c")],
+                weightCalculator: { _ in 1 }
+            )
+        }
+    }
+
     // MARK: Private
 
     private static func makeSUT() -> SUT { .init() }
@@ -66,6 +83,12 @@ extension Route<String, Int>: Equatable {
 
         lhs.path == rhs.path && lhs.weight == rhs.weight
     }
+}
+
+enum RouteBuilderError: Swift.Error, Equatable {
+
+    case toNotFound
+    case fromNotFound
 }
 
 final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder {
