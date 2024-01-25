@@ -52,39 +52,38 @@ final class RouteBuilderTests: XCTestCase {
 
     func test_build_failsIfToIsNotInGraph() {
 
-        expectToThrow(Error.toNotFound) {
-
-            let sut = Self.makeSUT()
-
-            let _ = try await sut.build(
-
-                from: "a",
-                to: "b",
-                connections: [("a", "c")],
-                weightCalculator: { _ in 1 }
-            )
-        }
+        expectToFail(.toNotFound, with: [("a", "c")])
     }
 
     func test_build_failsIfFromIsNotInGraph() {
 
-        expectToThrow(Error.fromNotFound) {
-
-            let sut = Self.makeSUT()
-
-            let _ = try await sut.build(
-
-                from: "a",
-                to: "b",
-                connections: [("c", "b")],
-                weightCalculator: { _ in 1 }
-            )
-        }
+        expectToFail(.fromNotFound, with: [("c", "b")])
     }
 
     // MARK: Private
 
     private static func makeSUT() -> SUT { .init() }
+
+    private func expectToFail(
+
+        _ error: Error,
+        from: String = "a",
+        to: String = "b",
+        with connections: [(String, String)] = [], file: StaticString = #file, line: UInt = #line) {
+
+            expectToThrow(error, file: file, line: line) {
+
+                let sut = Self.makeSUT()
+
+                let _ = try await sut.build(
+
+                    from: from,
+                    to: to,
+                    connections: connections,
+                    weightCalculator: { _ in 1 }
+                )
+            }
+        }
 }
 
 extension Int: Number {
