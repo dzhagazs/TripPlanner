@@ -29,7 +29,7 @@ struct Route<E, W> {
     let weight: W
 }
 
-protocol Number: Comparable {
+protocol Number: Comparable, FloatingPoint {
 
     static var upperBound: Self { get }
     static var zero: Self { get }
