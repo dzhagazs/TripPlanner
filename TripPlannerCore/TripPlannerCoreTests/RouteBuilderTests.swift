@@ -28,6 +28,42 @@ final class RouteBuilderTests: XCTestCase {
         expectToBuild([], with: [])
     }
 
+    func test_build_findsShortestPathAmongThreePossiblePaths() {
+
+        expectToBuild(
+
+            [
+
+                .init(path: ["a", "d", "c", "b"], weight: 6),
+                .init(path: ["a", "c", "b"], weight: 7),
+                .init(path: ["a", "d", "b"], weight: 8)
+            ],
+            with: [
+
+                ("a", "d"),
+                ("a", "c"),
+                ("d", "b"),
+                ("d", "c"),
+                ("c", "b")
+            ],
+            calculator: { connection in
+
+                switch connection {
+
+                case ("a", "d"): return 2
+                case ("a", "c"): return 6
+                case ("d", "b"): return 6
+                case ("d", "c"): return 3
+                case ("c", "b"): return 1
+                default:
+
+                    XCTFail("Attempt to calculate unexisting connection \(connection.0) -> \(connection.1).")
+                    return 0
+                }
+            }
+        )
+    }
+
     func test_build_failsIfToIsNotInGraph() {
 
         expectToFail(.toNotFound, with: [("a", "c")])
