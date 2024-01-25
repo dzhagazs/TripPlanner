@@ -71,16 +71,17 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
         guard connections.isEmpty == false else { return [] }
         try validate(from: from, to: to, connections: connections)
 
-        let nodes = getAllNodes(from: connections, ignored: [from])
+        let filteredNodes = getAllNodes(from: connections, ignored: [from])
+        let allNodes = [from] + filteredNodes
         var graph: [E: [E: W]] = [:]
-        nodes.forEach { graph[$0] = [:] }
+        filteredNodes.forEach { graph[$0] = [:] }
         var weights: [E: W] = [:]
         var parents: [E: E] = [:]
         var processed: [E] = []
         var routes: [Route<E, W>] = []
 
         // Fill initial weights
-        nodes.forEach { weights[$0] = .upperBound }
+        filteredNodes.forEach { weights[$0] = .upperBound }
 
         let fromNeighbors = directNeighbors(for: from, with: connections)
         try await fromNeighbors.asyncForEach { fromNeighbor in
@@ -93,7 +94,7 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
         }
 
         // Fill initial graph
-        try await nodes.asyncForEach { node in
+        try await allNodes.asyncForEach { node in
 
             let neighbors = directNeighbors(for: node, with: connections)
             var neighborsWeights: [E: W] = [:]
@@ -123,7 +124,7 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
 
                     weights[neighbor] = newWeight
                     parents[neighbor] = element
-                    if neighbor == to {
+                    if weights[to]! < .upperBound {
 
                         routes.append(.init(
 
