@@ -40,8 +40,7 @@ final class RouteBuilderTests: XCTestCase {
                 (("d", "b"), 6),
                 (("d", "c"), 3),
                 (("c", "b"), 1)
-            ],
-            defaultWeight: nil
+            ]
         )
     }
 
@@ -61,8 +60,7 @@ final class RouteBuilderTests: XCTestCase {
                 (("e", "b"), 1),
                 (("f", "e"), 6),
                 (("f", "b"), 3)
-            ],
-            defaultWeight: nil
+            ]
         )
     }
 
@@ -97,7 +95,6 @@ final class RouteBuilderTests: XCTestCase {
         from: String = "a",
         to: String = "b",
         with weights: [((String, String), Int)],
-        defaultWeight: Int? = 1,
         file: StaticString = #file,
         line: UInt = #line
 
@@ -109,7 +106,6 @@ final class RouteBuilderTests: XCTestCase {
             from: from,
             to: to,
             with: weights,
-            defaultWeight: defaultWeight,
             resultFilter: { ($0.first != nil) ? [$0.first!] : [] },
             file: file,
             line: line
@@ -122,7 +118,6 @@ final class RouteBuilderTests: XCTestCase {
         from: String = "a",
         to: String = "b",
         with weights: [((String, String), Int)],
-        defaultWeight: Int? = 1,
         resultFilter: @escaping ([Route<String, Int>]) -> [Route<String, Int>] = { $0 },
         file: StaticString = #file,
         line: UInt = #line
@@ -132,7 +127,7 @@ final class RouteBuilderTests: XCTestCase {
         execute(file: file, line: line) {
 
             let sut = self.makeSUT()
-            let calculator = WeightCalculatorStub(weights, default: defaultWeight)
+            let calculator = WeightCalculatorStub(weights)
 
             let result = try await sut.build(
 
