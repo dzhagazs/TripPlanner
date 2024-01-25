@@ -30,14 +30,9 @@ final class RouteBuilderTests: XCTestCase {
 
     func test_build_findsShortestPathAmongThreePossiblePaths() {
 
-        expectToBuild(
+        expectToBuildFirst(
 
-            [
-
-                .init(path: ["a", "d", "c", "b"], weight: 6),
-                .init(path: ["a", "c", "b"], weight: 7),
-                .init(path: ["a", "d", "b"], weight: 8)
-            ],
+            route: .init(path: ["a", "d", "c", "b"], weight: 6),
             with: [
 
                 ("a", "d"),
@@ -58,6 +53,7 @@ final class RouteBuilderTests: XCTestCase {
                 default:
 
                     XCTFail("Attempt to calculate unexisting connection \(connection.0) -> \(connection.1).")
+
                     return 0
                 }
             }
@@ -80,11 +76,18 @@ final class RouteBuilderTests: XCTestCase {
 
     // MARK: Private
 
-    private static func makeSUT() -> SUT { .init() }
+    private func makeSUT() -> SUT {
 
-    private func expectToBuild(
+        let sut = SUT()
 
-        _ routes: [Route<String, Int>],
+        trackMemoryLeak(for: sut)
+
+        return sut
+    }
+
+    private func expectToBuildFirst(
+
+        route: Route<String, Int>,
         from: String = "a",
         to: String = "b",
         with connections: [(String, String)],
@@ -94,9 +97,35 @@ final class RouteBuilderTests: XCTestCase {
 
     ) {
 
+        expectToBuild(
+
+            [route],
+            from: from,
+            to: to,
+            with: connections,
+            calculator: calculator,
+            resultFilter: { ($0.first != nil) ? [$0.first!] : [] },
+            file: file,
+            line: line
+        )
+    }
+
+    private func expectToBuild(
+
+        _ routes: [Route<String, Int>],
+        from: String = "a",
+        to: String = "b",
+        with connections: [(String, String)],
+        calculator: @escaping (((String, String)) async throws -> Int) = { _ in 1 },
+        resultFilter: @escaping ([Route<String, Int>]) -> [Route<String, Int>] = { $0 },
+        file: StaticString = #file,
+        line: UInt = #line
+
+    ) {
+
         execute(file: file, line: line) {
 
-            let sut = Self.makeSUT()
+            let sut = self.makeSUT()
 
             let result = try await sut.build(
 
@@ -106,7 +135,7 @@ final class RouteBuilderTests: XCTestCase {
                 weightCalculator: calculator
             )
 
-            XCTAssertEqual(result, routes, file: file, line: line)
+            XCTAssertEqual(routes, resultFilter(result), file: file, line: line)
         }
     }
 
@@ -123,7 +152,7 @@ final class RouteBuilderTests: XCTestCase {
 
         expectToThrow(error, file: file, line: line) {
 
-            let sut = Self.makeSUT()
+            let sut = self.makeSUT()
 
             let _ = try await sut.build(
 
