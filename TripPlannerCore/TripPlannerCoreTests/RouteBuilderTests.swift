@@ -99,12 +99,6 @@ final class RouteBuilderTests: XCTestCase {
         }
 }
 
-extension Int: Number {
-
-    public static var upperBound: Self { .max }
-    public static var zero: Self { 0 }
-}
-
 extension Route<String, Int>: Equatable {
 
     public static func == (lhs: Route, rhs: Route) -> Bool {
