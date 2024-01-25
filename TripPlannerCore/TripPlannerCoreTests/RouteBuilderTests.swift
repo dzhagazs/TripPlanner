@@ -32,7 +32,7 @@ final class RouteBuilderTests: XCTestCase {
 
         expectToBuildFirst(
 
-            route: .init(path: ["a", "d", "c", "b"], weight: 6),
+            route: Route(path: ["a", "d", "c", "b"], weight: 6),
             with: [
 
                 ("a", "d"),

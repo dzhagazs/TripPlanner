@@ -80,6 +80,14 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
         var processed: [E] = []
         var routes: [Route<E, W>] = []
 
+        // Check for direct connection
+        if let _ = connections.first(where: { $0.0 == from && $0.1 == to }) {
+
+            let weight = try await weightCalculator((from, to))
+            routes.append(.init(path: [from, to], weight: weight))
+        }
+
+
         // Fill initial weights
         filteredNodes.forEach { weights[$0] = .upperBound }
 
