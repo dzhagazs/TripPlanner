@@ -19,7 +19,7 @@ final class RouteBuilderTests: XCTestCase {
 
             let sut = Self.makeSUT()
 
-            let route = try await sut.build(
+            let routes = try await sut.build(
 
                 from: "a",
                 to: "b",
@@ -27,7 +27,7 @@ final class RouteBuilderTests: XCTestCase {
                 weightCalculator: { _ in 1 }
             )
 
-            XCTAssertEqual(route, .init(path: ["a", "b"], weight: 1))
+            XCTAssertEqual(routes, [Route(path: ["a", "b"], weight: 1)])
         }
     }
 
@@ -62,10 +62,10 @@ final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder {
         connections: [(E, E)],
         weightCalculator: ((E, E)) async throws -> W
 
-    ) async throws -> Route<E, W> {
+    ) async throws -> [Route<E, W>] {
 
         let weight = try await weightCalculator(connections.first!)
 
-        return .init(path: [connections.first!.0, connections.first!.1], weight: weight)
+        return [.init(path: [connections.first!.0, connections.first!.1], weight: weight)]
     }
 }
