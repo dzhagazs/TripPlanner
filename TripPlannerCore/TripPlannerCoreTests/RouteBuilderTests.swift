@@ -72,8 +72,8 @@ final class RouteBuilderTests: XCTestCase {
 
             (("b", "c"),1),
             (("a", "c"),1),
-            (("d", "a"),1)]
-        )
+            (("d", "a"),1)
+        ])
     }
 
     func test_build_failsIfFromIsNotInGraph() {
@@ -81,6 +81,41 @@ final class RouteBuilderTests: XCTestCase {
         expectToFail(.fromNotFound, with: [(("c", "b"), 1)])
         expectToFail(.fromNotFound, with: [(("d", "b"), 1)])
         expectToFail(.fromNotFound, with: [(("b", "a"), 1), (("c", "b"), 1), (("d", "a"), 1)])
+    }
+
+    func test_build_failsIfNegativeWeightProvided() {
+
+        expectToFail(.invalidWeight, with: [
+
+            (("a", "c"), 1),
+            (("c", "d"), 1),
+            (("c", "b"), 1),
+            (("d", "b"), -1),
+        ])
+
+        expectToFail(.invalidWeight, with: [
+
+            (("a", "c"), 1),
+            (("c", "d"), 1),
+            (("c", "b"), -1),
+            (("d", "b"), 1),
+        ])
+
+        expectToFail(.invalidWeight, with: [
+
+            (("a", "c"), 1),
+            (("c", "d"), -1),
+            (("c", "b"), 1),
+            (("d", "b"), 1),
+        ])
+
+        expectToFail(.invalidWeight, with: [
+
+            (("a", "c"), -1),
+            (("c", "d"), 1),
+            (("c", "b"), 1),
+            (("d", "b"), 1),
+        ])
     }
 
     // MARK: Private
