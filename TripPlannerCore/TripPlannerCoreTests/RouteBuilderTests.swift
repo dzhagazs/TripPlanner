@@ -68,7 +68,7 @@ final class RouteBuilderTests: XCTestCase {
 
     func test_build_failsIfFromIsNotInGraph() {
 
-        expectToThrow(Error.toNotFound) {
+        expectToThrow(Error.fromNotFound) {
 
             let sut = Self.makeSUT()
 
@@ -124,6 +124,7 @@ final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder {
 
         guard connections.isEmpty == false else { return [] }
         guard connections.first(where: { $0.1 == to }) != nil else { throw Error.toNotFound }
+        guard connections.first(where: { $0.0 == from }) != nil else { throw Error.fromNotFound }
 
         let weight = try await weightCalculator(connections.first!)
 
