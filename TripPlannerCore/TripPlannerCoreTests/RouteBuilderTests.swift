@@ -52,6 +52,7 @@ final class RouteBuilderTests: XCTestCase {
         from: String = "a",
         to: String = "b",
         with connections: [(String, String)],
+        calculator: @escaping (((String, String)) async throws -> Int) = { _ in 1 },
         file: StaticString = #file,
         line: UInt = #line
 
@@ -66,7 +67,7 @@ final class RouteBuilderTests: XCTestCase {
                 from: from,
                 to: to,
                 connections: connections,
-                weightCalculator: { _ in 1 }
+                weightCalculator: calculator
             )
 
             XCTAssertEqual(result, routes, file: file, line: line)
