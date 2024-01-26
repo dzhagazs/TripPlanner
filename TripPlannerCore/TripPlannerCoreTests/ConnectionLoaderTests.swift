@@ -143,17 +143,3 @@ final class ConnectionLoaderTests: XCTestCase {
         return sut
     }
 }
-
-enum TestError: Error, Equatable {
-
-    case first
-    case second
-}
-
-extension ConnectionMetadata: Equatable {
-
-    public static func == (lhs: ConnectionMetadata, rhs: ConnectionMetadata) -> Bool {
-
-        lhs.price == rhs.price && lhs.approxDistance == rhs.approxDistance
-    }
-}
