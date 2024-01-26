@@ -370,11 +370,3 @@ final class TripPlannerTests: XCTestCase {
         return sut
     }
 }
-
-extension RouteTag: Equatable {
-
-    public static func == (lhs: RouteTag, rhs: RouteTag) -> Bool {
-
-        lhs.rawValue == rhs.rawValue
-    }
-}
