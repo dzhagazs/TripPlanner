@@ -12,6 +12,17 @@ import XCTest
 final class TripPlannerTests: XCTestCase {
 
     typealias SUT = TripPlanner
+    typealias Error = TripPlannerError
+
+    func test_selectTo_beforeLoadingFails() {
+
+        expectToThrow(Error.notLoaded) {
+
+            let sut = Self.makeSUT()
+
+            try sut.select(to: self.anyPlace())
+        }
+    }
 
     // MARK: Private
 
