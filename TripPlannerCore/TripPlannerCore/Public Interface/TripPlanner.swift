@@ -48,4 +48,5 @@ public enum TripPlannerError: Swift.Error {
 
     case notLoaded
     case notFound
+    case incompleteSelection
 }
