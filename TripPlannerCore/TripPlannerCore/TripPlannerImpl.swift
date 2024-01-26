@@ -60,7 +60,7 @@ final class TripPlannerImpl: TripPlanner {
 
     func clearSelection() {
 
-        
+        from = nil
     }
 
     func build() async throws -> [PresentableRoute] {
