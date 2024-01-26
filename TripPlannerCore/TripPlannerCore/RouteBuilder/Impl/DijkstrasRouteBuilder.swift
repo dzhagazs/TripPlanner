@@ -23,20 +23,6 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
 
     ) async throws -> [Route<E, W>] {
 
-        func path(from: E, to: E, parents: [E: E]) -> [E] {
-
-            var path: [E] = []
-            var element = to
-            repeat {
-
-                path.append(element)
-                element = parents[element]!
-
-            } while element != from
-
-            return path.reversed()
-        }
-
         guard connections.isEmpty == false else { return [] }
         try validate(from: from, to: to, connections: connections)
 
@@ -105,7 +91,7 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
 
                         routes.append(.init(
 
-                            path: [from] + path(from: from, to: to, parents: parents),
+                            path: [from] + Self.path(from: from, to: to, parents: parents),
                             weight: weights[to]!
                         ))
                     }
@@ -152,6 +138,20 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
         }
 
         return neighbors
+    }
+
+    private static func path(from: E, to: E, parents: [E: E]) -> [E] {
+
+        var path: [E] = []
+        var element = to
+        repeat {
+
+            path.append(element)
+            element = parents[element]!
+
+        } while element != from
+
+        return path.reversed()
     }
 
     private func validate(
