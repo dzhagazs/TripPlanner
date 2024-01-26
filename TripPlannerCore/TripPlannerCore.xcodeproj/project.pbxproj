@@ -60,6 +60,8 @@
 		1A67A88B2B645690008E77D0 /* ConnectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8892B645690008E77D0 /* ConnectionDataSource.swift */; };
 		1A67A88D2B6456E5008E77D0 /* ConnectionDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A88C2B6456E5008E77D0 /* ConnectionDecoder.swift */; };
 		1A67A88E2B6456E5008E77D0 /* ConnectionDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A88C2B6456E5008E77D0 /* ConnectionDecoder.swift */; };
+		1A67A8902B645720008E77D0 /* MetadataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A88F2B645720008E77D0 /* MetadataProvider.swift */; };
+		1A67A8912B645720008E77D0 /* MetadataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A88F2B645720008E77D0 /* MetadataProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +115,7 @@
 		1A67A8872B6452B8008E77D0 /* URLSession+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extension.swift"; sourceTree = "<group>"; };
 		1A67A8892B645690008E77D0 /* ConnectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionDataSource.swift; sourceTree = "<group>"; };
 		1A67A88C2B6456E5008E77D0 /* ConnectionDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionDecoder.swift; sourceTree = "<group>"; };
+		1A67A88F2B645720008E77D0 /* MetadataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +261,7 @@
 				1A67A8892B645690008E77D0 /* ConnectionDataSource.swift */,
 				1A67A88C2B6456E5008E77D0 /* ConnectionDecoder.swift */,
 				1A67A86E2B643B31008E77D0 /* Impl */,
+				1A67A88F2B645720008E77D0 /* MetadataProvider.swift */,
 			);
 			path = ConnectionLoader;
 			sourceTree = "<group>";
@@ -427,6 +431,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A67A88A2B645690008E77D0 /* ConnectionDataSource.swift in Sources */,
+				1A67A8902B645720008E77D0 /* MetadataProvider.swift in Sources */,
 				1A67A8702B643B7D008E77D0 /* ConnectionLoaderImpl.swift in Sources */,
 				1A67A7F52B63CC60008E77D0 /* Route.swift in Sources */,
 				1A67A86C2B643A04008E77D0 /* ConnectionLoader.swift in Sources */,
@@ -486,6 +491,7 @@
 				1A67A8472B640395008E77D0 /* Root.swift in Sources */,
 				1A67A88E2B6456E5008E77D0 /* ConnectionDecoder.swift in Sources */,
 				1A67A88B2B645690008E77D0 /* ConnectionDataSource.swift in Sources */,
+				1A67A8912B645720008E77D0 /* MetadataProvider.swift in Sources */,
 				1A67A8482B640395008E77D0 /* PriceCalculator.swift in Sources */,
 				1A67A8492B640395008E77D0 /* TripPlannerImpl.swift in Sources */,
 				1A67A84A2B640395008E77D0 /* Sequence+Extension.swift in Sources */,
