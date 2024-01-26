@@ -30,18 +30,30 @@ public struct RouteTag {
 
 extension RouteTag {
 
-    static let cheapest = RouteTag(rawValue: "cheapest")
+    public static let cheapest = RouteTag(rawValue: "cheapest")
 }
 
 extension RouteTag {
 
-    static let shortest = RouteTag(rawValue: "shortest")
+    public static let shortest = RouteTag(rawValue: "shortest")
 }
 
 public struct PresentableRoute {
 
     public let places: [Place]
     public let tags: [RouteTag]
+    public let metrics: [RouteMetric]
+}
+
+public struct RouteMetric {
+
+    public let name: String
+    public let value: Float
+}
+
+extension RouteMetric {
+
+    static let price = "price"
 }
 
 public enum TripPlannerError: Swift.Error {

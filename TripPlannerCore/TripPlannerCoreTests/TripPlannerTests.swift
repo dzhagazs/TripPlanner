@@ -292,7 +292,14 @@ final class TripPlannerTests: XCTestCase {
         execute {
 
             var routeBuilderCalls: [(Place, Place)] = []
-            let routeBuilderResult: [PresentableRoute] = [.init(places: [Self.anyPlace("c"), Self.anyPlace("d")], tags: [.cheapest])]
+            let routeBuilderResult: [PresentableRoute] = [
+
+                .init(
+
+                    places: [Self.anyPlace("c"), Self.anyPlace("d")],
+                    tags: [.cheapest],
+                    metrics: []
+                )]
 
             let sut = self.makeSUT([
 

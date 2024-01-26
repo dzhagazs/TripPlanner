@@ -29,7 +29,16 @@ public func start() -> TripPlanner {
         validator: { _ in },
         routeBuilder: { from, to in
 
-            try DijkstrasRouteBuilder.build(from: from, to: to, connections: priceConnections).map { .init(places: $0.path, tags: [.cheapest]) }
+            try DijkstrasRouteBuilder.build(
+
+                from: from,
+                to: to,
+                connections: priceConnections).map { .init(
+
+                    places: $0.path,
+                    tags: [.cheapest],
+                    metrics: [.init(name: RouteMetric.price, value: Float($0.weight))])
+                }
         }
     )
 }
