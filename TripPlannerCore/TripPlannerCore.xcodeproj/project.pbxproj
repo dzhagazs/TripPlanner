@@ -42,6 +42,8 @@
 		1A67A84B2B640395008E77D0 /* RouteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7DD2B628703008E77D0 /* RouteBuilder.swift */; };
 		1A67A84C2B640395008E77D0 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7D72B627E7F008E77D0 /* Connection.swift */; };
 		1A67A84D2B640395008E77D0 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7D52B627E2A008E77D0 /* Place.swift */; };
+		1A67A86C2B643A04008E77D0 /* ConnectionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A86B2B643A04008E77D0 /* ConnectionLoader.swift */; };
+		1A67A86D2B643A04008E77D0 /* ConnectionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A86B2B643A04008E77D0 /* ConnectionLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,7 @@
 		1A67A8072B63FF70008E77D0 /* Root.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Root.swift; sourceTree = "<group>"; };
 		1A67A8532B640395008E77D0 /* TripPlannerCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TripPlannerCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A67A8592B640552008E77D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A67A86B2B643A04008E77D0 /* ConnectionLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +137,7 @@
 				1A67A7F62B63CEDC008E77D0 /* Public Interface */,
 				1A67A7E42B62B76B008E77D0 /* RouteBuilder */,
 				1A67A7D22B627D89008E77D0 /* Model */,
+				1A67A86A2B643914008E77D0 /* ConnectionLoader */,
 				1A67A7EF2B62DDE3008E77D0 /* Utils */,
 				1A67A7DB2B62845D008E77D0 /* PriceCalculator.swift */,
 				1A67A7F92B63D9F3008E77D0 /* TripPlannerImpl.swift */,
@@ -211,6 +215,22 @@
 				1A67A8072B63FF70008E77D0 /* Root.swift */,
 			);
 			path = "Public Interface";
+			sourceTree = "<group>";
+		};
+		1A67A86A2B643914008E77D0 /* ConnectionLoader */ = {
+			isa = PBXGroup;
+			children = (
+				1A67A86B2B643A04008E77D0 /* ConnectionLoader.swift */,
+				1A67A86E2B643B31008E77D0 /* Impl */,
+			);
+			path = ConnectionLoader;
+			sourceTree = "<group>";
+		};
+		1A67A86E2B643B31008E77D0 /* Impl */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Impl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,6 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A67A7F52B63CC60008E77D0 /* Route.swift in Sources */,
+				1A67A86C2B643A04008E77D0 /* ConnectionLoader.swift in Sources */,
 				1A67A7D42B627DCE008E77D0 /* Coordinate.swift in Sources */,
 				1A67A7EA2B62B80E008E77D0 /* RouteBuilderError.swift in Sources */,
 				1A67A7F82B63CF01008E77D0 /* TripPlanner.swift in Sources */,
@@ -393,6 +414,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A67A8422B640395008E77D0 /* Route.swift in Sources */,
+				1A67A86D2B643A04008E77D0 /* ConnectionLoader.swift in Sources */,
 				1A67A8432B640395008E77D0 /* Coordinate.swift in Sources */,
 				1A67A8442B640395008E77D0 /* RouteBuilderError.swift in Sources */,
 				1A67A8452B640395008E77D0 /* TripPlanner.swift in Sources */,
