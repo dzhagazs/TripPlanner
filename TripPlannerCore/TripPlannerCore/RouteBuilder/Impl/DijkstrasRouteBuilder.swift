@@ -23,23 +23,6 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
 
     ) async throws -> [Route<E, W>] {
 
-        func lowestWeightElement(_ weights: [E: W], processed: [E]) -> E? {
-
-            var lowestWeight: W = .upperBound
-            var result: E? = nil
-            weights.forEach { (key, value) in
-
-                let weight = value
-                if weight < lowestWeight && processed.contains(where: { $0 == key }) == false {
-
-                    lowestWeight = value
-                    result = key
-                }
-            }
-
-            return result
-        }
-
         func directNeighbors(for element: E, with connections: [Connection]) -> [E] {
 
             var neighbors: [E] = []
@@ -118,7 +101,7 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
             graph[node] = neighborsWeights
         }
 
-        var processedElement = lowestWeightElement(weights, processed: processed)
+        var processedElement = Self.lowestWeightElement(weights, processed: processed)
         repeat {
 
             guard let element = processedElement else { break }
@@ -143,7 +126,7 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
                 }
             }
             processed.append(element)
-            processedElement = lowestWeightElement(weights, processed: processed)
+            processedElement = Self.lowestWeightElement(weights, processed: processed)
 
         } while processedElement != nil
 
@@ -153,6 +136,23 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
     }
 
     // MARK: Private
+
+    private static func lowestWeightElement(_ weights: [E: W], processed: [E]) -> E? {
+
+        var lowestWeight: W = .upperBound
+        var result: E? = nil
+        weights.forEach { (key, value) in
+
+            let weight = value
+            if weight < lowestWeight && processed.contains(where: { $0 == key }) == false {
+
+                lowestWeight = value
+                result = key
+            }
+        }
+
+        return result
+    }
 
     private func validate(
 
