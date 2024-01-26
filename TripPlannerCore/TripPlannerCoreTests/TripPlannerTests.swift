@@ -264,6 +264,29 @@ final class TripPlannerTests: XCTestCase {
         }
     }
 
+    func test_build_withIncompleteSelectionFails() {
+
+        expectToThrow(Error.incompleteSelection) {
+
+            let sut = self.makeSUT([Self.anyPlace()])
+            let _ = try await sut.loadPlaces()
+
+            try sut.select(to: Self.anyPlace())
+
+            let _ = try await sut.build()
+        }
+
+        expectToThrow(Error.incompleteSelection) {
+
+            let sut = self.makeSUT([Self.anyPlace()])
+            let _ = try await sut.loadPlaces()
+
+            try sut.select(from: Self.anyPlace())
+
+            let _ = try await sut.build()
+        }
+    }
+
     // MARK: Private
 
     private func makeSUT(
@@ -282,7 +305,8 @@ final class TripPlannerTests: XCTestCase {
 
                 return places
             },
-            validator: validator
+            validator: validator,
+            routeBuilder: { _, _ in [] }
         )
 
         trackMemoryLeak(for: sut)
