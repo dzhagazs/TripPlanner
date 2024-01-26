@@ -4,4 +4,7 @@
    <FileRef
       location = "group:TripPlanner/TripPlanner.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:TripPlannerCore/TripPlannerCore.xcodeproj">
+   </FileRef>
 </Workspace>
