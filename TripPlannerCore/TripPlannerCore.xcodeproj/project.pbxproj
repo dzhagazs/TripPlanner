@@ -46,6 +46,7 @@
 		1A67A86D2B643A04008E77D0 /* ConnectionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A86B2B643A04008E77D0 /* ConnectionLoader.swift */; };
 		1A67A8702B643B7D008E77D0 /* ConnectionLoaderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A86F2B643B7D008E77D0 /* ConnectionLoaderImpl.swift */; };
 		1A67A8712B643B7D008E77D0 /* ConnectionLoaderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A86F2B643B7D008E77D0 /* ConnectionLoaderImpl.swift */; };
+		1A67A8732B643FFA008E77D0 /* ConnectionLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8722B643FFA008E77D0 /* ConnectionLoaderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		1A67A8592B640552008E77D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A67A86B2B643A04008E77D0 /* ConnectionLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionLoader.swift; sourceTree = "<group>"; };
 		1A67A86F2B643B7D008E77D0 /* ConnectionLoaderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionLoaderImpl.swift; sourceTree = "<group>"; };
+		1A67A8722B643FFA008E77D0 /* ConnectionLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionLoaderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 				1A67A7DF2B62916F008E77D0 /* RouteBuilderTests.swift */,
 				1A67A7FB2B63DA58008E77D0 /* TripPlannerTests.swift */,
 				1A67A7E12B6296D7008E77D0 /* Utils */,
+				1A67A8722B643FFA008E77D0 /* ConnectionLoaderTests.swift */,
 			);
 			path = TripPlannerCoreTests;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				1A67A7E02B62916F008E77D0 /* RouteBuilderTests.swift in Sources */,
 				1A67A7FE2B63FBCE008E77D0 /* XCTestCase+Places.swift in Sources */,
 				1A67A8002B63FC2B008E77D0 /* XCTestCase+Coordinates.swift in Sources */,
+				1A67A8732B643FFA008E77D0 /* ConnectionLoaderTests.swift in Sources */,
 				1A67A7EC2B62B89B008E77D0 /* Int+Number.swift in Sources */,
 				1A67A8022B63FC6A008E77D0 /* Coordinate+Extension.swift in Sources */,
 				1A67A7FC2B63DA58008E77D0 /* TripPlannerTests.swift in Sources */,
