@@ -61,6 +61,7 @@ final class TripPlannerImpl: TripPlanner {
     func clearSelection() {
 
         from = nil
+        to = nil
     }
 
     func build() async throws -> [PresentableRoute] {
