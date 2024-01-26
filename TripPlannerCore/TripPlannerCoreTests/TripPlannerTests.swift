@@ -113,6 +113,21 @@ final class TripPlannerTests: XCTestCase {
         }
     }
 
+    func test_clearSelection_clearsTo() {
+
+        execute {
+
+            let sut = self.makeSUT([Self.anyPlace("a")])
+
+            let _ = try await sut.loadPlaces()
+            try sut.select(to: Self.anyPlace("a"))
+
+            sut.clearSelection()
+
+            XCTAssertNil(sut.to)
+        }
+    }
+
     // MARK: Private
 
     private func makeSUT(_ places: [Place] = []) -> SUT {
