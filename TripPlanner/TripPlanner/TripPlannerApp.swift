@@ -12,7 +12,7 @@ import TripPlannerCore
 struct TripPlannerApp: App {
     var body: some Scene {
         WindowGroup {
-            TripView(places: [], route: nil)
+            RouteView(places: [], route: nil)
         }
     }
 }

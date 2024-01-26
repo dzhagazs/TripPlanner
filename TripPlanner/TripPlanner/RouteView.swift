@@ -1,5 +1,5 @@
 //
-//  TripView.swift
+//  RouteView.swift
 //  TripPlanner
 //
 //  Created by Oleksandr Vasildzhahaz on 26.01.2024.
@@ -25,7 +25,7 @@ extension PlaceAnnotation: Hashable {
     }
 }
 
-struct TripView: View {
+struct RouteView: View {
 
     let places: [PlaceAnnotation]
     let route: [CLLocationCoordinate2D]?
@@ -50,7 +50,8 @@ struct TripView: View {
 }
 
 #Preview {
-    TripView(places: [
+
+    RouteView(places: [
 
         .init(
 

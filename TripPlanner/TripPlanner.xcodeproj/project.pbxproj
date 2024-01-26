@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		1A67A8162B640311008E77D0 /* TripPlannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8152B640311008E77D0 /* TripPlannerApp.swift */; };
-		1A67A85C2B64091F008E77D0 /* TripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A85B2B64091F008E77D0 /* TripView.swift */; };
+		1A67A85C2B64091F008E77D0 /* RouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A85B2B64091F008E77D0 /* RouteView.swift */; };
 		1A67A85E2B640991008E77D0 /* TripPlannerCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A67A85D2B640991008E77D0 /* TripPlannerCore.framework */; };
 		1A67A85F2B640991008E77D0 /* TripPlannerCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A67A85D2B640991008E77D0 /* TripPlannerCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1A67A8642B642AE4008E77D0 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8632B642AE4008E77D0 /* InputView.swift */; };
 		1A67A8672B642C70008E77D0 /* InputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8662B642C70008E77D0 /* InputViewModel.swift */; };
+		1A67A8692B64310C008E77D0 /* TripPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8682B64310C008E77D0 /* TripPlanView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,10 +45,11 @@
 		1A67A8152B640311008E77D0 /* TripPlannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlannerApp.swift; sourceTree = "<group>"; };
 		1A67A8222B640312008E77D0 /* TripPlannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TripPlannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A67A8552B640420008E77D0 /* TripPlannerCore_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TripPlannerCore_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1A67A85B2B64091F008E77D0 /* TripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripView.swift; sourceTree = "<group>"; };
+		1A67A85B2B64091F008E77D0 /* RouteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteView.swift; sourceTree = "<group>"; };
 		1A67A85D2B640991008E77D0 /* TripPlannerCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TripPlannerCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A67A8632B642AE4008E77D0 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		1A67A8662B642C70008E77D0 /* InputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewModel.swift; sourceTree = "<group>"; };
+		1A67A8682B64310C008E77D0 /* TripPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlanView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				1A67A8152B640311008E77D0 /* TripPlannerApp.swift */,
-				1A67A85B2B64091F008E77D0 /* TripView.swift */,
+				1A67A85B2B64091F008E77D0 /* RouteView.swift */,
+				1A67A8682B64310C008E77D0 /* TripPlanView.swift */,
 				1A67A8652B642C54008E77D0 /* InputView */,
 			);
 			path = TripPlanner;
@@ -224,7 +227,8 @@
 			files = (
 				1A67A8642B642AE4008E77D0 /* InputView.swift in Sources */,
 				1A67A8162B640311008E77D0 /* TripPlannerApp.swift in Sources */,
-				1A67A85C2B64091F008E77D0 /* TripView.swift in Sources */,
+				1A67A85C2B64091F008E77D0 /* RouteView.swift in Sources */,
+				1A67A8692B64310C008E77D0 /* TripPlanView.swift in Sources */,
 				1A67A8672B642C70008E77D0 /* InputViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
