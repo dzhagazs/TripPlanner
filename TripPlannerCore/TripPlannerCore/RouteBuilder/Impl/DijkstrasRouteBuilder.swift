@@ -147,6 +147,8 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
 
         } while processedElement != nil
 
+        guard routes.count > 0 else { throw Error.notFound }
+
         return routes.sorted(by: { $0.weight < $1.weight })
     }
 
