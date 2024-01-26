@@ -370,16 +370,6 @@ final class TripPlannerTests: XCTestCase {
         return sut
     }
 
-    private static func anyPlace(
-
-        _ name: String = "",
-        coordinate: Coordinate = .zero
-
-    ) -> Place {
-
-        .init(name: name, coordinate: coordinate)
-    }
-
     private static func anyCoordinate(lat: Float = 0, lon: Float = 0) -> Coordinate {
 
         .init(latitude: lat, longitude: lon)

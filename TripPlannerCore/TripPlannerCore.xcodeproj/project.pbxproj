@@ -24,6 +24,7 @@
 		1A67A7F82B63CF01008E77D0 /* TripPlanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7F72B63CF01008E77D0 /* TripPlanner.swift */; };
 		1A67A7FA2B63D9F3008E77D0 /* TripPlannerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7F92B63D9F3008E77D0 /* TripPlannerImpl.swift */; };
 		1A67A7FC2B63DA58008E77D0 /* TripPlannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7FB2B63DA58008E77D0 /* TripPlannerTests.swift */; };
+		1A67A7FE2B63FBCE008E77D0 /* XCTestCase+Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7FD2B63FBCE008E77D0 /* XCTestCase+Places.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		1A67A7F72B63CF01008E77D0 /* TripPlanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlanner.swift; sourceTree = "<group>"; };
 		1A67A7F92B63D9F3008E77D0 /* TripPlannerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlannerImpl.swift; sourceTree = "<group>"; };
 		1A67A7FB2B63DA58008E77D0 /* TripPlannerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlannerTests.swift; sourceTree = "<group>"; };
+		1A67A7FD2B63FBCE008E77D0 /* XCTestCase+Places.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Places.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				1A67A7E22B6296E4008E77D0 /* XCTestCase+Extension.swift */,
 				1A67A7EB2B62B89B008E77D0 /* Int+Number.swift */,
 				1A67A7ED2B62B8DA008E77D0 /* Route+Extension.swift */,
+				1A67A7FD2B63FBCE008E77D0 /* XCTestCase+Places.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 			files = (
 				1A67A7E32B6296E4008E77D0 /* XCTestCase+Extension.swift in Sources */,
 				1A67A7E02B62916F008E77D0 /* RouteBuilderTests.swift in Sources */,
+				1A67A7FE2B63FBCE008E77D0 /* XCTestCase+Places.swift in Sources */,
 				1A67A7EC2B62B89B008E77D0 /* Int+Number.swift in Sources */,
 				1A67A7FC2B63DA58008E77D0 /* TripPlannerTests.swift in Sources */,
 				1A67A7EE2B62B8DA008E77D0 /* Route+Extension.swift in Sources */,
