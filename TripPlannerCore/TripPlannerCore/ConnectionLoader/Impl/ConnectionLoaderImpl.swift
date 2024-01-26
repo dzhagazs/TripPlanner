@@ -7,11 +7,6 @@
 
 import Foundation
 
-protocol ConnectionDecoder {
-
-    func decode(_ data: Data) throws -> [Connection]
-}
-
 protocol MetadataProvider {
 
     func metadata(for connection: Connection) async throws -> ConnectionMetadata

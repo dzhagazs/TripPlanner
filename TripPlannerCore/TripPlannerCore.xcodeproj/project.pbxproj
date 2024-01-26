@@ -58,6 +58,8 @@
 		1A67A8882B6452B8008E77D0 /* URLSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8872B6452B8008E77D0 /* URLSession+Extension.swift */; };
 		1A67A88A2B645690008E77D0 /* ConnectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8892B645690008E77D0 /* ConnectionDataSource.swift */; };
 		1A67A88B2B645690008E77D0 /* ConnectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8892B645690008E77D0 /* ConnectionDataSource.swift */; };
+		1A67A88D2B6456E5008E77D0 /* ConnectionDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A88C2B6456E5008E77D0 /* ConnectionDecoder.swift */; };
+		1A67A88E2B6456E5008E77D0 /* ConnectionDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A88C2B6456E5008E77D0 /* ConnectionDecoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +112,7 @@
 		1A67A8852B645215008E77D0 /* ConnectionLoaderTests+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectionLoaderTests+Extension.swift"; sourceTree = "<group>"; };
 		1A67A8872B6452B8008E77D0 /* URLSession+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extension.swift"; sourceTree = "<group>"; };
 		1A67A8892B645690008E77D0 /* ConnectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionDataSource.swift; sourceTree = "<group>"; };
+		1A67A88C2B6456E5008E77D0 /* ConnectionDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionDecoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,8 +255,9 @@
 			isa = PBXGroup;
 			children = (
 				1A67A86B2B643A04008E77D0 /* ConnectionLoader.swift */,
-				1A67A86E2B643B31008E77D0 /* Impl */,
 				1A67A8892B645690008E77D0 /* ConnectionDataSource.swift */,
+				1A67A88C2B6456E5008E77D0 /* ConnectionDecoder.swift */,
+				1A67A86E2B643B31008E77D0 /* Impl */,
 			);
 			path = ConnectionLoader;
 			sourceTree = "<group>";
@@ -428,6 +432,7 @@
 				1A67A86C2B643A04008E77D0 /* ConnectionLoader.swift in Sources */,
 				1A67A7D42B627DCE008E77D0 /* Coordinate.swift in Sources */,
 				1A67A7EA2B62B80E008E77D0 /* RouteBuilderError.swift in Sources */,
+				1A67A88D2B6456E5008E77D0 /* ConnectionDecoder.swift in Sources */,
 				1A67A7F82B63CF01008E77D0 /* TripPlanner.swift in Sources */,
 				1A67A7E82B62B7C3008E77D0 /* DijkstrasRouteBuilder.swift in Sources */,
 				1A67A8082B63FF70008E77D0 /* Root.swift in Sources */,
@@ -479,6 +484,7 @@
 				1A67A8452B640395008E77D0 /* TripPlanner.swift in Sources */,
 				1A67A8462B640395008E77D0 /* DijkstrasRouteBuilder.swift in Sources */,
 				1A67A8472B640395008E77D0 /* Root.swift in Sources */,
+				1A67A88E2B6456E5008E77D0 /* ConnectionDecoder.swift in Sources */,
 				1A67A88B2B645690008E77D0 /* ConnectionDataSource.swift in Sources */,
 				1A67A8482B640395008E77D0 /* PriceCalculator.swift in Sources */,
 				1A67A8492B640395008E77D0 /* TripPlannerImpl.swift in Sources */,
