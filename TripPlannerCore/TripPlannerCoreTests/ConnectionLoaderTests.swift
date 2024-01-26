@@ -23,11 +23,15 @@ final class ConnectionLoaderTests: XCTestCase {
 
     ) -> SUT {
 
-        ConnectionLoaderImpl(
+        let sut = ConnectionLoaderImpl(
 
             client: DataSourceStub(result: sourceResult),
             decoder: ConnectionDecoderStub(result: decoderResult),
             provider: MetadataProviderStub(result: providerResult)
         )
+
+        trackMemoryLeak(for: sut)
+
+        return sut
     }
 }
