@@ -183,6 +183,41 @@ final class TripPlannerTests: XCTestCase {
         }
     }
 
+    func test_fromSuggestions_filtersPlacesByPrefix() {
+
+        execute {
+
+            let sut = self.makeSUT([
+
+                Self.anyPlace("abc"),
+                Self.anyPlace("abca"),
+                Self.anyPlace("abcab"),
+                Self.anyPlace("abcabc"),
+                Self.anyPlace("bcabcab"),
+                Self.anyPlace("bcabcabc")
+            ])
+
+            let _ = try await sut.loadPlaces()
+
+            XCTAssertEqual(sut.fromSuggestions(filter: "abc"), [
+
+                Self.anyPlace("abc"),
+                Self.anyPlace("abca"),
+                Self.anyPlace("abcab"),
+                Self.anyPlace("abcabc")
+            ])
+
+            try sut.select(to: Self.anyPlace("abc"))
+
+            XCTAssertEqual(sut.fromSuggestions(filter: "abc"), [
+
+                Self.anyPlace("abca"),
+                Self.anyPlace("abcab"),
+                Self.anyPlace("abcabc")
+            ])
+        }
+    }
+
     // MARK: Private
 
     private func makeSUT(
