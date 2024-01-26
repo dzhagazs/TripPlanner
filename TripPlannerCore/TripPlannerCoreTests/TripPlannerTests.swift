@@ -175,6 +175,14 @@ final class TripPlannerTests: XCTestCase {
         }
     }
 
+    func test_loadPlaces_rethrowsValidatorError() {
+
+        expectToThrow(Error.notFound) {
+
+            let _ = try await self.makeSUT(validator: { _ in throw Error.notFound }).loadPlaces()
+        }
+    }
+
     // MARK: Private
 
     private func makeSUT(
