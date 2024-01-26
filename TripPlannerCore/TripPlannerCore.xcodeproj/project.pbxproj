@@ -156,8 +156,8 @@
 			children = (
 				1A67A7DF2B62916F008E77D0 /* RouteBuilderTests.swift */,
 				1A67A7FB2B63DA58008E77D0 /* TripPlannerTests.swift */,
-				1A67A7E12B6296D7008E77D0 /* Utils */,
 				1A67A8722B643FFA008E77D0 /* ConnectionLoaderTests.swift */,
+				1A67A7E12B6296D7008E77D0 /* Utils */,
 			);
 			path = TripPlannerCoreTests;
 			sourceTree = "<group>";
@@ -175,11 +175,9 @@
 		1A67A7E12B6296D7008E77D0 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				1A67A7E22B6296E4008E77D0 /* XCTestCase+Extension.swift */,
+				1A67A8742B644538008E77D0 /* XCTestCase */,
 				1A67A7EB2B62B89B008E77D0 /* Int+Number.swift */,
 				1A67A7ED2B62B8DA008E77D0 /* Route+Extension.swift */,
-				1A67A7FD2B63FBCE008E77D0 /* XCTestCase+Places.swift */,
-				1A67A7FF2B63FC2B008E77D0 /* XCTestCase+Coordinates.swift */,
 				1A67A8012B63FC6A008E77D0 /* Coordinate+Extension.swift */,
 				1A67A8032B63FCA0008E77D0 /* PresentableRoute+Extension.swift */,
 				1A67A8052B63FCD4008E77D0 /* RouteTag+Extension.swift */,
@@ -238,6 +236,16 @@
 				1A67A86F2B643B7D008E77D0 /* ConnectionLoaderImpl.swift */,
 			);
 			path = Impl;
+			sourceTree = "<group>";
+		};
+		1A67A8742B644538008E77D0 /* XCTestCase */ = {
+			isa = PBXGroup;
+			children = (
+				1A67A7E22B6296E4008E77D0 /* XCTestCase+Extension.swift */,
+				1A67A7FD2B63FBCE008E77D0 /* XCTestCase+Places.swift */,
+				1A67A7FF2B63FC2B008E77D0 /* XCTestCase+Coordinates.swift */,
+			);
+			path = XCTestCase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
