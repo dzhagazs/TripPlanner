@@ -56,6 +56,8 @@
 		1A67A8842B6451C4008E77D0 /* XCTestCase+ConnectionMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8832B6451C4008E77D0 /* XCTestCase+ConnectionMetadata.swift */; };
 		1A67A8862B645215008E77D0 /* ConnectionLoaderTests+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8852B645215008E77D0 /* ConnectionLoaderTests+Extension.swift */; };
 		1A67A8882B6452B8008E77D0 /* URLSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8872B6452B8008E77D0 /* URLSession+Extension.swift */; };
+		1A67A88A2B645690008E77D0 /* ConnectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8892B645690008E77D0 /* ConnectionDataSource.swift */; };
+		1A67A88B2B645690008E77D0 /* ConnectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8892B645690008E77D0 /* ConnectionDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +109,7 @@
 		1A67A8832B6451C4008E77D0 /* XCTestCase+ConnectionMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+ConnectionMetadata.swift"; sourceTree = "<group>"; };
 		1A67A8852B645215008E77D0 /* ConnectionLoaderTests+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectionLoaderTests+Extension.swift"; sourceTree = "<group>"; };
 		1A67A8872B6452B8008E77D0 /* URLSession+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extension.swift"; sourceTree = "<group>"; };
+		1A67A8892B645690008E77D0 /* ConnectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +253,7 @@
 			children = (
 				1A67A86B2B643A04008E77D0 /* ConnectionLoader.swift */,
 				1A67A86E2B643B31008E77D0 /* Impl */,
+				1A67A8892B645690008E77D0 /* ConnectionDataSource.swift */,
 			);
 			path = ConnectionLoader;
 			sourceTree = "<group>";
@@ -418,6 +422,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A67A88A2B645690008E77D0 /* ConnectionDataSource.swift in Sources */,
 				1A67A8702B643B7D008E77D0 /* ConnectionLoaderImpl.swift in Sources */,
 				1A67A7F52B63CC60008E77D0 /* Route.swift in Sources */,
 				1A67A86C2B643A04008E77D0 /* ConnectionLoader.swift in Sources */,
@@ -474,6 +479,7 @@
 				1A67A8452B640395008E77D0 /* TripPlanner.swift in Sources */,
 				1A67A8462B640395008E77D0 /* DijkstrasRouteBuilder.swift in Sources */,
 				1A67A8472B640395008E77D0 /* Root.swift in Sources */,
+				1A67A88B2B645690008E77D0 /* ConnectionDataSource.swift in Sources */,
 				1A67A8482B640395008E77D0 /* PriceCalculator.swift in Sources */,
 				1A67A8492B640395008E77D0 /* TripPlannerImpl.swift in Sources */,
 				1A67A84A2B640395008E77D0 /* Sequence+Extension.swift in Sources */,

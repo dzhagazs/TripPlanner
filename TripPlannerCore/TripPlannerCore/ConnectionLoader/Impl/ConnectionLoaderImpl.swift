@@ -7,11 +7,6 @@
 
 import Foundation
 
-protocol ConnectionDataSource {
-
-    func load() async throws -> Data
-}
-
 protocol ConnectionDecoder {
 
     func decode(_ data: Data) throws -> [Connection]
