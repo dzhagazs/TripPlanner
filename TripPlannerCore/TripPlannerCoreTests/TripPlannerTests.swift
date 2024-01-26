@@ -369,11 +369,6 @@ final class TripPlannerTests: XCTestCase {
 
         return sut
     }
-
-    private static func anyCoordinate(lat: Float = 0, lon: Float = 0) -> Coordinate {
-
-        .init(latitude: lat, longitude: lon)
-    }
 }
 
 extension Coordinate {
