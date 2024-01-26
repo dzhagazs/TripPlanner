@@ -45,6 +45,15 @@ final class ConnectionLoaderTests: XCTestCase {
         )
     }
 
+    func test_load_forwardsDecoderError() {
+
+        expectToFail(
+
+            Error.first,
+            on: makeSUT(decoderResult: .failure(Error.first))
+        )
+    }
+
     // MARK: Private
 
     private func anyMetadata(_ price: Int, _ distance: Float) -> ConnectionMetadata {
