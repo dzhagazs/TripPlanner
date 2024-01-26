@@ -25,39 +25,19 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
         guard connections.isEmpty == false else { return [] }
         try validate(from: from, to: to, connections: connections)
 
-        let filteredNodes = getAllNodes(from: connections, ignored: [from])
-        let allNodes = [from] + filteredNodes
-        var graph: [E: [E: W]] = [:]
         var processed: [E] = []
         var routes: [Route<E, W>] = []
 
-        // Check for direct connection
-        if let directConnection = connections.first(where: { $0.0 == from && $0.1 == to }) {
-
-            let weight = directConnection.2
-            routes.append(.init(path: [from, to], weight: weight))
-        }
+        let filteredNodes = getAllNodes(from: connections, ignored: [from])
+        let allNodes = [from] + filteredNodes
 
         let fromNeighbors = directNeighbors(for: from, with: connections)
         var weights = initialWeights(for: from, fromNeighbors: fromNeighbors, filteredNodes: filteredNodes)
         var parents = initialParents(for: from, fromNeighbors: fromNeighbors)
 
-        // Fill initial graph
-        try allNodes.forEach { node in
+        var graph = try initialGraph(for: allNodes, connections: connections)
 
-            let neighbors = Self.directNeighbors(for: node, with: connections)
-            var neighborsWeights: [E: W] = [:]
-            try neighbors.forEach { neighbor in
-
-                let weight = neighbor.2
-
-                guard weight >= .zero else { throw Error.invalidWeight }
-
-                neighborsWeights[neighbor.1] = weight
-            }
-
-            graph[node] = neighborsWeights
-        }
+        checkForDirectRoute(from: from, to: to, connections: connections, routes: &routes)
 
         var processedElement = Self.lowestWeightElement(weights, processed: processed)
         repeat {
@@ -94,6 +74,51 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
     }
 
     // MARK: Private
+
+    private static func initialGraph(for nodes: [E], connections: [Connection]) throws -> [E: [E: W]] {
+
+        var graph: [E: [E: W]] = [:]
+
+        // Fill initial graph
+        try nodes.forEach { node in
+
+            let neighbors = Self.directNeighbors(for: node, with: connections)
+            var neighborsWeights: [E: W] = [:]
+            try neighbors.forEach { neighbor in
+
+                let weight = neighbor.2
+
+                guard weight >= .zero else { throw Error.invalidWeight }
+
+                neighborsWeights[neighbor.1] = weight
+            }
+
+            graph[node] = neighborsWeights
+        }
+
+        return graph
+    }
+
+    private static func checkForDirectRoute(from: E, to: E, connections: [Connection], routes: inout [Route<E, W>]) {
+
+        if let direct = directConnectionRouteIfExists(from: from, to: to, connections: connections) {
+
+            routes.append(direct)
+        }
+    }
+
+    private static func directConnectionRouteIfExists(
+
+        from: E,
+        to: E,
+        connections: [Connection]
+
+    ) -> Route<E, W>? {
+
+        guard let directConnection = connections.first(where: { $0.0 == from && $0.1 == to }) else { return nil }
+
+        return .init(path: [from, to], weight: directConnection.2)
+    }
 
     private static func initialWeights(
 
