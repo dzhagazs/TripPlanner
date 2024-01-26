@@ -253,6 +253,17 @@ final class TripPlannerTests: XCTestCase {
         }
     }
 
+    func testSuggestionsEmptyBeforeLoading() {
+
+        execute {
+
+            let sut = self.makeSUT([Self.anyPlace("a")])
+
+            XCTAssertEqual(sut.fromSuggestions(filter: ""), [])
+            XCTAssertEqual(sut.toSuggestions(filter: ""), [])
+        }
+    }
+
     // MARK: Private
 
     private func makeSUT(
