@@ -2,7 +2,7 @@
 //  ConnectionLoaderTests.swift
 //  TripPlannerCoreTests
 //
-//  Created by Alexandr Vasildzhagaz on 26.01.2024.
+//  Created by Oleksandr Vasildzhahaz on 26.01.2024.
 //
 
 @testable import TripPlannerCore
@@ -24,25 +24,6 @@ final class ConnectionLoaderTests: XCTestCase {
             provider: MetadataProviderStub(result: .success(.init(price: 0, approxDistance: 0)))
         )
     }
-}
-
-final class DataSourceStub: ConnectionDataSource {
-
-    // MARK: DataSource
-
-    func load() async throws -> Data {
-
-        try result.get()
-    }
-
-    init(result: Result<Data, Error>) {
-
-        self.result = result
-    }
-
-    // MARK: Private
-
-    private let result: Result<Data, Error>
 }
 
 final class ConnectionDecoderStub: ConnectionDecoder {
@@ -70,7 +51,7 @@ final class MetadataProviderStub: MetadataProvider {
 
     func metadata(for connection: Connection) async throws -> ConnectionMetadata {
 
-        
+        try result.get()
     }
 
     init(result: Result<ConnectionMetadata, Error>) {
