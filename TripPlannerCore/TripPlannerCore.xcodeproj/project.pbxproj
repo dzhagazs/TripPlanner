@@ -52,6 +52,7 @@
 		1A67A87C2B645088008E77D0 /* Connection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A87B2B645088008E77D0 /* Connection+Extension.swift */; };
 		1A67A87E2B6450D3008E77D0 /* ConnectionMetadata+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A87D2B6450D3008E77D0 /* ConnectionMetadata+Extension.swift */; };
 		1A67A8802B64510A008E77D0 /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A87F2B64510A008E77D0 /* TestError.swift */; };
+		1A67A8822B645161008E77D0 /* XCTestCase+Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8812B645161008E77D0 /* XCTestCase+Connection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		1A67A87B2B645088008E77D0 /* Connection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Connection+Extension.swift"; sourceTree = "<group>"; };
 		1A67A87D2B6450D3008E77D0 /* ConnectionMetadata+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectionMetadata+Extension.swift"; sourceTree = "<group>"; };
 		1A67A87F2B64510A008E77D0 /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
+		1A67A8812B645161008E77D0 /* XCTestCase+Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Connection.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +261,7 @@
 				1A67A7E22B6296E4008E77D0 /* XCTestCase+Extension.swift */,
 				1A67A7FD2B63FBCE008E77D0 /* XCTestCase+Places.swift */,
 				1A67A7FF2B63FC2B008E77D0 /* XCTestCase+Coordinates.swift */,
+				1A67A8812B645161008E77D0 /* XCTestCase+Connection.swift */,
 			);
 			path = XCTestCase;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A67A7E32B6296E4008E77D0 /* XCTestCase+Extension.swift in Sources */,
+				1A67A8822B645161008E77D0 /* XCTestCase+Connection.swift in Sources */,
 				1A67A8042B63FCA0008E77D0 /* PresentableRoute+Extension.swift in Sources */,
 				1A67A8062B63FCD4008E77D0 /* RouteTag+Extension.swift in Sources */,
 				1A67A87E2B6450D3008E77D0 /* ConnectionMetadata+Extension.swift in Sources */,

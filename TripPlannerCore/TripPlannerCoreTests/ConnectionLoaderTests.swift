@@ -74,22 +74,6 @@ final class ConnectionLoaderTests: XCTestCase {
         .init(price: price, approxDistance: distance)
     }
 
-    private func anyConnection(_ from: String = "", to: String = "") -> Connection {
-
-        .init(
-
-            from: .init(
-
-                name: from,
-                coordinate: .zero
-            ),
-            to: .init(
-
-                name: to,
-                coordinate: .zero
-            ))
-    }
-
     private func expectToLoad(
 
         _ connections: [(Connection, ConnectionMetadata)],
