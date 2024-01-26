@@ -1,0 +1,13 @@
+//
+//  Coordinate+Extension.swift
+//  TripPlannerCoreTests
+//
+//  Created by Alexandr Vasildzhagaz on 26.01.2024.
+//
+
+@testable import TripPlannerCore
+
+extension Coordinate {
+
+     static let zero = Coordinate(latitude: 0, longitude: 0)
+}

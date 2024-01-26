@@ -371,11 +371,6 @@ final class TripPlannerTests: XCTestCase {
     }
 }
 
-extension Coordinate {
-
-     static let zero = Coordinate(latitude: 0, longitude: 0)
-}
-
 extension PresentableRoute: Equatable {
 
     public static func == (lhs: TripPlannerCore.PresentableRoute, rhs: TripPlannerCore.PresentableRoute) -> Bool {
