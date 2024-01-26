@@ -32,6 +32,21 @@ final class RouteBuilderTests: XCTestCase {
 
         expectToBuildFirst(
 
+            route: Route(path: ["a", "d", "b"], weight: 2),
+            with: [
+
+                (("a", "d"), 1),
+                (("a", "c"), 1),
+                (("c", "b"), 2),
+                (("d", "b"), 1)
+            ]
+        )
+    }
+
+    func test_build_findsShortestPath2() {
+
+        expectToBuildFirst(
+
             route: Route(path: ["a", "d", "c", "b"], weight: 6),
             with: [
 
@@ -44,7 +59,7 @@ final class RouteBuilderTests: XCTestCase {
         )
     }
 
-    func test_build_findsShortestPath2() {
+    func test_build_findsShortestPath3() {
 
         expectToBuildFirst(
 
