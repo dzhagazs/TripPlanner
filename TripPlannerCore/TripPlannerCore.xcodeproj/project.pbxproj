@@ -21,6 +21,7 @@
 		1A67A7EE2B62B8DA008E77D0 /* Route+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7ED2B62B8DA008E77D0 /* Route+Extension.swift */; };
 		1A67A7F12B62DDF3008E77D0 /* Sequence+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7F02B62DDF3008E77D0 /* Sequence+Extension.swift */; };
 		1A67A7F32B63025D008E77D0 /* WeightCalculatorStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7F22B63025D008E77D0 /* WeightCalculatorStub.swift */; };
+		1A67A7F52B63CC60008E77D0 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7F42B63CC60008E77D0 /* Route.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		1A67A7ED2B62B8DA008E77D0 /* Route+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Route+Extension.swift"; sourceTree = "<group>"; };
 		1A67A7F02B62DDF3008E77D0 /* Sequence+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Extension.swift"; sourceTree = "<group>"; };
 		1A67A7F22B63025D008E77D0 /* WeightCalculatorStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightCalculatorStub.swift; sourceTree = "<group>"; };
+		1A67A7F42B63CC60008E77D0 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				1A67A7DD2B628703008E77D0 /* RouteBuilder.swift */,
 				1A67A7E62B62B790008E77D0 /* Impl */,
 				1A67A7E92B62B80E008E77D0 /* RouteBuilderError.swift */,
+				1A67A7F42B63CC60008E77D0 /* Route.swift */,
 			);
 			path = RouteBuilder;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A67A7F52B63CC60008E77D0 /* Route.swift in Sources */,
 				1A67A7D42B627DCE008E77D0 /* Coordinate.swift in Sources */,
 				1A67A7EA2B62B80E008E77D0 /* RouteBuilderError.swift in Sources */,
 				1A67A7E82B62B7C3008E77D0 /* DijkstrasRouteBuilder.swift in Sources */,

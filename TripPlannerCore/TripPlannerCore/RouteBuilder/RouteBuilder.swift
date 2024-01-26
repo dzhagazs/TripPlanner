@@ -22,12 +22,6 @@ protocol RouteBuilder {
     ) throws -> [Route<RouteElement, Weight>]
 }
 
-struct Route<E, W> {
-
-    let path: [E]
-    let weight: W
-}
-
 protocol Addable {
 
     static func +(lhs: Self, rhs: Self) -> Self
