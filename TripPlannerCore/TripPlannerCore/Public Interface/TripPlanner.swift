@@ -12,8 +12,10 @@ public protocol TripPlanner {
     func fromSuggestions(filter: String) -> [Place]
     func toSuggestions(filter: String) -> [Place]
 
-    func set(from: Place) throws
-    func set(to: Place) throws
+    func select(from: Place) throws
+    func select(to: Place) throws
+
+    func clearSelection()
 
     func build() async throws -> [PresentableRoute]
 }
