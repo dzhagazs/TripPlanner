@@ -25,6 +25,18 @@ final class ConnectionDecoderTests: XCTestCase {
         }
     }
 
+    func test_decode_oneReturnsOneConnection() {
+
+        execute {
+
+            let sut = self.makeSUT()
+
+            let connections = try sut.decode("{\"connections\": [\(self.anyConnection().asString)]}".data(using: .utf8)!)
+
+            XCTAssertEqual(connections, [self.anyConnection()])
+        }
+    }
+
     // MARK: Private
 
     private func makeSUT() -> SUT {
