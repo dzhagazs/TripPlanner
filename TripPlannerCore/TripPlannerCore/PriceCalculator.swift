@@ -2,7 +2,7 @@
 //  PriceCalculator.swift
 //  TripPlannerCore
 //
-//  Created by Olexandr Vasildzhagaz on 25.01.2024.
+//  Created by Olexandr Vasildzhahaz on 25.01.2024.
 //
 
 protocol PriceCalculator {

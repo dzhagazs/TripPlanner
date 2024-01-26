@@ -2,7 +2,7 @@
 //  Int+Number.swift
 //  TripPlannerCoreTests
 //
-//  Created by Oleksandr Vasildzhagaz on 25.01.2024.
+//  Created by Oleksandr Vasildzhahaz on 25.01.2024.
 //
 
 @testable import TripPlannerCore

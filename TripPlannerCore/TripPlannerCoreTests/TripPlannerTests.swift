@@ -2,7 +2,7 @@
 //  TripPlannerTests.swift
 //  TripPlannerCoreTests
 //
-//  Created by Alexandr Vasildzhagaz on 26.01.2024.
+//  Created by Oleksandr Vasildzhahaz on 26.01.2024.
 //
 
 @testable import TripPlannerCore

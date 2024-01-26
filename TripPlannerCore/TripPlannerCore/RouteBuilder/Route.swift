@@ -2,7 +2,7 @@
 //  Route.swift
 //  TripPlannerCore
 //
-//  Created by Olexandr Vasildzhagaz on 26.01.2024.
+//  Created by Olexandr Vasildzhahaz on 26.01.2024.
 //
 
 struct Route<E, W> {
