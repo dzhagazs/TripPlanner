@@ -47,7 +47,8 @@ final class TripPlannerImpl: TripPlanner {
 
     func select(to: Place) throws {
 
-        guard let _ = places else { throw Error.notLoaded }
+        guard let places = places else { throw Error.notLoaded }
+        guard places.first(where: { $0 == to }) != nil else { throw Error.notFound }
 
         self.to = to
         if from == to {
