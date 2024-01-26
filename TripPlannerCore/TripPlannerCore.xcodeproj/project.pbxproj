@@ -20,7 +20,6 @@
 		1A67A7EC2B62B89B008E77D0 /* Int+Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7EB2B62B89B008E77D0 /* Int+Number.swift */; };
 		1A67A7EE2B62B8DA008E77D0 /* Route+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7ED2B62B8DA008E77D0 /* Route+Extension.swift */; };
 		1A67A7F12B62DDF3008E77D0 /* Sequence+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7F02B62DDF3008E77D0 /* Sequence+Extension.swift */; };
-		1A67A7F32B63025D008E77D0 /* WeightCalculatorStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7F22B63025D008E77D0 /* WeightCalculatorStub.swift */; };
 		1A67A7F52B63CC60008E77D0 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7F42B63CC60008E77D0 /* Route.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,7 +48,6 @@
 		1A67A7EB2B62B89B008E77D0 /* Int+Number.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Number.swift"; sourceTree = "<group>"; };
 		1A67A7ED2B62B8DA008E77D0 /* Route+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Route+Extension.swift"; sourceTree = "<group>"; };
 		1A67A7F02B62DDF3008E77D0 /* Sequence+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Extension.swift"; sourceTree = "<group>"; };
-		1A67A7F22B63025D008E77D0 /* WeightCalculatorStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightCalculatorStub.swift; sourceTree = "<group>"; };
 		1A67A7F42B63CC60008E77D0 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,7 +124,6 @@
 				1A67A7E22B6296E4008E77D0 /* XCTestCase+Extension.swift */,
 				1A67A7EB2B62B89B008E77D0 /* Int+Number.swift */,
 				1A67A7ED2B62B8DA008E77D0 /* Route+Extension.swift */,
-				1A67A7F22B63025D008E77D0 /* WeightCalculatorStub.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -285,7 +282,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A67A7E32B6296E4008E77D0 /* XCTestCase+Extension.swift in Sources */,
-				1A67A7F32B63025D008E77D0 /* WeightCalculatorStub.swift in Sources */,
 				1A67A7E02B62916F008E77D0 /* RouteBuilderTests.swift in Sources */,
 				1A67A7EC2B62B89B008E77D0 /* Int+Number.swift in Sources */,
 				1A67A7EE2B62B8DA008E77D0 /* Route+Extension.swift in Sources */,
