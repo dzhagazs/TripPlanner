@@ -18,9 +18,9 @@ final class TripPlannerTests: XCTestCase {
 
         expectToThrow(Error.notLoaded) {
 
-            let sut = Self.makeSUT()
+            let sut = self.makeSUT()
 
-            try sut.select(to: self.anyPlace())
+            try sut.select(to: Self.anyPlace())
         }
     }
 
@@ -28,21 +28,25 @@ final class TripPlannerTests: XCTestCase {
 
         expectToThrow(Error.notLoaded) {
 
-            let sut = Self.makeSUT()
+            let sut = self.makeSUT()
 
-            try sut.select(from: self.anyPlace())
+            try sut.select(from: Self.anyPlace())
         }
     }
 
 
     // MARK: Private
 
-    private static func makeSUT() -> SUT {
+    private func makeSUT() -> SUT {
 
-        TripPlannerImpl()
+        let sut = TripPlannerImpl(loader: { [] })
+
+        trackMemoryLeak(for: sut)
+
+        return sut
     }
 
-    private func anyPlace(
+    private static func anyPlace(
 
         name: String = "",
         coordinate: Coordinate = .zero
@@ -52,7 +56,7 @@ final class TripPlannerTests: XCTestCase {
         .init(name: name, coordinate: coordinate)
     }
 
-    private func anyCoordinate(lat: Float = 0, lon: Float = 0) -> Coordinate {
+    private static func anyCoordinate(lat: Float = 0, lon: Float = 0) -> Coordinate {
 
         .init(latitude: lat, longitude: lon)
     }
