@@ -38,11 +38,25 @@ final class TripPlannerTests: XCTestCase {
         }
     }
 
+    func test_selectTo_ifToIsEqualToFromClearsFrom() {
+
+        execute {
+
+            let sut = self.makeSUT([Self.anyPlace("a")])
+
+            let _ = try await sut.loadPlaces()
+            try sut.select(from: Self.anyPlace("a"))
+            try sut.select(to: Self.anyPlace("a"))
+
+            XCTAssertNil(sut.from)
+        }
+    }
+
     // MARK: Private
 
-    private func makeSUT() -> SUT {
+    private func makeSUT(_ places: [Place] = []) -> SUT {
 
-        let sut = TripPlannerImpl(loader: { [] })
+        let sut = TripPlannerImpl(loader: { places })
 
         trackMemoryLeak(for: sut)
 
@@ -51,7 +65,7 @@ final class TripPlannerTests: XCTestCase {
 
     private static func anyPlace(
 
-        name: String = "",
+        _ name: String = "",
         coordinate: Coordinate = .zero
 
     ) -> Place {
