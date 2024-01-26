@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import TripPlannerCore
 
 @main
 struct TripPlannerApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TripView(places: [], route: nil)
         }
     }
 }
