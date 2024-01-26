@@ -17,7 +17,6 @@
 		1A67A7E32B6296E4008E77D0 /* XCTestCase+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7E22B6296E4008E77D0 /* XCTestCase+Extension.swift */; };
 		1A67A7E82B62B7C3008E77D0 /* DijkstrasRouteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7E72B62B7C3008E77D0 /* DijkstrasRouteBuilder.swift */; };
 		1A67A7EA2B62B80E008E77D0 /* RouteBuilderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7E92B62B80E008E77D0 /* RouteBuilderError.swift */; };
-		1A67A7EC2B62B89B008E77D0 /* Int+Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7EB2B62B89B008E77D0 /* Int+Number.swift */; };
 		1A67A7EE2B62B8DA008E77D0 /* Route+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7ED2B62B8DA008E77D0 /* Route+Extension.swift */; };
 		1A67A7F12B62DDF3008E77D0 /* Sequence+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7F02B62DDF3008E77D0 /* Sequence+Extension.swift */; };
 		1A67A7F52B63CC60008E77D0 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7F42B63CC60008E77D0 /* Route.swift */; };
@@ -71,7 +70,6 @@
 		1A67A7E22B6296E4008E77D0 /* XCTestCase+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extension.swift"; sourceTree = "<group>"; };
 		1A67A7E72B62B7C3008E77D0 /* DijkstrasRouteBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DijkstrasRouteBuilder.swift; sourceTree = "<group>"; };
 		1A67A7E92B62B80E008E77D0 /* RouteBuilderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilderError.swift; sourceTree = "<group>"; };
-		1A67A7EB2B62B89B008E77D0 /* Int+Number.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Number.swift"; sourceTree = "<group>"; };
 		1A67A7ED2B62B8DA008E77D0 /* Route+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Route+Extension.swift"; sourceTree = "<group>"; };
 		1A67A7F02B62DDF3008E77D0 /* Sequence+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Extension.swift"; sourceTree = "<group>"; };
 		1A67A7F42B63CC60008E77D0 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
@@ -176,7 +174,6 @@
 			isa = PBXGroup;
 			children = (
 				1A67A8742B644538008E77D0 /* XCTestCase */,
-				1A67A7EB2B62B89B008E77D0 /* Int+Number.swift */,
 				1A67A7ED2B62B8DA008E77D0 /* Route+Extension.swift */,
 				1A67A8012B63FC6A008E77D0 /* Coordinate+Extension.swift */,
 				1A67A8032B63FCA0008E77D0 /* PresentableRoute+Extension.swift */,
@@ -419,7 +416,6 @@
 				1A67A7FE2B63FBCE008E77D0 /* XCTestCase+Places.swift in Sources */,
 				1A67A8002B63FC2B008E77D0 /* XCTestCase+Coordinates.swift in Sources */,
 				1A67A8732B643FFA008E77D0 /* ConnectionLoaderTests.swift in Sources */,
-				1A67A7EC2B62B89B008E77D0 /* Int+Number.swift in Sources */,
 				1A67A8022B63FC6A008E77D0 /* Coordinate+Extension.swift in Sources */,
 				1A67A7FC2B63DA58008E77D0 /* TripPlannerTests.swift in Sources */,
 				1A67A7EE2B62B8DA008E77D0 /* Route+Extension.swift in Sources */,
