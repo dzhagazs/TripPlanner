@@ -2,7 +2,7 @@
 //  Route+Extension.swift
 //  TripPlannerCoreTests
 //
-//  Created by Alexandr Vasildzhagaz on 25.01.2024.
+//  Created by Oleksandr Vasildzhagaz on 25.01.2024.
 //
 
 @testable import TripPlannerCore

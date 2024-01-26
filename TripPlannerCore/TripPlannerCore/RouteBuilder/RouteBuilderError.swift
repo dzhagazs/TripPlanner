@@ -2,7 +2,7 @@
 //  RouteBuilderError.swift
 //  TripPlannerCore
 //
-//  Created by Alexandr Vasildzhagaz on 25.01.2024.
+//  Created by Oleksandr Vasildzhagaz on 25.01.2024.
 //
 
 enum RouteBuilderError: Swift.Error, Equatable {
