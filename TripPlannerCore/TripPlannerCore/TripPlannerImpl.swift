@@ -48,7 +48,9 @@ final class TripPlannerImpl: TripPlanner {
 
     func build() async throws -> [PresentableRoute] {
 
-        []
+        guard let places = places else { throw Error.notLoaded }
+
+        return []
     }
 
     init(loader: @escaping Loader) {
