@@ -371,14 +371,6 @@ final class TripPlannerTests: XCTestCase {
     }
 }
 
-extension PresentableRoute: Equatable {
-
-    public static func == (lhs: TripPlannerCore.PresentableRoute, rhs: TripPlannerCore.PresentableRoute) -> Bool {
-
-        lhs.places == rhs.places && lhs.tags == rhs.tags
-    }
-}
-
 extension RouteTag: Equatable {
 
     public static func == (lhs: RouteTag, rhs: RouteTag) -> Bool {

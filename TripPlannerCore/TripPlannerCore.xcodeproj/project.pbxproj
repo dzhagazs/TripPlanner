@@ -27,6 +27,7 @@
 		1A67A7FE2B63FBCE008E77D0 /* XCTestCase+Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7FD2B63FBCE008E77D0 /* XCTestCase+Places.swift */; };
 		1A67A8002B63FC2B008E77D0 /* XCTestCase+Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7FF2B63FC2B008E77D0 /* XCTestCase+Coordinates.swift */; };
 		1A67A8022B63FC6A008E77D0 /* Coordinate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8012B63FC6A008E77D0 /* Coordinate+Extension.swift */; };
+		1A67A8042B63FCA0008E77D0 /* PresentableRoute+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8032B63FCA0008E77D0 /* PresentableRoute+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		1A67A7FD2B63FBCE008E77D0 /* XCTestCase+Places.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Places.swift"; sourceTree = "<group>"; };
 		1A67A7FF2B63FC2B008E77D0 /* XCTestCase+Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Coordinates.swift"; sourceTree = "<group>"; };
 		1A67A8012B63FC6A008E77D0 /* Coordinate+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Coordinate+Extension.swift"; sourceTree = "<group>"; };
+		1A67A8032B63FCA0008E77D0 /* PresentableRoute+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PresentableRoute+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 				1A67A7FD2B63FBCE008E77D0 /* XCTestCase+Places.swift */,
 				1A67A7FF2B63FC2B008E77D0 /* XCTestCase+Coordinates.swift */,
 				1A67A8012B63FC6A008E77D0 /* Coordinate+Extension.swift */,
+				1A67A8032B63FCA0008E77D0 /* PresentableRoute+Extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A67A7E32B6296E4008E77D0 /* XCTestCase+Extension.swift in Sources */,
+				1A67A8042B63FCA0008E77D0 /* PresentableRoute+Extension.swift in Sources */,
 				1A67A7E02B62916F008E77D0 /* RouteBuilderTests.swift in Sources */,
 				1A67A7FE2B63FBCE008E77D0 /* XCTestCase+Places.swift in Sources */,
 				1A67A8002B63FC2B008E77D0 /* XCTestCase+Coordinates.swift in Sources */,
