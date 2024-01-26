@@ -24,6 +24,17 @@ final class TripPlannerTests: XCTestCase {
         }
     }
 
+    func test_selectFrom_beforeLoadingFails() {
+
+        expectToThrow(Error.notLoaded) {
+
+            let sut = Self.makeSUT()
+
+            try sut.select(from: self.anyPlace())
+        }
+    }
+
+
     // MARK: Private
 
     private static func makeSUT() -> SUT {
