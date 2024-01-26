@@ -37,11 +37,23 @@ final class TripPlannerImpl: TripPlanner {
     func select(from: Place) throws {
 
         guard let _ = places else { throw Error.notLoaded }
+
+        self.from = from
+        if to == from {
+
+            to = nil
+        }
     }
 
     func select(to: Place) throws {
 
         guard let _ = places else { throw Error.notLoaded }
+
+        self.to = to
+        if from == to {
+
+            from = nil
+        }
     }
 
     func clearSelection() {
@@ -65,4 +77,20 @@ final class TripPlannerImpl: TripPlanner {
 
     private let loader: Loader
     private var places: [Place]? = nil
+}
+
+extension Place: Equatable {
+
+    public static func == (lhs: Place, rhs: Place) -> Bool {
+
+        lhs.name == rhs.name && lhs.coordinate == rhs.coordinate
+    }
+}
+
+extension Coordinate: Equatable {
+
+    public static func == (lhs: Coordinate, rhs: Coordinate) -> Bool {
+
+        lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
+    }
 }
