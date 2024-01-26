@@ -125,18 +125,14 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
         return result
     }
 
-    private static func directNeighbors(for element: E, with connections: [Connection]) -> [Connection] {
+    private static func directNeighbors(
 
-        var neighbors: [Connection] = []
-        connections.forEach { connection in
+        for element: E,
+        with connections: [Connection]
 
-            if connection.0 == element {
+    ) -> [Connection] {
 
-                neighbors.append(connection)
-            }
-        }
-
-        return neighbors
+        connections.filter { $0.0 == element }
     }
 
     private static func path(from: E, to: E, parents: [E: E]) -> [E] {
