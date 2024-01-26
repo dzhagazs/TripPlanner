@@ -36,7 +36,8 @@ final class TripPlannerImpl: TripPlanner {
 
     func select(from: Place) throws {
 
-        guard let _ = places else { throw Error.notLoaded }
+        guard let places = places else { throw Error.notLoaded }
+        guard places.first(where: { $0 == from }) != nil else { throw Error.notFound }
 
         self.from = from
         if to == from {
