@@ -68,6 +68,21 @@ final class TripPlannerTests: XCTestCase {
         }
     }
 
+    func test_selectTo_ifRandomPlaceFails() {
+
+        expectToThrow(Error.notFound) {
+
+            let sut = self.makeSUT([
+
+                Self.anyPlace("a"),
+                Self.anyPlace("b")
+            ])
+
+            let _ = try await sut.loadPlaces()
+            try sut.select(to: Self.anyPlace("c"))
+        }
+    }
+
     // MARK: Private
 
     private func makeSUT(_ places: [Place] = []) -> SUT {
