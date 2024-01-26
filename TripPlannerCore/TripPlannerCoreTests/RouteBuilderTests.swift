@@ -23,11 +23,6 @@ final class RouteBuilderTests: XCTestCase {
         )
     }
 
-    func test_build_returnsEmptyForEmptyInput() {
-
-        expectToBuild([], with: [])
-    }
-
     func test_build_findsShortestPath1() {
 
         expectToBuildFirst(
@@ -147,6 +142,11 @@ final class RouteBuilderTests: XCTestCase {
                 ("d", "c", 1)
             ]
         )
+    }
+
+    func test_build_failsIfEmptyInput() {
+
+        expectToFail(.notFound, with: [])
     }
 
     func test_build_failsIfToIsNotInGraph() {

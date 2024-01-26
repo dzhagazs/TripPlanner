@@ -22,11 +22,7 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
 
     ) throws -> [Route<E, W>] {
 
-        guard connections.isEmpty == false else { return [] }
         try validate(from: from, to: to, connections: connections)
-
-        var processed: [E] = []
-        var routes: [Route<E, W>] = []
 
         let filteredNodes = getAllNodes(from: connections, ignored: [from])
         let allNodes = [from] + filteredNodes
@@ -35,9 +31,12 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
         var weights = initialWeights(for: from, fromNeighbors: fromNeighbors, filteredNodes: filteredNodes)
         var parents = initialParents(for: from, fromNeighbors: fromNeighbors)
 
-        var graph = try initialGraph(for: allNodes, connections: connections)
+        var processed: [E] = []
+        var routes: [Route<E, W>] = []
 
         checkForDirectRoute(from: from, to: to, connections: connections, routes: &routes)
+
+        var graph = try initialGraph(for: allNodes, connections: connections)
 
         var processedElement = Self.lowestWeightElement(weights, processed: processed)
         repeat {
@@ -210,6 +209,7 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
 
     ) throws {
 
+        guard connections.count > 0 else { throw Error.notFound }
         guard connections.first(where: { $0.1 == to }) != nil else { throw Error.toNotFound }
         guard connections.first(where: { $0.0 == from }) != nil else { throw Error.fromNotFound }
     }
