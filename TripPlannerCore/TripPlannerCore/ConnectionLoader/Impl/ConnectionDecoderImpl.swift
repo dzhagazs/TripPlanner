@@ -23,7 +23,7 @@ final class ConnectionDecoderImpl: ConnectionDecoder {
                     coordinate: .init(
 
                         latitude: $0.coordinates.from.lat,
-                        longitude: $0.coordinates.from.lon
+                        longitude: $0.coordinates.from.long
                     )
                 ),
                 to: .init(
@@ -32,7 +32,7 @@ final class ConnectionDecoderImpl: ConnectionDecoder {
                     coordinate: .init(
 
                         latitude: $0.coordinates.to.lat,
-                        longitude: $0.coordinates.to.lon
+                        longitude: $0.coordinates.to.long
                     )
                 )
             )
@@ -63,6 +63,6 @@ final class ConnectionDecoderImpl: ConnectionDecoder {
     private struct CodableCoordinate: Codable {
 
         let lat: Float
-        let lon: Float
+        let long: Float
     }
 }
