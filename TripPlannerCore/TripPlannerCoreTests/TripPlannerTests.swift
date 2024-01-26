@@ -34,7 +34,7 @@ final class TripPlannerTests: XCTestCase {
 
         expectToThrow(Error.notLoaded) {
 
-            let _ = try await self.makeSUT().build()
+            _ = try await self.makeSUT().build()
         }
     }
 
@@ -44,7 +44,7 @@ final class TripPlannerTests: XCTestCase {
 
             let sut = self.makeSUT([Self.anyPlace("a")])
 
-            let _ = try await sut.loadPlaces()
+            _ = try await sut.loadPlaces()
             try sut.select(from: Self.anyPlace("a"))
             try sut.select(to: Self.anyPlace("a"))
 
@@ -59,7 +59,7 @@ final class TripPlannerTests: XCTestCase {
 
             let sut = self.makeSUT([Self.anyPlace("a")])
 
-            let _ = try await sut.loadPlaces()
+            _ = try await sut.loadPlaces()
             try sut.select(to: Self.anyPlace("a"))
             try sut.select(from: Self.anyPlace("a"))
 
@@ -78,7 +78,7 @@ final class TripPlannerTests: XCTestCase {
                 Self.anyPlace("b")
             ])
 
-            let _ = try await sut.loadPlaces()
+            _ = try await sut.loadPlaces()
             try sut.select(to: Self.anyPlace("c"))
         }
     }
@@ -93,7 +93,7 @@ final class TripPlannerTests: XCTestCase {
                 Self.anyPlace("b")
             ])
 
-            let _ = try await sut.loadPlaces()
+            _ = try await sut.loadPlaces()
             try sut.select(from: Self.anyPlace("c"))
         }
     }
@@ -108,7 +108,7 @@ final class TripPlannerTests: XCTestCase {
                 Self.anyPlace("b"),
             ])
 
-            let _ = try await sut.loadPlaces()
+            _ = try await sut.loadPlaces()
 
             try sut.select(to: Self.anyPlace("a"))
             sut.clearSelection()
@@ -161,7 +161,7 @@ final class TripPlannerTests: XCTestCase {
                 validationCalls.append(validatedPlaces)
             }
 
-            let _ = try await sut.loadPlaces()
+            _ = try await sut.loadPlaces()
 
             XCTAssertEqual(validationCalls, [places])
         }
@@ -171,7 +171,7 @@ final class TripPlannerTests: XCTestCase {
 
         expectToThrow(Error.notLoaded) {
 
-            let _ = try await self.makeSUT(loaderError: .notLoaded).loadPlaces()
+            _ = try await self.makeSUT(loaderError: .notLoaded).loadPlaces()
         }
     }
 
@@ -179,7 +179,7 @@ final class TripPlannerTests: XCTestCase {
 
         expectToThrow(Error.notFound) {
 
-            let _ = try await self.makeSUT(validator: { _ in throw Error.notFound }).loadPlaces()
+            _ = try await self.makeSUT(validator: { _ in throw Error.notFound }).loadPlaces()
         }
     }
 
@@ -197,7 +197,7 @@ final class TripPlannerTests: XCTestCase {
                 Self.anyPlace("bcabcabc")
             ])
 
-            let _ = try await sut.loadPlaces()
+            _ = try await sut.loadPlaces()
 
             XCTAssertEqual(sut.fromSuggestions(filter: "abc"), [
 
@@ -232,7 +232,7 @@ final class TripPlannerTests: XCTestCase {
                 Self.anyPlace("bcabcabc")
             ])
 
-            let _ = try await sut.loadPlaces()
+            _ = try await sut.loadPlaces()
 
             XCTAssertEqual(sut.toSuggestions(filter: "abc"), [
 
@@ -269,21 +269,50 @@ final class TripPlannerTests: XCTestCase {
         expectToThrow(Error.incompleteSelection) {
 
             let sut = self.makeSUT([Self.anyPlace()])
-            let _ = try await sut.loadPlaces()
+            _ = try await sut.loadPlaces()
 
             try sut.select(to: Self.anyPlace())
 
-            let _ = try await sut.build()
+            _ = try await sut.build()
         }
 
         expectToThrow(Error.incompleteSelection) {
 
             let sut = self.makeSUT([Self.anyPlace()])
-            let _ = try await sut.loadPlaces()
+            _ = try await sut.loadPlaces()
 
             try sut.select(from: Self.anyPlace())
 
-            let _ = try await sut.build()
+            _ = try await sut.build()
+        }
+    }
+
+    func test_build_forwardsBuilderResult() {
+
+        execute {
+
+            var routeBuilderCalls: [(Place, Place)] = []
+            let routeBuilderResult: [PresentableRoute] = [.init(places: [Self.anyPlace("c"), Self.anyPlace("d")], tags: [.cheapest])]
+
+            let sut = self.makeSUT([
+
+                Self.anyPlace("a"),
+                Self.anyPlace("b")
+
+            ], routeBuilder: { from, to in
+
+                routeBuilderCalls.append((from, to))
+
+                return routeBuilderResult
+            })
+
+            _ = try await sut.loadPlaces()
+            try sut.select(to: Self.anyPlace("a"))
+            try sut.select(from: Self.anyPlace("b"))
+
+            let routes = try await sut.build()
+
+            XCTAssertEqual(routeBuilderResult, routes)
         }
     }
 
@@ -293,7 +322,8 @@ final class TripPlannerTests: XCTestCase {
 
         _ places: [Place] = [],
         loaderError: Error? = nil,
-        validator: @escaping ([Place]) throws -> Void = { _ in }
+        validator: @escaping ([Place]) throws -> Void = { _ in },
+        routeBuilder: @escaping (Place, Place) async throws -> [PresentableRoute] = { _, _ in [] }
 
     ) -> SUT {
 
@@ -306,7 +336,7 @@ final class TripPlannerTests: XCTestCase {
                 return places
             },
             validator: validator,
-            routeBuilder: { _, _ in [] }
+            routeBuilder: routeBuilder
         )
 
         trackMemoryLeak(for: sut)
@@ -333,4 +363,20 @@ final class TripPlannerTests: XCTestCase {
 extension Coordinate {
 
      static let zero = Coordinate(latitude: 0, longitude: 0)
+}
+
+extension PresentableRoute: Equatable {
+
+    public static func == (lhs: TripPlannerCore.PresentableRoute, rhs: TripPlannerCore.PresentableRoute) -> Bool {
+
+        lhs.places == rhs.places && lhs.tags == rhs.tags
+    }
+}
+
+extension RouteTag: Equatable {
+
+    public static func == (lhs: RouteTag, rhs: RouteTag) -> Bool {
+
+        lhs.rawValue == rhs.rawValue
+    }
 }
