@@ -167,6 +167,19 @@ final class RouteBuilderTests: XCTestCase {
         ])
     }
 
+    func test_build_failsIfElementsAreNotConnected() {
+
+        expectToFail(.notFound, with: [
+
+            (("a", "c"), 1),
+            (("a", "d"), 1),
+            (("d", "c"), 1),
+            (("e", "b"), 1),
+            (("e", "f"), 1),
+            (("f", "b"), 1)
+        ])
+    }
+
     // MARK: Private
 
     private func makeSUT() -> SUT {
