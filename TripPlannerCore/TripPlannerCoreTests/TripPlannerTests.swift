@@ -18,9 +18,7 @@ final class TripPlannerTests: XCTestCase {
 
         expectToThrow(Error.notLoaded) {
 
-            let sut = self.makeSUT()
-
-            try sut.select(to: Self.anyPlace())
+            try self.makeSUT().select(to: Self.anyPlace())
         }
     }
 
@@ -28,12 +26,17 @@ final class TripPlannerTests: XCTestCase {
 
         expectToThrow(Error.notLoaded) {
 
-            let sut = self.makeSUT()
-
-            try sut.select(from: Self.anyPlace())
+            try self.makeSUT().select(from: Self.anyPlace())
         }
     }
 
+    func test_build_beforeLoadingFails() {
+
+        expectToThrow(Error.notLoaded) {
+
+            let _ = try await self.makeSUT().build()
+        }
+    }
 
     // MARK: Private
 
