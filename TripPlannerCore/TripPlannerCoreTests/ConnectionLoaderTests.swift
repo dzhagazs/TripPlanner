@@ -13,7 +13,51 @@ final class ConnectionLoaderTests: XCTestCase {
 
     typealias SUT = ConnectionLoader
 
+    func test_load_forwardsConnections() {
+
+        let connections = [
+
+            (anyConnection("a"), anyMetadata(1, 2)),
+            (anyConnection("b"), anyMetadata(1, 2)),
+
+        ]
+        expectToLoad(
+
+            connections,
+            on: makeSUT(
+
+                decoderResult: .success([
+
+                    anyConnection("a"),
+                    anyConnection("b")
+                ]),
+                providerResult: .success(anyMetadata(1, 2))
+            )
+        )
+    }
+
     // MARK: Private
+
+    private func anyMetadata(_ price: Int, _ distance: Float) -> ConnectionMetadata {
+
+        .init(price: price, approxDistance: distance)
+    }
+
+    private func anyConnection(_ from: String = "", to: String = "") -> Connection {
+
+        .init(
+
+            from: .init(
+
+                name: from,
+                coordinate: .zero
+            ),
+            to: .init(
+
+                name: to,
+                coordinate: .zero
+            ))
+    }
 
     private func expectToLoad(
 
