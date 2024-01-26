@@ -38,7 +38,12 @@ final class TripPlannerImpl: TripPlanner {
 
     func toSuggestions(filter: String) -> [Place] {
 
-        []
+        guard let places = places else { return [] }
+
+        return places
+
+            .filter { $0.name.hasPrefix(filter) }
+            .filter { $0 != from }
     }
 
     func select(from: Place) throws {
