@@ -28,8 +28,6 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
         let filteredNodes = getAllNodes(from: connections, ignored: [from])
         let allNodes = [from] + filteredNodes
         var graph: [E: [E: W]] = [:]
-        var weights: [E: W] = [:]
-        var parents: [E: E] = [:]
         var processed: [E] = []
         var routes: [Route<E, W>] = []
 
@@ -40,19 +38,9 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
             routes.append(.init(path: [from, to], weight: weight))
         }
 
-        // Fill initial weights
-        filteredNodes.forEach { weights[$0] = .upperBound }
-
-        let fromNeighbors = Self.directNeighbors(for: from, with: connections)
-        fromNeighbors.forEach { fromNeighbor in
-
-            let weight = fromNeighbor.2
-            // Fill start direct neighbors weights
-            weights[fromNeighbor.1] = weight
-
-            // Fill start directNeighbors parents
-            parents[fromNeighbor.1] = from
-        }
+        let fromNeighbors = directNeighbors(for: from, with: connections)
+        var weights = initialWeights(for: from, fromNeighbors: fromNeighbors, filteredNodes: filteredNodes)
+        var parents = initialParents(for: from, fromNeighbors: fromNeighbors)
 
         // Fill initial graph
         try allNodes.forEach { node in
@@ -106,6 +94,47 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
     }
 
     // MARK: Private
+
+    private static func initialWeights(
+
+        for from: E, 
+        fromNeighbors: [Connection],
+        filteredNodes: [E]
+
+    ) -> [E: W] {
+
+        var weights: [E: W] = [:]
+
+        // Fill initial weights
+        filteredNodes.forEach { weights[$0] = .upperBound }
+
+        // Fill start direct neighbors weights
+        fromNeighbors.forEach { fromNeighbor in
+
+            let weight = fromNeighbor.2
+            weights[fromNeighbor.1] = weight
+        }
+
+        return weights
+    }
+
+    private static func initialParents(
+
+        for from: E,
+        fromNeighbors: [Connection]
+
+    ) -> [E: E] {
+
+        var parents: [E: E] = [:]
+
+        fromNeighbors.forEach { fromNeighbor in
+
+            // Fill start directNeighbors parents
+            parents[fromNeighbor.1] = from
+        }
+
+        return parents
+    }
 
     private static func lowestWeightElement(_ weights: [E: W], processed: [E]) -> E? {
 
