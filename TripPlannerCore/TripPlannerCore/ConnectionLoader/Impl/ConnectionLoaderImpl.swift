@@ -7,9 +7,9 @@
 
 import Foundation
 
-protocol DataSource {
+protocol ConnectionDataSource {
 
-    func loadConnections() async throws -> Data
+    func load() async throws -> Data
 }
 
 protocol ConnectionDecoder {
@@ -26,7 +26,7 @@ final class ConnectionLoaderImpl: ConnectionLoader {
 
     init(
 
-        client: DataSource,
+        client: ConnectionDataSource,
         decoder: ConnectionDecoder,
         provider: MetadataProvider
 
@@ -41,7 +41,7 @@ final class ConnectionLoaderImpl: ConnectionLoader {
 
     func load() async throws -> [(Connection, ConnectionMetadata)] {
 
-        let data = try await client.loadConnections()
+        let data = try await client.load()
         let connections = try decoder.decode(data)
         let metadata = try await metadata(from: connections)
 
@@ -63,7 +63,7 @@ final class ConnectionLoaderImpl: ConnectionLoader {
         return result
     }
 
-    private let client: DataSource
+    private let client: ConnectionDataSource
     private let decoder: ConnectionDecoder
     private let provider: MetadataProvider
 }
