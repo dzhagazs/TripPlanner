@@ -19,4 +19,24 @@ final class TripPlannerTests: XCTestCase {
 
         TripPlannerImpl()
     }
+
+    private func anyPlace(
+
+        name: String = "",
+        coordinate: Coordinate = .zero
+
+    ) -> Place {
+
+        .init(name: name, coordinate: coordinate)
+    }
+
+    private func anyCoordinate(lat: Float = 0, lon: Float = 0) -> Coordinate {
+
+        .init(latitude: lat, longitude: lon)
+    }
+}
+
+extension Coordinate {
+
+     static let zero = Coordinate(latitude: 0, longitude: 0)
 }
