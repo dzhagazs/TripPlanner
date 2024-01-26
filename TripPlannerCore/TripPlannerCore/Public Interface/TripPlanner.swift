@@ -40,3 +40,8 @@ public struct PresentableRoute {
     public let places: [Place]
     public let tags: [RouteTag]
 }
+
+public enum TripPlannerError: Swift.Error {
+
+    case notLoaded
+}
