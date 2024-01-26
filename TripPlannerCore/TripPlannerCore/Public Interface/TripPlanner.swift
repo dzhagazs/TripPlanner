@@ -7,7 +7,7 @@
 
 public protocol TripPlanner {
 
-    func loadPlaces() async throws
+    func loadPlaces() async throws -> [Place]
 
     func fromSuggestions(filter: String) -> [Place]
     func toSuggestions(filter: String) -> [Place]
