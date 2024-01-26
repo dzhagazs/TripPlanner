@@ -146,11 +146,29 @@ final class TripPlannerTests: XCTestCase {
         }
     }
 
+    func test_loadPlaces_rethrowsLoaderError() {
+
+        expectToThrow(Error.notLoaded) {
+
+            let _ = try await self.makeSUT(loaderError: .notLoaded).loadPlaces()
+        }
+    }
+
     // MARK: Private
 
-    private func makeSUT(_ places: [Place] = []) -> SUT {
+    private func makeSUT(
 
-        let sut = TripPlannerImpl(loader: { places })
+        _ places: [Place] = [],
+        loaderError: Error? = nil
+
+    ) -> SUT {
+
+        let sut = TripPlannerImpl(loader: {
+
+            if let error = loaderError { throw error }
+
+            return places
+        })
 
         trackMemoryLeak(for: sut)
 
