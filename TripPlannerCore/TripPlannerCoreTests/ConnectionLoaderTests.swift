@@ -12,6 +12,7 @@ import XCTest
 final class ConnectionLoaderTests: XCTestCase {
 
     typealias SUT = ConnectionLoader
+    typealias Error = TestError
 
     func test_load_forwardsConnections() {
 
@@ -33,6 +34,15 @@ final class ConnectionLoaderTests: XCTestCase {
                 ]),
                 providerResult: .success(anyMetadata(1, 2))
             )
+        )
+    }
+
+    func test_load_forwardsDataSourceError() {
+
+        expectToFail(
+
+            Error.first,
+            on: makeSUT(sourceResult: .failure(Error.first))
         )
     }
 
@@ -77,9 +87,9 @@ final class ConnectionLoaderTests: XCTestCase {
         }
     }
 
-    private func expectToFail<E: Error & Equatable>(
+    private func expectToFail(
 
-        _ error: E,
+        _ error: Error,
         on sut: SUT,
         file: StaticString = #file,
         line: UInt = #line
@@ -111,6 +121,12 @@ final class ConnectionLoaderTests: XCTestCase {
 
         return sut
     }
+}
+
+enum TestError: Error, Equatable {
+
+    case first
+    case second
 }
 
 extension ConnectionMetadata: Equatable {
