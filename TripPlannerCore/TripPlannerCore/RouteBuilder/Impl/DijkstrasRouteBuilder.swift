@@ -28,7 +28,6 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
         let filteredNodes = getAllNodes(from: connections, ignored: [from])
         let allNodes = [from] + filteredNodes
         var graph: [E: [E: W]] = [:]
-        filteredNodes.forEach { graph[$0] = [:] }
         var weights: [E: W] = [:]
         var parents: [E: E] = [:]
         var processed: [E] = []
