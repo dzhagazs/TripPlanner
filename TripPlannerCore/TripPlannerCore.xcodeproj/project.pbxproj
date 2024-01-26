@@ -111,8 +111,8 @@
 			isa = PBXGroup;
 			children = (
 				1A67A7DF2B62916F008E77D0 /* RouteBuilderTests.swift */,
-				1A67A7E12B6296D7008E77D0 /* Utils */,
 				1A67A7FB2B63DA58008E77D0 /* TripPlannerTests.swift */,
+				1A67A7E12B6296D7008E77D0 /* Utils */,
 			);
 			path = TripPlannerCoreTests;
 			sourceTree = "<group>";
