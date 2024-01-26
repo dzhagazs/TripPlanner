@@ -9,6 +9,7 @@ final class TripPlannerImpl: TripPlanner {
 
     typealias Loader = () async throws -> [Place]
     typealias Validator = ([Place]) throws -> Void
+    typealias RouteBuilder = (Place, Place) async throws -> [PresentableRoute]
     typealias Error = TripPlannerError
 
     // MARK: TripPlanner
@@ -79,25 +80,29 @@ final class TripPlannerImpl: TripPlanner {
     func build() async throws -> [PresentableRoute] {
 
         guard let _ = places else { throw Error.notLoaded }
+        guard let from = from, let to = to else { throw Error.incompleteSelection }
 
-        return []
+        return try await routeBuilder(from, to)
     }
 
     init(
 
         loader: @escaping Loader,
-        validator: @escaping Validator
+        validator: @escaping Validator,
+        routeBuilder: @escaping RouteBuilder
 
     ) {
 
         self.loader = loader
         self.validator = validator
+        self.routeBuilder = routeBuilder
     }
 
     // MARK: Private
 
     private let loader: Loader
     private let validator: Validator
+    private let routeBuilder: RouteBuilder
     private var places: [Place]? = nil
 }
 
