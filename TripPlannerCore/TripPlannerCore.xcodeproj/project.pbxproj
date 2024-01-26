@@ -22,6 +22,8 @@
 		1A67A7F12B62DDF3008E77D0 /* Sequence+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7F02B62DDF3008E77D0 /* Sequence+Extension.swift */; };
 		1A67A7F52B63CC60008E77D0 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7F42B63CC60008E77D0 /* Route.swift */; };
 		1A67A7F82B63CF01008E77D0 /* TripPlanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7F72B63CF01008E77D0 /* TripPlanner.swift */; };
+		1A67A7FA2B63D9F3008E77D0 /* TripPlannerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7F92B63D9F3008E77D0 /* TripPlannerImpl.swift */; };
+		1A67A7FC2B63DA58008E77D0 /* TripPlannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7FB2B63DA58008E77D0 /* TripPlannerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		1A67A7F02B62DDF3008E77D0 /* Sequence+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Extension.swift"; sourceTree = "<group>"; };
 		1A67A7F42B63CC60008E77D0 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		1A67A7F72B63CF01008E77D0 /* TripPlanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlanner.swift; sourceTree = "<group>"; };
+		1A67A7F92B63D9F3008E77D0 /* TripPlannerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlannerImpl.swift; sourceTree = "<group>"; };
+		1A67A7FB2B63DA58008E77D0 /* TripPlannerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlannerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,7 @@
 				1A67A7D22B627D89008E77D0 /* Model */,
 				1A67A7EF2B62DDE3008E77D0 /* Utils */,
 				1A67A7DB2B62845D008E77D0 /* PriceCalculator.swift */,
+				1A67A7F92B63D9F3008E77D0 /* TripPlannerImpl.swift */,
 			);
 			path = TripPlannerCore;
 			sourceTree = "<group>";
@@ -107,6 +112,7 @@
 			children = (
 				1A67A7DF2B62916F008E77D0 /* RouteBuilderTests.swift */,
 				1A67A7E12B6296D7008E77D0 /* Utils */,
+				1A67A7FB2B63DA58008E77D0 /* TripPlannerTests.swift */,
 			);
 			path = TripPlannerCoreTests;
 			sourceTree = "<group>";
@@ -282,6 +288,7 @@
 				1A67A7F82B63CF01008E77D0 /* TripPlanner.swift in Sources */,
 				1A67A7E82B62B7C3008E77D0 /* DijkstrasRouteBuilder.swift in Sources */,
 				1A67A7DC2B62845D008E77D0 /* PriceCalculator.swift in Sources */,
+				1A67A7FA2B63D9F3008E77D0 /* TripPlannerImpl.swift in Sources */,
 				1A67A7F12B62DDF3008E77D0 /* Sequence+Extension.swift in Sources */,
 				1A67A7DE2B628703008E77D0 /* RouteBuilder.swift in Sources */,
 				1A67A7D82B627E7F008E77D0 /* Connection.swift in Sources */,
@@ -296,6 +303,7 @@
 				1A67A7E32B6296E4008E77D0 /* XCTestCase+Extension.swift in Sources */,
 				1A67A7E02B62916F008E77D0 /* RouteBuilderTests.swift in Sources */,
 				1A67A7EC2B62B89B008E77D0 /* Int+Number.swift in Sources */,
+				1A67A7FC2B63DA58008E77D0 /* TripPlannerTests.swift in Sources */,
 				1A67A7EE2B62B8DA008E77D0 /* Route+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
