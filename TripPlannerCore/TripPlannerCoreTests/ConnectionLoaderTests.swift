@@ -17,9 +17,9 @@ final class ConnectionLoaderTests: XCTestCase {
 
     private func makeSUT(
 
-        sourceResult: DataSourceStub.Value,
-        decoderResult: ConnectionDecoderStub.Value,
-        providerResult: MetadataProviderStub.Value
+        sourceResult: DataSourceStub.Value = .success(Data()),
+        decoderResult: ConnectionDecoderStub.Value = .success([]),
+        providerResult: MetadataProviderStub.Value = .success(.init(price: 0, approxDistance: 0))
 
     ) -> SUT {
 
