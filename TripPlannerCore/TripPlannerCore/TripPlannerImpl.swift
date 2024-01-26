@@ -8,6 +8,7 @@
 final class TripPlannerImpl: TripPlanner {
 
     typealias Loader = () async throws -> [Place]
+    typealias Validator = ([Place]) throws -> Void
     typealias Error = TripPlannerError
 
     // MARK: TripPlanner
@@ -18,6 +19,7 @@ final class TripPlannerImpl: TripPlanner {
     func loadPlaces() async throws -> [Place] {
 
         let places = try await loader()
+        try validator(places)
 
         self.places = places
 
@@ -71,14 +73,21 @@ final class TripPlannerImpl: TripPlanner {
         return []
     }
 
-    init(loader: @escaping Loader) {
+    init(
+
+        loader: @escaping Loader,
+        validator: @escaping Validator
+
+    ) {
 
         self.loader = loader
+        self.validator = validator
     }
 
     // MARK: Private
 
     private let loader: Loader
+    private let validator: Validator
     private var places: [Place]? = nil
 }
 
