@@ -95,6 +95,26 @@ final class RouteBuilderTests: XCTestCase {
         )
     }
 
+    func test_build_findsShortestPath5() {
+
+        expectToBuildFirst(
+
+            route: Route(path: ["a", "f", "g", "h", "b"], weight: 4),
+            with: [
+
+                ("a", "b", 10),
+                ("a", "c", 2),
+                ("c", "d", 2),
+                ("d", "e", 2),
+                ("e", "b", 2),
+                ("a", "f", 1),
+                ("f", "g", 1),
+                ("g", "h", 1),
+                ("h", "b", 1)
+            ]
+        )
+    }
+
     func test_build_findsShortestPathWithCycle1() {
 
         expectToBuildFirst(
