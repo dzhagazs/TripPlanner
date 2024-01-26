@@ -9,6 +9,8 @@
 
 final class MetadataProviderStub: MetadataProvider {
 
+    typealias Value = Result<ConnectionMetadata, Error>
+
     // MARK: MetadataProvider
 
     func metadata(for connection: Connection) async throws -> ConnectionMetadata {
@@ -16,13 +18,13 @@ final class MetadataProviderStub: MetadataProvider {
         try result.get()
     }
 
-    init(result: Result<ConnectionMetadata, Error>) {
+    init(result: Value) {
 
         self.result = result
     }
 
     // MARK: Private
 
-    private let result: Result<ConnectionMetadata, Error>
+    private let result: Value
 }
 

@@ -11,6 +11,8 @@ import Foundation
 
 final class ConnectionDecoderStub: ConnectionDecoder {
 
+    typealias Value = Result<[Connection], Error>
+
     // MARK: ConnectionDecoder
 
     func decode(_ data: Data) throws -> [Connection] {
@@ -18,12 +20,12 @@ final class ConnectionDecoderStub: ConnectionDecoder {
         try result.get()
     }
 
-    init(result: Result<[Connection], Error>) {
+    init(result: Value) {
 
         self.result = result
     }
 
     // MARK: Private
 
-    private let result: Result<[Connection], Error>
+    private let result: Value
 }

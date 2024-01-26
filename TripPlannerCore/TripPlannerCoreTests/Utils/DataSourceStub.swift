@@ -11,6 +11,8 @@ import Foundation
 
 final class DataSourceStub: ConnectionDataSource {
 
+    typealias Value = Result<Data, Error>
+
     // MARK: DataSource
 
     func load() async throws -> Data {
@@ -18,12 +20,12 @@ final class DataSourceStub: ConnectionDataSource {
         try result.get()
     }
 
-    init(result: Result<Data, Error>) {
+    init(result: Value) {
 
         self.result = result
     }
 
     // MARK: Private
 
-    private let result: Result<Data, Error>
+    private let result: Value
 }

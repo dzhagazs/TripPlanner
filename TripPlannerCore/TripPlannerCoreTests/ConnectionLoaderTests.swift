@@ -15,13 +15,19 @@ final class ConnectionLoaderTests: XCTestCase {
 
     // MARK: Private
 
-    private func makeSUT() -> SUT {
+    private func makeSUT(
+
+        sourceResult: DataSourceStub.Value,
+        decoderResult: ConnectionDecoderStub.Value,
+        providerResult: MetadataProviderStub.Value
+
+    ) -> SUT {
 
         ConnectionLoaderImpl(
 
-            client: DataSourceStub(result: .success(Data())),
-            decoder: ConnectionDecoderStub(result: .success([])),
-            provider: MetadataProviderStub(result: .success(.init(price: 0, approxDistance: 0)))
+            client: DataSourceStub(result: sourceResult),
+            decoder: ConnectionDecoderStub(result: decoderResult),
+            provider: MetadataProviderStub(result: providerResult)
         )
     }
 }
