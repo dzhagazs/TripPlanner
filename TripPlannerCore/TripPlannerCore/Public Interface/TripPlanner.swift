@@ -47,4 +47,5 @@ public struct PresentableRoute {
 public enum TripPlannerError: Swift.Error {
 
     case notLoaded
+    case notFound
 }
