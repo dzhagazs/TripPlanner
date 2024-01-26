@@ -182,15 +182,6 @@ final class RouteBuilderTests: XCTestCase {
 
     // MARK: Private
 
-    private func makeSUT() -> SUT {
-
-        let sut = SUT()
-
-        trackMemoryLeak(for: sut)
-
-        return sut
-    }
-
     private func expectToBuildFirst(
 
         route: Route<String, Int>,
@@ -228,10 +219,9 @@ final class RouteBuilderTests: XCTestCase {
 
         execute(file: file, line: line) {
 
-            let sut = self.makeSUT()
             let calculator = WeightCalculatorStub(weights)
 
-            let result = try await sut.build(
+            let result = try await SUT.build(
 
                 from: from,
                 to: to,
@@ -256,10 +246,9 @@ final class RouteBuilderTests: XCTestCase {
 
         expectToThrow(error, file: file, line: line) {
 
-            let sut = self.makeSUT()
             let calculator = WeightCalculatorStub(weights)
 
-            let _ = try await sut.build(
+            let _ = try await SUT.build(
 
                 from: from,
                 to: to,

@@ -12,8 +12,7 @@ protocol RouteBuilder {
 
     typealias WeightCalculator = ((RouteElement, RouteElement)) async throws -> Weight
 
-    // The algorightm returns all possible routes, sorted by weight
-    func build(
+    static func build(
 
         from: RouteElement,
         to: RouteElement,

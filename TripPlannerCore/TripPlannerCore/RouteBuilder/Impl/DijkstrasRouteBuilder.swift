@@ -14,7 +14,7 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
     typealias Error = RouteBuilderError
     typealias Connection = (E, E)
 
-    func build(
+    static func build(
 
         from: E,
         to: E,
@@ -154,7 +154,7 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
         return path.reversed()
     }
 
-    private func validate(
+    private static func validate(
 
         from: E,
         to: E,
@@ -166,7 +166,7 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
         guard connections.first(where: { $0.0 == from }) != nil else { throw Error.fromNotFound }
     }
 
-    private func getAllNodes(from connections: [Connection], ignored: [E]) -> [E] {
+    private static func getAllNodes(from connections: [Connection], ignored: [E]) -> [E] {
 
         let nodes = connections.reduce(NSMutableOrderedSet()) {
 
