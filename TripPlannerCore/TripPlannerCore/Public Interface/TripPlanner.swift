@@ -15,6 +15,9 @@ public protocol TripPlanner {
     func select(from: Place) throws
     func select(to: Place) throws
 
+    var from: Place? { get }
+    var to: Place? { get } 
+
     func clearSelection()
 
     func build() async throws -> [PresentableRoute]

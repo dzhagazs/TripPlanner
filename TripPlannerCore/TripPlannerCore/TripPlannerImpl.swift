@@ -12,6 +12,9 @@ final class TripPlannerImpl: TripPlanner {
 
     // MARK: TripPlanner
 
+    private(set) var from: Place?
+    private(set) var to: Place?
+
     func loadPlaces() async throws -> [Place] {
 
         let places = try await loader()
@@ -33,12 +36,12 @@ final class TripPlannerImpl: TripPlanner {
 
     func select(from: Place) throws {
 
-        guard let places = places else { throw Error.notLoaded }
+        guard let _ = places else { throw Error.notLoaded }
     }
 
     func select(to: Place) throws {
 
-        guard let places = places else { throw Error.notLoaded }
+        guard let _ = places else { throw Error.notLoaded }
     }
 
     func clearSelection() {
@@ -48,7 +51,7 @@ final class TripPlannerImpl: TripPlanner {
 
     func build() async throws -> [PresentableRoute] {
 
-        guard let places = places else { throw Error.notLoaded }
+        guard let _ = places else { throw Error.notLoaded }
 
         return []
     }
@@ -61,8 +64,5 @@ final class TripPlannerImpl: TripPlanner {
     // MARK: Private
 
     private let loader: Loader
-
-    private var from: Place?
-    private var to: Place?
     private var places: [Place]? = nil
 }
