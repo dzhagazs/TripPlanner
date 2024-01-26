@@ -16,15 +16,14 @@ final class ConnectionLoaderTests: XCTestCase {
 
     func test_load_forwardsConnections() {
 
-        let connections = [
-
-            (anyConnection("a"), anyMetadata(1, 2)),
-            (anyConnection("b"), anyMetadata(1, 2)),
-
-        ]
         expectToLoad(
 
-            connections,
+            [
+
+                (anyConnection("a"), anyMetadata(1, 2)),
+                (anyConnection("b"), anyMetadata(1, 2)),
+
+            ],
             on: makeSUT(
 
                 decoderResult: .success([
