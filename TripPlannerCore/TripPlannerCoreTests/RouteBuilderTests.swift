@@ -79,6 +79,22 @@ final class RouteBuilderTests: XCTestCase {
         )
     }
 
+    func test_build_findsShortestPathWithCycle() {
+
+        expectToBuildFirst(
+
+            route: Route(path: ["a", "c", "d", "b"], weight: 60),
+            with: [
+
+                (("a", "c"), 10),
+                (("c", "d"), 20),
+                (("d", "e"), 1),
+                (("e", "c"), 1),
+                (("d", "b"), 30)
+            ]
+        )
+    }
+
     func test_build_failsIfToIsNotInGraph() {
 
         expectToFail(.toNotFound, with: [(("a", "c"), 1)])
