@@ -44,6 +44,8 @@
 		1A67A84D2B640395008E77D0 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7D52B627E2A008E77D0 /* Place.swift */; };
 		1A67A86C2B643A04008E77D0 /* ConnectionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A86B2B643A04008E77D0 /* ConnectionLoader.swift */; };
 		1A67A86D2B643A04008E77D0 /* ConnectionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A86B2B643A04008E77D0 /* ConnectionLoader.swift */; };
+		1A67A8702B643B7D008E77D0 /* ConnectionLoaderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A86F2B643B7D008E77D0 /* ConnectionLoaderImpl.swift */; };
+		1A67A8712B643B7D008E77D0 /* ConnectionLoaderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A86F2B643B7D008E77D0 /* ConnectionLoaderImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,7 @@
 		1A67A8532B640395008E77D0 /* TripPlannerCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TripPlannerCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A67A8592B640552008E77D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A67A86B2B643A04008E77D0 /* ConnectionLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionLoader.swift; sourceTree = "<group>"; };
+		1A67A86F2B643B7D008E77D0 /* ConnectionLoaderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionLoaderImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +232,7 @@
 		1A67A86E2B643B31008E77D0 /* Impl */ = {
 			isa = PBXGroup;
 			children = (
+				1A67A86F2B643B7D008E77D0 /* ConnectionLoaderImpl.swift */,
 			);
 			path = Impl;
 			sourceTree = "<group>";
@@ -376,6 +380,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A67A8702B643B7D008E77D0 /* ConnectionLoaderImpl.swift in Sources */,
 				1A67A7F52B63CC60008E77D0 /* Route.swift in Sources */,
 				1A67A86C2B643A04008E77D0 /* ConnectionLoader.swift in Sources */,
 				1A67A7D42B627DCE008E77D0 /* Coordinate.swift in Sources */,
@@ -413,6 +418,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A67A8712B643B7D008E77D0 /* ConnectionLoaderImpl.swift in Sources */,
 				1A67A8422B640395008E77D0 /* Route.swift in Sources */,
 				1A67A86D2B643A04008E77D0 /* ConnectionLoader.swift in Sources */,
 				1A67A8432B640395008E77D0 /* Coordinate.swift in Sources */,
