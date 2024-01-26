@@ -157,11 +157,3 @@ extension ConnectionMetadata: Equatable {
         lhs.price == rhs.price && lhs.approxDistance == rhs.approxDistance
     }
 }
-
-extension Connection: Equatable {
-
-    public static func == (lhs: Connection, rhs: Connection) -> Bool {
-
-        lhs.from == rhs.from && lhs.to == rhs.to
-    }
-}

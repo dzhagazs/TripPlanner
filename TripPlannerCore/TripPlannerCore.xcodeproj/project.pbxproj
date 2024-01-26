@@ -49,6 +49,7 @@
 		1A67A8762B644609008E77D0 /* DataSourceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8752B644609008E77D0 /* DataSourceStub.swift */; };
 		1A67A8782B644660008E77D0 /* ConnectionDecoderStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8772B644660008E77D0 /* ConnectionDecoderStub.swift */; };
 		1A67A87A2B64469C008E77D0 /* MetadataProviderStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8792B64469C008E77D0 /* MetadataProviderStub.swift */; };
+		1A67A87C2B645088008E77D0 /* Connection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A87B2B645088008E77D0 /* Connection+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		1A67A8752B644609008E77D0 /* DataSourceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceStub.swift; sourceTree = "<group>"; };
 		1A67A8772B644660008E77D0 /* ConnectionDecoderStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionDecoderStub.swift; sourceTree = "<group>"; };
 		1A67A8792B64469C008E77D0 /* MetadataProviderStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataProviderStub.swift; sourceTree = "<group>"; };
+		1A67A87B2B645088008E77D0 /* Connection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Connection+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 				1A67A8752B644609008E77D0 /* DataSourceStub.swift */,
 				1A67A8772B644660008E77D0 /* ConnectionDecoderStub.swift */,
 				1A67A8792B64469C008E77D0 /* MetadataProviderStub.swift */,
+				1A67A87B2B645088008E77D0 /* Connection+Extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				1A67A7E32B6296E4008E77D0 /* XCTestCase+Extension.swift in Sources */,
 				1A67A8042B63FCA0008E77D0 /* PresentableRoute+Extension.swift in Sources */,
 				1A67A8062B63FCD4008E77D0 /* RouteTag+Extension.swift in Sources */,
+				1A67A87C2B645088008E77D0 /* Connection+Extension.swift in Sources */,
 				1A67A7E02B62916F008E77D0 /* RouteBuilderTests.swift in Sources */,
 				1A67A8762B644609008E77D0 /* DataSourceStub.swift in Sources */,
 				1A67A7FE2B63FBCE008E77D0 /* XCTestCase+Places.swift in Sources */,
