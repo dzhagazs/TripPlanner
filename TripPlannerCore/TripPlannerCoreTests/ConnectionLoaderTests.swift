@@ -17,7 +17,7 @@ final class ConnectionLoaderTests: XCTestCase {
 
     private func expectToLoad(
 
-        _ connections: [Connection],
+        _ connections: [(Connection, ConnectionMetadata)],
         on sut: SUT,
         file: StaticString = #file,
         line: UInt = #line
@@ -28,7 +28,8 @@ final class ConnectionLoaderTests: XCTestCase {
 
             let result = try await sut.load()
 
-            XCTAssertEqual(connections, result, file: file, line: line)
+            XCTAssertEqual(connections.map { $0.0 }, result.map { $0.0 }, file: file, line: line)
+            XCTAssertEqual(connections.map { $0.1 }, result.map { $0.1 }, file: file, line: line)
         }
     }
 
@@ -65,5 +66,21 @@ final class ConnectionLoaderTests: XCTestCase {
         trackMemoryLeak(for: sut)
 
         return sut
+    }
+}
+
+extension ConnectionMetadata: Equatable {
+
+    public static func == (lhs: ConnectionMetadata, rhs: ConnectionMetadata) -> Bool {
+
+        lhs.price == rhs.price && lhs.approxDistance == rhs.approxDistance
+    }
+}
+
+extension Connection: Equatable {
+
+    public static func == (lhs: Connection, rhs: Connection) -> Bool {
+
+        lhs.from == rhs.from && lhs.to == rhs.to
     }
 }
