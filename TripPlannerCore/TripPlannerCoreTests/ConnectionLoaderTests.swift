@@ -19,9 +19,9 @@ final class ConnectionLoaderTests: XCTestCase {
 
         ConnectionLoaderImpl(
 
-            client: <#T##DataSource#>,
-            decoder: <#T##ConnectionDecoder#>,
-            provider: <#T##MetadataProvider#>
+            client: DataSourceStub(result: .success(Data())),
+            decoder: ConnectionDecoderStub(result: .success([])),
+            provider: MetadataProviderStub(result: .success(.init(price: 0, approxDistance: 0)))
         )
     }
 }
