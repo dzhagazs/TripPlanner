@@ -10,16 +10,16 @@ protocol RouteBuilder {
     associatedtype Weight: Number
     associatedtype RouteElement: Hashable, Equatable
 
-    typealias WeightCalculator = ((RouteElement, RouteElement)) async throws -> Weight
+    // I still need weight calculator to be async, but this should be the users responsibility to collect all needed weights
+//    typealias WeightCalculator = ((RouteElement, RouteElement)) async throws -> Weight
 
     static func build(
 
         from: RouteElement,
         to: RouteElement,
-        connections: [(RouteElement, RouteElement)],
-        weightCalculator: WeightCalculator
+        connections: [(RouteElement, RouteElement, Weight)]
 
-    ) async throws -> [Route<RouteElement, Weight>]
+    ) throws -> [Route<RouteElement, Weight>]
 }
 
 struct Route<E, W> {

@@ -12,16 +12,15 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
     typealias Weight = W
     typealias RouteElement = E
     typealias Error = RouteBuilderError
-    typealias Connection = (E, E)
+    typealias Connection = (E, E, W)
 
     static func build(
 
         from: E,
         to: E,
-        connections: [Connection],
-        weightCalculator: (Connection) async throws -> W
+        connections: [Connection]
 
-    ) async throws -> [Route<E, W>] {
+    ) throws -> [Route<E, W>] {
 
         guard connections.isEmpty == false else { return [] }
         try validate(from: from, to: to, connections: connections)
@@ -36,38 +35,38 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
         var routes: [Route<E, W>] = []
 
         // Check for direct connection
-        if let _ = connections.first(where: { $0.0 == from && $0.1 == to }) {
+        if let directConnection = connections.first(where: { $0.0 == from && $0.1 == to }) {
 
-            let weight = try await weightCalculator((from, to))
+            let weight = directConnection.2
             routes.append(.init(path: [from, to], weight: weight))
         }
-
 
         // Fill initial weights
         filteredNodes.forEach { weights[$0] = .upperBound }
 
         let fromNeighbors = Self.directNeighbors(for: from, with: connections)
-        try await fromNeighbors.asyncForEach { fromNeighbor in
+        fromNeighbors.forEach { fromNeighbor in
 
+            let weight = fromNeighbor.2
             // Fill start direct neighbors weights
-            weights[fromNeighbor] = try await weightCalculator((from, fromNeighbor))
+            weights[fromNeighbor.1] = weight
 
             // Fill start directNeighbors parents
-            parents[fromNeighbor] = from
+            parents[fromNeighbor.1] = from
         }
 
         // Fill initial graph
-        try await allNodes.asyncForEach { node in
+        try allNodes.forEach { node in
 
             let neighbors = Self.directNeighbors(for: node, with: connections)
             var neighborsWeights: [E: W] = [:]
-            try await neighbors.asyncForEach { neighbor in
+            try neighbors.forEach { neighbor in
 
-                let weight = try await weightCalculator((node, neighbor))
+                let weight = neighbor.2
 
                 guard weight >= .zero else { throw Error.invalidWeight }
 
-                neighborsWeights[neighbor] = weight
+                neighborsWeights[neighbor.1] = weight
             }
 
             graph[node] = neighborsWeights
@@ -126,14 +125,14 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
         return result
     }
 
-    private static func directNeighbors(for element: E, with connections: [Connection]) -> [E] {
+    private static func directNeighbors(for element: E, with connections: [Connection]) -> [Connection] {
 
-        var neighbors: [E] = []
+        var neighbors: [Connection] = []
         connections.forEach { connection in
 
             if connection.0 == element {
 
-                neighbors.append(connection.1)
+                neighbors.append(connection)
             }
         }
 
@@ -158,7 +157,7 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
 
         from: E,
         to: E,
-        connections: [(E, E)]
+        connections: [(E, E, W)]
 
     ) throws {
 
