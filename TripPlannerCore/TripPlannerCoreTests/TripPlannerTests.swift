@@ -316,6 +316,32 @@ final class TripPlannerTests: XCTestCase {
         }
     }
 
+    func test_build_forwardsBuilderError() {
+
+        expectToThrow(Error.notFound) {
+
+            var routeBuilderCalls: [(Place, Place)] = []
+
+            let sut = self.makeSUT([
+
+                Self.anyPlace("a"),
+                Self.anyPlace("b")
+
+            ], routeBuilder: {from, to in
+
+                routeBuilderCalls.append((from, to))
+
+                throw Error.notFound
+            })
+
+            _ = try await sut.loadPlaces()
+            try sut.select(to: Self.anyPlace("a"))
+            try sut.select(from: Self.anyPlace("b"))
+
+            _ = try await sut.build()
+        }
+    }
+
     // MARK: Private
 
     private func makeSUT(
