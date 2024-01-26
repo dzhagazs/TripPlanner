@@ -24,14 +24,14 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
 
         try validate(from: from, to: to, connections: connections)
 
-        let filteredNodes = getAllNodes(from: connections, ignored: [from])
-
+        let allNodes = getAllNodes(from: connections)
         let fromNeighbors = directNeighbors(for: from, with: connections)
-        var weights = initialWeights(for: from, fromNeighbors: fromNeighbors, filteredNodes: filteredNodes)
+
+        var weights = initialWeights(for: from, fromNeighbors: fromNeighbors, from: allNodes)
         var parents = initialParents(for: from, fromNeighbors: fromNeighbors)
         var routes = initialRoutes(from: from, to: to, connections: connections)
 
-        let graph = try initialGraph(for: [from] + filteredNodes, connections: connections)
+        let graph = try initialGraph(for: allNodes, connections: connections)
 
         fill(
 
@@ -63,19 +63,16 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
         guard connections.first(where: { $0.0 == from }) != nil else { throw Error.fromNotFound }
     }
 
-    private static func getAllNodes(from connections: [Connection], ignored: [E]) -> [E] {
+    private static func getAllNodes(from connections: [Connection]) -> [E] {
 
-        let nodes = connections.reduce(NSMutableOrderedSet()) {
+        connections.reduce(NSMutableOrderedSet()) {
 
             $0.add($1.0)
             $0.add($1.1)
 
             return $0
-        }
 
-        nodes.minus(NSOrderedSet(array: ignored))
-
-        return nodes.array as! [E]
+        }.array as! [E]
     }
 
     private static func directNeighbors(
@@ -92,14 +89,14 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
 
         for from: E,
         fromNeighbors: [Connection],
-        filteredNodes: [E]
+        from nodes: [E]
 
     ) -> [E: W] {
 
         var weights: [E: W] = [:]
 
         // Fill initial weights
-        filteredNodes.forEach { weights[$0] = .upperBound }
+        nodes.forEach { weights[$0] = .upperBound }
 
         // Fill start direct neighbors weights
         fromNeighbors.forEach { fromNeighbor in
