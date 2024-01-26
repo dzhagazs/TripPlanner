@@ -23,20 +23,6 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
 
     ) async throws -> [Route<E, W>] {
 
-        func directNeighbors(for element: E, with connections: [Connection]) -> [E] {
-
-            var neighbors: [E] = []
-            connections.forEach { connection in
-
-                if connection.0 == element {
-
-                    neighbors.append(connection.1)
-                }
-            }
-
-            return neighbors
-        }
-
         func path(from: E, to: E, parents: [E: E]) -> [E] {
 
             var path: [E] = []
@@ -74,7 +60,7 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
         // Fill initial weights
         filteredNodes.forEach { weights[$0] = .upperBound }
 
-        let fromNeighbors = directNeighbors(for: from, with: connections)
+        let fromNeighbors = Self.directNeighbors(for: from, with: connections)
         try await fromNeighbors.asyncForEach { fromNeighbor in
 
             // Fill start direct neighbors weights
@@ -87,7 +73,7 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
         // Fill initial graph
         try await allNodes.asyncForEach { node in
 
-            let neighbors = directNeighbors(for: node, with: connections)
+            let neighbors = Self.directNeighbors(for: node, with: connections)
             var neighborsWeights: [E: W] = [:]
             try await neighbors.asyncForEach { neighbor in
 
@@ -152,6 +138,20 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
         }
 
         return result
+    }
+
+    private static func directNeighbors(for element: E, with connections: [Connection]) -> [E] {
+
+        var neighbors: [E] = []
+        connections.forEach { connection in
+
+            if connection.0 == element {
+
+                neighbors.append(connection.1)
+            }
+        }
+
+        return neighbors
     }
 
     private func validate(
