@@ -129,6 +129,23 @@ final class TripPlannerTests: XCTestCase {
         }
     }
 
+    func test_loadPlaces_forwardsLoaderPlaces() {
+
+        execute {
+
+            let places = [
+
+                Self.anyPlace("a"),
+                Self.anyPlace("b"),
+            ]
+            let sut = self.makeSUT(places)
+
+            let result = try await sut.loadPlaces()
+
+            XCTAssertEqual(places, result)
+        }
+    }
+
     // MARK: Private
 
     private func makeSUT(_ places: [Place] = []) -> SUT {
