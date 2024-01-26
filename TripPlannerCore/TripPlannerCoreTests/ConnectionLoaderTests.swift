@@ -69,11 +69,6 @@ final class ConnectionLoaderTests: XCTestCase {
 
     // MARK: Private
 
-    private func anyMetadata(_ price: Int, _ distance: Float) -> ConnectionMetadata {
-
-        .init(price: price, approxDistance: distance)
-    }
-
     private func expectToLoad(
 
         _ connections: [(Connection, ConnectionMetadata)],
