@@ -31,14 +31,40 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
         var weights = initialWeights(for: from, fromNeighbors: fromNeighbors, filteredNodes: filteredNodes)
         var parents = initialParents(for: from, fromNeighbors: fromNeighbors)
 
+        var routes = initialRoutes(from: from, to: to, connections: connections)
+
+        let graph = try initialGraph(for: allNodes, connections: connections)
+
+        fill(
+
+            with: graph,
+            from: from,
+            to: to,
+            routes: &routes,
+            weights: &weights,
+            parents: &parents
+        )
+
+        guard routes.count > 0 else { throw Error.notFound }
+
+        return routes.sorted(by: { $0.weight < $1.weight })
+    }
+
+    // MARK: Private
+
+    private static func fill(
+
+        with graph: [E: [E: W]],
+        from: E,
+        to: E,
+        routes: inout [Route<E, W>],
+        weights: inout [E: W],
+        parents: inout [E: E]
+    ) {
+
         var processed: [E] = []
-        var routes: [Route<E, W>] = []
-
-        checkForDirectRoute(from: from, to: to, connections: connections, routes: &routes)
-
-        var graph = try initialGraph(for: allNodes, connections: connections)
-
         var processedElement = Self.lowestWeightElement(weights, processed: processed)
+
         repeat {
 
             guard let element = processedElement else { break }
@@ -66,13 +92,7 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
             processedElement = Self.lowestWeightElement(weights, processed: processed)
 
         } while processedElement != nil
-
-        guard routes.count > 0 else { throw Error.notFound }
-
-        return routes.sorted(by: { $0.weight < $1.weight })
     }
-
-    // MARK: Private
 
     private static func initialGraph(for nodes: [E], connections: [Connection]) throws -> [E: [E: W]] {
 
@@ -98,12 +118,16 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
         return graph
     }
 
-    private static func checkForDirectRoute(from: E, to: E, connections: [Connection], routes: inout [Route<E, W>]) {
+    private static func initialRoutes(from: E, to: E, connections: [Connection]) -> [Route<E, W>] {
+
+        var routes: [Route<E, W>] = []
 
         if let direct = directConnectionRouteIfExists(from: from, to: to, connections: connections) {
 
             routes.append(direct)
         }
+
+        return routes
     }
 
     private static func directConnectionRouteIfExists(
