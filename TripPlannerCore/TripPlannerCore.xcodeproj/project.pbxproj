@@ -29,6 +29,7 @@
 		1A67A8022B63FC6A008E77D0 /* Coordinate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8012B63FC6A008E77D0 /* Coordinate+Extension.swift */; };
 		1A67A8042B63FCA0008E77D0 /* PresentableRoute+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8032B63FCA0008E77D0 /* PresentableRoute+Extension.swift */; };
 		1A67A8062B63FCD4008E77D0 /* RouteTag+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8052B63FCD4008E77D0 /* RouteTag+Extension.swift */; };
+		1A67A8082B63FF70008E77D0 /* Root.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8072B63FF70008E77D0 /* Root.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		1A67A8012B63FC6A008E77D0 /* Coordinate+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Coordinate+Extension.swift"; sourceTree = "<group>"; };
 		1A67A8032B63FCA0008E77D0 /* PresentableRoute+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PresentableRoute+Extension.swift"; sourceTree = "<group>"; };
 		1A67A8052B63FCD4008E77D0 /* RouteTag+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RouteTag+Extension.swift"; sourceTree = "<group>"; };
+		1A67A8072B63FF70008E77D0 /* Root.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Root.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				1A67A7F72B63CF01008E77D0 /* TripPlanner.swift */,
+				1A67A8072B63FF70008E77D0 /* Root.swift */,
 			);
 			path = "Public Interface";
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				1A67A7EA2B62B80E008E77D0 /* RouteBuilderError.swift in Sources */,
 				1A67A7F82B63CF01008E77D0 /* TripPlanner.swift in Sources */,
 				1A67A7E82B62B7C3008E77D0 /* DijkstrasRouteBuilder.swift in Sources */,
+				1A67A8082B63FF70008E77D0 /* Root.swift in Sources */,
 				1A67A7DC2B62845D008E77D0 /* PriceCalculator.swift in Sources */,
 				1A67A7FA2B63D9F3008E77D0 /* TripPlannerImpl.swift in Sources */,
 				1A67A7F12B62DDF3008E77D0 /* Sequence+Extension.swift in Sources */,
