@@ -2,7 +2,7 @@
 //  Root.swift
 //  TripPlannerCore
 //
-//  Created by Alexandr Vasildzhagaz on 26.01.2024.
+//  Created by Oleksandr Vasildzhahaz on 26.01.2024.
 //
 
 public func start() -> TripPlanner {
