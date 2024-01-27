@@ -15,29 +15,12 @@ final class ConnectionDecoderTests: XCTestCase {
 
     func test_decode_emptyReturnsEmpty() {
 
-        execute {
-
-            let sut = self.makeSUT()
-
-            let connections = try sut.decode(self.encodedString(from: []).data(using: .utf8)!)
-
-            XCTAssertEqual(connections.map { $0.0 }, [])
-            XCTAssertEqual(connections.map { $0.1 }, [])
-        }
+        ensureDecodes([])
     }
 
     func test_decode_oneReturnsOneConnection() {
 
-        execute {
-
-            let sut = self.makeSUT()
-
-            let connections = [self.anyConnection("a", to: "b")]
-            let result = try sut.decode(self.encodedString(from: connections.map { ($0, 10) }).data(using: .utf8)!)
-
-            XCTAssertEqual(result.map { $0.0 }, [self.anyConnection("a", to: "b")])
-            XCTAssertEqual(result.map { $0.1 }, [10])
-        }
+        ensureDecodes([(self.anyConnection("a", to: "b"), 10)])
     }
 
     // MARK: Private
@@ -49,6 +32,23 @@ final class ConnectionDecoderTests: XCTestCase {
         trackMemoryLeak(for: sut)
 
         return sut
+    }
+
+    private func ensureDecodes(
+
+        _ connections: [(Connection, Int)],
+        file: StaticString = #file,
+        line: UInt = #line
+
+    ) {
+
+        execute(file: file, line: line) {
+
+            let result = try self.makeSUT().decode(self.encodedString(from: connections).data(using: .utf8)!)
+
+            XCTAssertEqual(result.map { $0.0 }, connections.map { $0.0 }, file: file, line: line)
+            XCTAssertEqual(result.map { $0.1 }, connections.map { $0.1 }, file: file, line: line)
+        }
     }
 
     private func encodedString(from connections: [(Connection, Int)]) -> String {
