@@ -33,13 +33,6 @@ extension RouteTag {
     public static let shortest = RouteTag(rawValue: "shortest")
 }
 
-public struct PresentableRoute {
-
-    public let places: [Place]
-    public let tags: [RouteTag]
-    public let metrics: [RouteMetric]
-}
-
 public struct RouteMetric {
 
     public let name: String
