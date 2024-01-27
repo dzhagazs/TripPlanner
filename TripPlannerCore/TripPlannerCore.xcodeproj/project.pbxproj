@@ -66,6 +66,7 @@
 		1A67A8942B645762008E77D0 /* ConnectionDecoderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8922B645762008E77D0 /* ConnectionDecoderImpl.swift */; };
 		1A67A8962B6459F8008E77D0 /* ConnectionDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8952B6459F8008E77D0 /* ConnectionDecoderTests.swift */; };
 		1A67A8982B651FC7008E77D0 /* ConnectionDecoderTests+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8972B651FC7008E77D0 /* ConnectionDecoderTests+Extension.swift */; };
+		1A67A89A2B652053008E77D0 /* RouteBuilderTests+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8992B652053008E77D0 /* RouteBuilderTests+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 		1A67A8922B645762008E77D0 /* ConnectionDecoderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionDecoderImpl.swift; sourceTree = "<group>"; };
 		1A67A8952B6459F8008E77D0 /* ConnectionDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionDecoderTests.swift; sourceTree = "<group>"; };
 		1A67A8972B651FC7008E77D0 /* ConnectionDecoderTests+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectionDecoderTests+Extension.swift"; sourceTree = "<group>"; };
+		1A67A8992B652053008E77D0 /* RouteBuilderTests+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RouteBuilderTests+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +225,7 @@
 				1A67A87F2B64510A008E77D0 /* TestError.swift */,
 				1A67A8852B645215008E77D0 /* ConnectionLoaderTests+Extension.swift */,
 				1A67A8972B651FC7008E77D0 /* ConnectionDecoderTests+Extension.swift */,
+				1A67A8992B652053008E77D0 /* RouteBuilderTests+Extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 				1A67A8042B63FCA0008E77D0 /* PresentableRoute+Extension.swift in Sources */,
 				1A67A8062B63FCD4008E77D0 /* RouteTag+Extension.swift in Sources */,
 				1A67A87E2B6450D3008E77D0 /* ConnectionMetadata+Extension.swift in Sources */,
+				1A67A89A2B652053008E77D0 /* RouteBuilderTests+Extension.swift in Sources */,
 				1A67A8802B64510A008E77D0 /* TestError.swift in Sources */,
 				1A67A8862B645215008E77D0 /* ConnectionLoaderTests+Extension.swift in Sources */,
 				1A67A87C2B645088008E77D0 /* Connection+Extension.swift in Sources */,
