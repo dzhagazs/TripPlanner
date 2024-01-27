@@ -67,6 +67,9 @@
 		1A67A89A2B652053008E77D0 /* RouteBuilderTests+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8992B652053008E77D0 /* RouteBuilderTests+Extension.swift */; };
 		1A67A89D2B652390008E77D0 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A89C2B652390008E77D0 /* Definitions.swift */; };
 		1A67A89E2B652390008E77D0 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A89C2B652390008E77D0 /* Definitions.swift */; };
+		1A67A8A02B6524B6008E77D0 /* MetadataProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A89F2B6524B6008E77D0 /* MetadataProviderImpl.swift */; };
+		1A67A8A12B6524B6008E77D0 /* MetadataProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A89F2B6524B6008E77D0 /* MetadataProviderImpl.swift */; };
+		1A67A8A32B6525AE008E77D0 /* MetadataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8A22B6525AE008E77D0 /* MetadataProviderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +128,8 @@
 		1A67A8972B651FC7008E77D0 /* ConnectionDecoderTests+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectionDecoderTests+Extension.swift"; sourceTree = "<group>"; };
 		1A67A8992B652053008E77D0 /* RouteBuilderTests+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RouteBuilderTests+Extension.swift"; sourceTree = "<group>"; };
 		1A67A89C2B652390008E77D0 /* Definitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Definitions.swift; sourceTree = "<group>"; };
+		1A67A89F2B6524B6008E77D0 /* MetadataProviderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataProviderImpl.swift; sourceTree = "<group>"; };
+		1A67A8A22B6525AE008E77D0 /* MetadataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataProviderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +199,7 @@
 				1A67A7FB2B63DA58008E77D0 /* TripPlannerTests.swift */,
 				1A67A8722B643FFA008E77D0 /* ConnectionLoaderTests.swift */,
 				1A67A8952B6459F8008E77D0 /* ConnectionDecoderTests.swift */,
+				1A67A8A22B6525AE008E77D0 /* MetadataProviderTests.swift */,
 				1A67A7E12B6296D7008E77D0 /* Utils */,
 			);
 			path = TripPlannerCoreTests;
@@ -284,6 +290,7 @@
 				1A67A86F2B643B7D008E77D0 /* ConnectionLoaderImpl.swift */,
 				1A67A8872B6452B8008E77D0 /* URLSession+Extension.swift */,
 				1A67A8922B645762008E77D0 /* ConnectionDecoderImpl.swift */,
+				1A67A89F2B6524B6008E77D0 /* MetadataProviderImpl.swift */,
 			);
 			path = Impl;
 			sourceTree = "<group>";
@@ -462,6 +469,7 @@
 				1A67A88D2B6456E5008E77D0 /* ConnectionDecoder.swift in Sources */,
 				1A67A7F82B63CF01008E77D0 /* TripPlanner.swift in Sources */,
 				1A67A7E82B62B7C3008E77D0 /* DijkstrasRouteBuilder.swift in Sources */,
+				1A67A8A02B6524B6008E77D0 /* MetadataProviderImpl.swift in Sources */,
 				1A67A8082B63FF70008E77D0 /* Root.swift in Sources */,
 				1A67A7FA2B63D9F3008E77D0 /* TripPlannerImpl.swift in Sources */,
 				1A67A7F12B62DDF3008E77D0 /* Sequence+Extension.swift in Sources */,
@@ -484,6 +492,7 @@
 				1A67A87E2B6450D3008E77D0 /* ConnectionMetadata+Extension.swift in Sources */,
 				1A67A89A2B652053008E77D0 /* RouteBuilderTests+Extension.swift in Sources */,
 				1A67A8802B64510A008E77D0 /* TestError.swift in Sources */,
+				1A67A8A32B6525AE008E77D0 /* MetadataProviderTests.swift in Sources */,
 				1A67A8862B645215008E77D0 /* ConnectionLoaderTests+Extension.swift in Sources */,
 				1A67A87C2B645088008E77D0 /* Connection+Extension.swift in Sources */,
 				1A67A7E02B62916F008E77D0 /* RouteBuilderTests.swift in Sources */,
@@ -521,6 +530,7 @@
 				1A67A8492B640395008E77D0 /* TripPlannerImpl.swift in Sources */,
 				1A67A84A2B640395008E77D0 /* Sequence+Extension.swift in Sources */,
 				1A67A8942B645762008E77D0 /* ConnectionDecoderImpl.swift in Sources */,
+				1A67A8A12B6524B6008E77D0 /* MetadataProviderImpl.swift in Sources */,
 				1A67A84B2B640395008E77D0 /* RouteBuilder.swift in Sources */,
 				1A67A84C2B640395008E77D0 /* Connection.swift in Sources */,
 				1A67A84D2B640395008E77D0 /* Place.swift in Sources */,
