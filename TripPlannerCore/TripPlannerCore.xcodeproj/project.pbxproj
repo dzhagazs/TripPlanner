@@ -11,7 +11,6 @@
 		1A67A7D42B627DCE008E77D0 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7D32B627DCE008E77D0 /* Coordinate.swift */; };
 		1A67A7D62B627E2A008E77D0 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7D52B627E2A008E77D0 /* Place.swift */; };
 		1A67A7D82B627E7F008E77D0 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7D72B627E7F008E77D0 /* Connection.swift */; };
-		1A67A7DC2B62845D008E77D0 /* PriceCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7DB2B62845D008E77D0 /* PriceCalculator.swift */; };
 		1A67A7DE2B628703008E77D0 /* RouteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7DD2B628703008E77D0 /* RouteBuilder.swift */; };
 		1A67A7E02B62916F008E77D0 /* RouteBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7DF2B62916F008E77D0 /* RouteBuilderTests.swift */; };
 		1A67A7E32B6296E4008E77D0 /* XCTestCase+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7E22B6296E4008E77D0 /* XCTestCase+Extension.swift */; };
@@ -35,7 +34,6 @@
 		1A67A8452B640395008E77D0 /* TripPlanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7F72B63CF01008E77D0 /* TripPlanner.swift */; };
 		1A67A8462B640395008E77D0 /* DijkstrasRouteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7E72B62B7C3008E77D0 /* DijkstrasRouteBuilder.swift */; };
 		1A67A8472B640395008E77D0 /* Root.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8072B63FF70008E77D0 /* Root.swift */; };
-		1A67A8482B640395008E77D0 /* PriceCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7DB2B62845D008E77D0 /* PriceCalculator.swift */; };
 		1A67A8492B640395008E77D0 /* TripPlannerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7F92B63D9F3008E77D0 /* TripPlannerImpl.swift */; };
 		1A67A84A2B640395008E77D0 /* Sequence+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7F02B62DDF3008E77D0 /* Sequence+Extension.swift */; };
 		1A67A84B2B640395008E77D0 /* RouteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7DD2B628703008E77D0 /* RouteBuilder.swift */; };
@@ -67,6 +65,8 @@
 		1A67A8962B6459F8008E77D0 /* ConnectionDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8952B6459F8008E77D0 /* ConnectionDecoderTests.swift */; };
 		1A67A8982B651FC7008E77D0 /* ConnectionDecoderTests+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8972B651FC7008E77D0 /* ConnectionDecoderTests+Extension.swift */; };
 		1A67A89A2B652053008E77D0 /* RouteBuilderTests+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8992B652053008E77D0 /* RouteBuilderTests+Extension.swift */; };
+		1A67A89D2B652390008E77D0 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A89C2B652390008E77D0 /* Definitions.swift */; };
+		1A67A89E2B652390008E77D0 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A89C2B652390008E77D0 /* Definitions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,7 +85,6 @@
 		1A67A7D32B627DCE008E77D0 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		1A67A7D52B627E2A008E77D0 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		1A67A7D72B627E7F008E77D0 /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
-		1A67A7DB2B62845D008E77D0 /* PriceCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceCalculator.swift; sourceTree = "<group>"; };
 		1A67A7DD2B628703008E77D0 /* RouteBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilder.swift; sourceTree = "<group>"; };
 		1A67A7DF2B62916F008E77D0 /* RouteBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilderTests.swift; sourceTree = "<group>"; };
 		1A67A7E22B6296E4008E77D0 /* XCTestCase+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extension.swift"; sourceTree = "<group>"; };
@@ -125,6 +124,7 @@
 		1A67A8952B6459F8008E77D0 /* ConnectionDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionDecoderTests.swift; sourceTree = "<group>"; };
 		1A67A8972B651FC7008E77D0 /* ConnectionDecoderTests+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectionDecoderTests+Extension.swift"; sourceTree = "<group>"; };
 		1A67A8992B652053008E77D0 /* RouteBuilderTests+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RouteBuilderTests+Extension.swift"; sourceTree = "<group>"; };
+		1A67A89C2B652390008E77D0 /* Definitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Definitions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,12 +176,12 @@
 			isa = PBXGroup;
 			children = (
 				1A67A7F62B63CEDC008E77D0 /* Public Interface */,
+				1A67A89B2B652379008E77D0 /* TripPlanner */,
 				1A67A7E42B62B76B008E77D0 /* RouteBuilder */,
 				1A67A7D22B627D89008E77D0 /* Model */,
 				1A67A86A2B643914008E77D0 /* ConnectionLoader */,
 				1A67A7EF2B62DDE3008E77D0 /* Utils */,
-				1A67A7DB2B62845D008E77D0 /* PriceCalculator.swift */,
-				1A67A7F92B63D9F3008E77D0 /* TripPlannerImpl.swift */,
+				1A67A89C2B652390008E77D0 /* Definitions.swift */,
 				1A67A8592B640552008E77D0 /* Info.plist */,
 			);
 			path = TripPlannerCore;
@@ -234,9 +234,9 @@
 			isa = PBXGroup;
 			children = (
 				1A67A7DD2B628703008E77D0 /* RouteBuilder.swift */,
-				1A67A7E62B62B790008E77D0 /* Impl */,
 				1A67A7E92B62B80E008E77D0 /* RouteBuilderError.swift */,
 				1A67A7F42B63CC60008E77D0 /* Route.swift */,
+				1A67A7E62B62B790008E77D0 /* Impl */,
 			);
 			path = RouteBuilder;
 			sourceTree = "<group>";
@@ -298,6 +298,14 @@
 				1A67A8832B6451C4008E77D0 /* XCTestCase+ConnectionMetadata.swift */,
 			);
 			path = XCTestCase;
+			sourceTree = "<group>";
+		};
+		1A67A89B2B652379008E77D0 /* TripPlanner */ = {
+			isa = PBXGroup;
+			children = (
+				1A67A7F92B63D9F3008E77D0 /* TripPlannerImpl.swift */,
+			);
+			path = TripPlanner;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -448,13 +456,13 @@
 				1A67A8702B643B7D008E77D0 /* ConnectionLoaderImpl.swift in Sources */,
 				1A67A7F52B63CC60008E77D0 /* Route.swift in Sources */,
 				1A67A86C2B643A04008E77D0 /* ConnectionLoader.swift in Sources */,
+				1A67A89D2B652390008E77D0 /* Definitions.swift in Sources */,
 				1A67A7D42B627DCE008E77D0 /* Coordinate.swift in Sources */,
 				1A67A7EA2B62B80E008E77D0 /* RouteBuilderError.swift in Sources */,
 				1A67A88D2B6456E5008E77D0 /* ConnectionDecoder.swift in Sources */,
 				1A67A7F82B63CF01008E77D0 /* TripPlanner.swift in Sources */,
 				1A67A7E82B62B7C3008E77D0 /* DijkstrasRouteBuilder.swift in Sources */,
 				1A67A8082B63FF70008E77D0 /* Root.swift in Sources */,
-				1A67A7DC2B62845D008E77D0 /* PriceCalculator.swift in Sources */,
 				1A67A7FA2B63D9F3008E77D0 /* TripPlannerImpl.swift in Sources */,
 				1A67A7F12B62DDF3008E77D0 /* Sequence+Extension.swift in Sources */,
 				1A67A8882B6452B8008E77D0 /* URLSession+Extension.swift in Sources */,
@@ -508,8 +516,8 @@
 				1A67A8472B640395008E77D0 /* Root.swift in Sources */,
 				1A67A88E2B6456E5008E77D0 /* ConnectionDecoder.swift in Sources */,
 				1A67A88B2B645690008E77D0 /* ConnectionDataSource.swift in Sources */,
+				1A67A89E2B652390008E77D0 /* Definitions.swift in Sources */,
 				1A67A8912B645720008E77D0 /* MetadataProvider.swift in Sources */,
-				1A67A8482B640395008E77D0 /* PriceCalculator.swift in Sources */,
 				1A67A8492B640395008E77D0 /* TripPlannerImpl.swift in Sources */,
 				1A67A84A2B640395008E77D0 /* Sequence+Extension.swift in Sources */,
 				1A67A8942B645762008E77D0 /* ConnectionDecoderImpl.swift in Sources */,
