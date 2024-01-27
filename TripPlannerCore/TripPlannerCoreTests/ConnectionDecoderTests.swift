@@ -19,9 +19,10 @@ final class ConnectionDecoderTests: XCTestCase {
 
             let sut = self.makeSUT()
 
-            let connections = try sut.decode("{\"connections\": []}".data(using: .utf8)!)
+            let connections = try sut.decode(self.encodedString(from: []).data(using: .utf8)!)
 
-            XCTAssertEqual(connections, [])
+            XCTAssertEqual(connections.map { $0.0 }, [])
+            XCTAssertEqual(connections.map { $0.1 }, [])
         }
     }
 
@@ -31,9 +32,11 @@ final class ConnectionDecoderTests: XCTestCase {
 
             let sut = self.makeSUT()
 
-            let connections = try sut.decode("{\"connections\": [\(self.anyConnection().asString)]}".data(using: .utf8)!)
+            let connections = [self.anyConnection("a", to: "b")]
+            let result = try sut.decode(self.encodedString(from: connections.map { ($0, 10) }).data(using: .utf8)!)
 
-            XCTAssertEqual(connections, [self.anyConnection()])
+            XCTAssertEqual(result.map { $0.0 }, [self.anyConnection("a", to: "b")])
+            XCTAssertEqual(result.map { $0.1 }, [10])
         }
     }
 
@@ -46,6 +49,11 @@ final class ConnectionDecoderTests: XCTestCase {
         trackMemoryLeak(for: sut)
 
         return sut
+    }
+
+    private func encodedString(from connections: [(Connection, Int)]) -> String {
+
+        "{\"connections\": [\(connections.map { "{\($0.0.asString)}, \"price\": \($0.1)}" }.joined(separator: ","))]}"
     }
 }
 
@@ -61,6 +69,6 @@ extension Connection {
 
     var asString: String {
 
-          "{\"from\": \"\(from.name)\",\"to\": \"\(to.name)\", \"coordinates\": {\"from\": \(from.coordinate.asString), \"to\": \(to.coordinate.asString)}, \"price\": 1 }"
+        "\"from\": \"\(from.name)\",\"to\": \"\(to.name)\", \"coordinates\": {\"from\": \(from.coordinate.asString), \"to\": \(to.coordinate.asString)"
     }
 }
