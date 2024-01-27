@@ -63,6 +63,8 @@ class TripPlanModel {
 
         try? planner.select(from: place)
         vm.fromValue = .init(value: planner.from?.name ?? "", placeholder: "From")
+
+        buildRouteIfPossible()
     }
 
     func selectTo(_ to: String) {
@@ -74,7 +76,9 @@ class TripPlanModel {
         }
 
         try? planner.select(to: place)
-        vm.fromValue = .init(value: planner.to?.name ?? "", placeholder: "To")
+        vm.toValue = .init(value: planner.to?.name ?? "", placeholder: "To")
+
+        buildRouteIfPossible()
     }
 
     func clear() {
@@ -84,6 +88,7 @@ class TripPlanModel {
         toPickerVM.clear()
         vm.fromValue = .init(value: nil, placeholder: "From")
         vm.toValue = .init(value: nil, placeholder: "To")
+        vm.route = []
     }
 
     // MARK: Private
