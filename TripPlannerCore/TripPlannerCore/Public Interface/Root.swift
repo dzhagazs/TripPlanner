@@ -5,27 +5,35 @@
 //  Created by Oleksandr Vasildzhahaz on 26.01.2024.
 //
 
+import Foundation
+
 public func start() -> TripPlanner {
 
-    let places: [Place] = [
+    let loader = ConnectionLoaderImpl(
 
-        .init(name: "London", coordinate: .init(latitude: 51.5285582, longitude: -0.241681)),
-        .init(name: "Tokyo", coordinate: .init(latitude: 35.652832, longitude: 139.839478)),
-        .init(name: "Porto", coordinate: .init(latitude: 41.14961, longitude: -8.61099)),
-        .init(name: "Sydney", coordinate: .init(latitude: -33.865143, longitude: 151.2099))
-    ]
+        client: URLSession.shared,
+        decoder: ConnectionDecoderImpl(),
+        provider: MetadataProviderImpl(distanceCalculator: DistanceCalculator.distance(from:to:))
+    )
 
-    let priceConnections = [
-
-        (places[0], places[1], 220),
-        (places[1], places[0], 200),
-        (places[0], places[2], 50),
-        (places[1], places[3], 100),
-    ]
+    var connections: [(Connection, ConnectionMetadata)] = []
 
     return TripPlannerImpl(
 
-        loader: { places },
+        loader: {
+
+            connections = try await loader.load()
+
+            var places = Set<Place>()
+
+            connections.forEach { connection in
+
+                places.insert(connection.0.from)
+                places.insert(connection.0.to)
+            }
+
+            return Array(places)
+        },
         validator: { _ in },
         routeBuilder: { from, to in
 
@@ -33,7 +41,7 @@ public func start() -> TripPlanner {
 
                 from: from,
                 to: to,
-                connections: priceConnections).map { .init(
+                connections: connections.map { ($0.0.from, $0.0.to, $0.1.price) }).map { .init(
 
                     places: $0.path,
                     tags: [.cheapest],
