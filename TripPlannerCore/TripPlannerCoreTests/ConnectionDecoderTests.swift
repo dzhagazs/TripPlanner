@@ -62,6 +62,20 @@ final class ConnectionDecoderTests: XCTestCase {
         }
     }
 
+    private func ensureFailsToDecode(
+
+        _ encoded: String,
+        file: StaticString = #file,
+        line: UInt = #line
+
+    ) {
+
+        expectToThrow(file: file, line: line) {
+
+            _ = try self.makeSUT().decode(encoded.data(using: .utf8)!)
+        }
+    }
+
     private func encodedString(from connections: [(Connection, Int)]) -> String {
 
         "{\"connections\": [\(connections.map { "{\($0.0.asString)}, \"price\": \($0.1)}" }.joined(separator: ","))]}"
