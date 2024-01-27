@@ -23,7 +23,9 @@ struct TripPlanView: View {
     @Bindable var vm: TripPlanViewModel
 
     let onClear: () -> Void
-    let inputSource: (PanelItemValue) -> (InputViewModel, ((String) -> Void), ((String) -> Void))
+
+    let fromSource: () -> (InputViewModel, ((String) -> Void), ((String) -> Void))
+    let toSource: () -> (InputViewModel, ((String) -> Void), ((String) -> Void))
 
     var body: some View {
 
@@ -52,7 +54,7 @@ struct TripPlanView: View {
 
             .navigationDestination(for: PanelItemValue.self) { panelItem in
 
-                let panelValues = inputSource(panelItem)
+                let panelValues = panelItem == vm.fromValue ? fromSource() : toSource()
 
                 InputView(vm: panelValues.0, onEdit: panelValues.1, onSelect: panelValues.2)
             }
@@ -129,8 +131,11 @@ struct ControlPanelView: View {
 
 #Preview {
 
-    TripPlanView(vm: .init(), onClear: {}) { panelItemValue in
+    TripPlanView(
 
-        (InputViewModel(key: panelItemValue.placeholder), { _ in }, { _ in })
-    }
+        vm: .init(),
+        onClear: {},
+        fromSource: { (InputViewModel(key: "From"), { _ in }, { _ in }) },
+        toSource: { (InputViewModel(key: "To"), { _ in }, { _ in }) }
+    )
 }
