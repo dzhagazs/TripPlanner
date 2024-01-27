@@ -7,15 +7,13 @@
 
 import Foundation
 
-let sourceURL = URL(string: "https://raw.githubusercontent.com/TuiMobilityHub/ios-code-challenge/master/connections.json")!
-
 extension URLSession: ConnectionDataSource {
 
     func load() async throws -> Data {
 
         try await withCheckedThrowingContinuation { continuation in
 
-            dataTask(with: sourceURL) { data, response, error in
+            dataTask(with: Definitions.sourceURL) { data, response, error in
 
                 guard let data = data else {
 
