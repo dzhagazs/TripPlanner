@@ -5,7 +5,7 @@
 //  Created by Oleksandr Vasildzhahaz on 27.01.2024.
 //
 
-public struct RouteTag {
+public struct RouteTag: Equatable {
 
-    public let rawValue: String
+    let rawValue: String
 }
