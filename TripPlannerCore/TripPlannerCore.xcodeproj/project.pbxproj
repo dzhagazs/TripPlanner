@@ -21,6 +21,8 @@
 		1A3115302B6587D3008FC4AA /* TripPlannerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A31152E2B6587D3008FC4AA /* TripPlannerError.swift */; };
 		1A3115322B658887008FC4AA /* RouteTag+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3115312B658887008FC4AA /* RouteTag+Extension.swift */; };
 		1A3115332B658887008FC4AA /* RouteTag+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3115312B658887008FC4AA /* RouteTag+Extension.swift */; };
+		1A3115352B6588C7008FC4AA /* RouteMetric+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3115342B6588C7008FC4AA /* RouteMetric+Extension.swift */; };
+		1A3115362B6588C7008FC4AA /* RouteMetric+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3115342B6588C7008FC4AA /* RouteMetric+Extension.swift */; };
 		1A67A7C32B627D37008E77D0 /* TripPlannerCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A67A7BA2B627D37008E77D0 /* TripPlannerCore.framework */; };
 		1A67A7D42B627DCE008E77D0 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7D32B627DCE008E77D0 /* Coordinate.swift */; };
 		1A67A7D62B627E2A008E77D0 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7D52B627E2A008E77D0 /* Place.swift */; };
@@ -104,6 +106,7 @@
 		1A31152B2B658788008FC4AA /* RouteMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteMetric.swift; sourceTree = "<group>"; };
 		1A31152E2B6587D3008FC4AA /* TripPlannerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlannerError.swift; sourceTree = "<group>"; };
 		1A3115312B658887008FC4AA /* RouteTag+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RouteTag+Extension.swift"; sourceTree = "<group>"; };
+		1A3115342B6588C7008FC4AA /* RouteMetric+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RouteMetric+Extension.swift"; sourceTree = "<group>"; };
 		1A67A7BA2B627D37008E77D0 /* TripPlannerCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TripPlannerCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A67A7C22B627D37008E77D0 /* TripPlannerCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TripPlannerCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A67A7D32B627DCE008E77D0 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
@@ -286,6 +289,7 @@
 			children = (
 				1A67A7F02B62DDF3008E77D0 /* Sequence+Extension.swift */,
 				1A3115312B658887008FC4AA /* RouteTag+Extension.swift */,
+				1A3115342B6588C7008FC4AA /* RouteMetric+Extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -493,6 +497,7 @@
 				1A67A7F52B63CC60008E77D0 /* Route.swift in Sources */,
 				1A31152F2B6587D3008FC4AA /* TripPlannerError.swift in Sources */,
 				1A67A86C2B643A04008E77D0 /* ConnectionLoader.swift in Sources */,
+				1A3115352B6588C7008FC4AA /* RouteMetric+Extension.swift in Sources */,
 				1A67A89D2B652390008E77D0 /* Definitions.swift in Sources */,
 				1A67A7D42B627DCE008E77D0 /* Coordinate.swift in Sources */,
 				1A67A7EA2B62B80E008E77D0 /* RouteBuilderError.swift in Sources */,
@@ -557,6 +562,7 @@
 				1A67A86D2B643A04008E77D0 /* ConnectionLoader.swift in Sources */,
 				1A3115302B6587D3008FC4AA /* TripPlannerError.swift in Sources */,
 				1A67A8432B640395008E77D0 /* Coordinate.swift in Sources */,
+				1A3115362B6588C7008FC4AA /* RouteMetric+Extension.swift in Sources */,
 				1A67A8442B640395008E77D0 /* RouteBuilderError.swift in Sources */,
 				1A3115192B652BA9008FC4AA /* DistanceCalculator.swift in Sources */,
 				1A67A8452B640395008E77D0 /* TripPlanner.swift in Sources */,

@@ -22,8 +22,3 @@ public protocol TripPlanner {
 
     func build() async throws -> [PresentableRoute]
 }
-
-extension RouteMetric {
-
-    static let price = "price"
-}
