@@ -33,12 +33,6 @@ extension RouteTag {
     public static let shortest = RouteTag(rawValue: "shortest")
 }
 
-public struct RouteMetric {
-
-    public let name: String
-    public let value: Float
-}
-
 extension RouteMetric {
 
     static let price = "price"

@@ -15,6 +15,8 @@
 		1A3115272B658681008FC4AA /* RouteTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3115252B658681008FC4AA /* RouteTag.swift */; };
 		1A3115292B6586F1008FC4AA /* PresentableRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3115282B6586F1008FC4AA /* PresentableRoute.swift */; };
 		1A31152A2B6586F1008FC4AA /* PresentableRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3115282B6586F1008FC4AA /* PresentableRoute.swift */; };
+		1A31152C2B658788008FC4AA /* RouteMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A31152B2B658788008FC4AA /* RouteMetric.swift */; };
+		1A31152D2B658788008FC4AA /* RouteMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A31152B2B658788008FC4AA /* RouteMetric.swift */; };
 		1A67A7C32B627D37008E77D0 /* TripPlannerCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A67A7BA2B627D37008E77D0 /* TripPlannerCore.framework */; };
 		1A67A7D42B627DCE008E77D0 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7D32B627DCE008E77D0 /* Coordinate.swift */; };
 		1A67A7D62B627E2A008E77D0 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7D52B627E2A008E77D0 /* Place.swift */; };
@@ -95,6 +97,7 @@
 		1A31151A2B652F97008FC4AA /* DistanceCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceCalculatorTests.swift; sourceTree = "<group>"; };
 		1A3115252B658681008FC4AA /* RouteTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTag.swift; sourceTree = "<group>"; };
 		1A3115282B6586F1008FC4AA /* PresentableRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentableRoute.swift; sourceTree = "<group>"; };
+		1A31152B2B658788008FC4AA /* RouteMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteMetric.swift; sourceTree = "<group>"; };
 		1A67A7BA2B627D37008E77D0 /* TripPlannerCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TripPlannerCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A67A7C22B627D37008E77D0 /* TripPlannerCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TripPlannerCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A67A7D32B627DCE008E77D0 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
@@ -226,6 +229,7 @@
 				1A3115252B658681008FC4AA /* RouteTag.swift */,
 				1A67A7D72B627E7F008E77D0 /* Connection.swift */,
 				1A3115282B6586F1008FC4AA /* PresentableRoute.swift */,
+				1A31152B2B658788008FC4AA /* RouteMetric.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -489,6 +493,7 @@
 				1A67A8A02B6524B6008E77D0 /* MetadataProviderImpl.swift in Sources */,
 				1A67A8082B63FF70008E77D0 /* Root.swift in Sources */,
 				1A67A7FA2B63D9F3008E77D0 /* TripPlannerImpl.swift in Sources */,
+				1A31152C2B658788008FC4AA /* RouteMetric.swift in Sources */,
 				1A67A7F12B62DDF3008E77D0 /* Sequence+Extension.swift in Sources */,
 				1A67A8882B6452B8008E77D0 /* URLSession+Extension.swift in Sources */,
 				1A3115182B652BA9008FC4AA /* DistanceCalculator.swift in Sources */,
@@ -550,6 +555,7 @@
 				1A67A88B2B645690008E77D0 /* ConnectionDataSource.swift in Sources */,
 				1A67A89E2B652390008E77D0 /* Definitions.swift in Sources */,
 				1A67A8912B645720008E77D0 /* MetadataProvider.swift in Sources */,
+				1A31152D2B658788008FC4AA /* RouteMetric.swift in Sources */,
 				1A67A8492B640395008E77D0 /* TripPlannerImpl.swift in Sources */,
 				1A67A84A2B640395008E77D0 /* Sequence+Extension.swift in Sources */,
 				1A67A8942B645762008E77D0 /* ConnectionDecoderImpl.swift in Sources */,
