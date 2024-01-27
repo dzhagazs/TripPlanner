@@ -54,6 +54,7 @@ struct InputView: View {
             }
         }
 
+        .onAppear(perform: { onEdit(vm.value) })
         .onChange(of: vm.value) { withAnimation { onEdit(vm.value) } }
         .navigationTitle(vm.key)
     }
