@@ -2,7 +2,7 @@
 //  PlaceAnnotation.swift
 //  TripPlanner
 //
-//  Created by Alexandr Vasildzhagaz on 27.01.2024.
+//  Created by Oleksandr Vasildzhahaz on 27.01.2024.
 //
 
 import CoreLocation.CLLocation
