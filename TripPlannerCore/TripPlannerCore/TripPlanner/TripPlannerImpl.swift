@@ -105,19 +105,3 @@ final class TripPlannerImpl: TripPlanner {
     private let routeBuilder: RouteBuilder
     private var places: [Place]? = nil
 }
-
-extension Place: Equatable {
-
-    public static func == (lhs: Place, rhs: Place) -> Bool {
-
-        lhs.name == rhs.name && lhs.coordinate == rhs.coordinate
-    }
-}
-
-extension Coordinate: Equatable {
-
-    public static func == (lhs: Coordinate, rhs: Coordinate) -> Bool {
-
-        lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
-    }
-}
