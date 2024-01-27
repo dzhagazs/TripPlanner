@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A3115182B652BA9008FC4AA /* DistanceCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3115172B652BA9008FC4AA /* DistanceCalculator.swift */; };
+		1A3115192B652BA9008FC4AA /* DistanceCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3115172B652BA9008FC4AA /* DistanceCalculator.swift */; };
 		1A67A7C32B627D37008E77D0 /* TripPlannerCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A67A7BA2B627D37008E77D0 /* TripPlannerCore.framework */; };
 		1A67A7D42B627DCE008E77D0 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7D32B627DCE008E77D0 /* Coordinate.swift */; };
 		1A67A7D62B627E2A008E77D0 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7D52B627E2A008E77D0 /* Place.swift */; };
@@ -83,6 +85,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A3115172B652BA9008FC4AA /* DistanceCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceCalculator.swift; sourceTree = "<group>"; };
 		1A67A7BA2B627D37008E77D0 /* TripPlannerCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TripPlannerCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A67A7C22B627D37008E77D0 /* TripPlannerCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TripPlannerCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A67A7D32B627DCE008E77D0 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
@@ -291,6 +294,7 @@
 				1A67A8872B6452B8008E77D0 /* URLSession+Extension.swift */,
 				1A67A8922B645762008E77D0 /* ConnectionDecoderImpl.swift */,
 				1A67A89F2B6524B6008E77D0 /* MetadataProviderImpl.swift */,
+				1A3115172B652BA9008FC4AA /* DistanceCalculator.swift */,
 			);
 			path = Impl;
 			sourceTree = "<group>";
@@ -474,6 +478,7 @@
 				1A67A7FA2B63D9F3008E77D0 /* TripPlannerImpl.swift in Sources */,
 				1A67A7F12B62DDF3008E77D0 /* Sequence+Extension.swift in Sources */,
 				1A67A8882B6452B8008E77D0 /* URLSession+Extension.swift in Sources */,
+				1A3115182B652BA9008FC4AA /* DistanceCalculator.swift in Sources */,
 				1A67A8932B645762008E77D0 /* ConnectionDecoderImpl.swift in Sources */,
 				1A67A7DE2B628703008E77D0 /* RouteBuilder.swift in Sources */,
 				1A67A7D82B627E7F008E77D0 /* Connection.swift in Sources */,
@@ -520,6 +525,7 @@
 				1A67A86D2B643A04008E77D0 /* ConnectionLoader.swift in Sources */,
 				1A67A8432B640395008E77D0 /* Coordinate.swift in Sources */,
 				1A67A8442B640395008E77D0 /* RouteBuilderError.swift in Sources */,
+				1A3115192B652BA9008FC4AA /* DistanceCalculator.swift in Sources */,
 				1A67A8452B640395008E77D0 /* TripPlanner.swift in Sources */,
 				1A67A8462B640395008E77D0 /* DijkstrasRouteBuilder.swift in Sources */,
 				1A67A8472B640395008E77D0 /* Root.swift in Sources */,
