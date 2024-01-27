@@ -53,8 +53,3 @@ public func start() -> TripPlanner {
         }
     )
 }
-
-extension Int: Number {
-
-    static var upperBound: Int { .max }
-}
