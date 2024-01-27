@@ -11,11 +11,11 @@ final class ConnectionDecoderImpl: ConnectionDecoder {
 
     // MARK: ConnectionDecoder
 
-    func decode(_ data: Data) throws -> [Connection] {
+    func decode(_ data: Data) throws -> [(Connection, Int)] {
 
         try JSONDecoder().decode(CodableConnections.self, from: data).connections.map {
 
-            .init(
+            (.init(
 
                 from: .init(
 
@@ -35,7 +35,8 @@ final class ConnectionDecoderImpl: ConnectionDecoder {
                         longitude: $0.coordinates.to.long
                     )
                 )
-            )
+
+            ), $0.price)
         }
     }
 

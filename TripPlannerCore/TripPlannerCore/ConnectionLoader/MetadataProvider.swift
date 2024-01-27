@@ -7,5 +7,5 @@
 
 protocol MetadataProvider {
 
-    func metadata(for connection: Connection) async throws -> ConnectionMetadata
+    func metadata(for connection: (Connection, Int)) async throws -> ConnectionMetadata
 }

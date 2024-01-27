@@ -11,11 +11,11 @@ import Foundation
 
 final class ConnectionDecoderStub: ConnectionDecoder {
 
-    typealias Value = Result<[Connection], Error>
+    typealias Value = Result<[(Connection, Int)], Error>
 
     // MARK: ConnectionDecoder
 
-    func decode(_ data: Data) throws -> [Connection] {
+    func decode(_ data: Data) throws -> [(Connection, Int)] {
 
         try result.get()
     }

@@ -28,12 +28,12 @@ final class ConnectionLoaderImpl: ConnectionLoader {
         let connections = try decoder.decode(data)
         let metadata = try await metadata(from: connections)
 
-        return Array(zip(connections, metadata))
+        return Array(zip(connections.map { $0.0 }, metadata))
     }
 
     // MARK: Private
 
-    private func metadata(from connections: [Connection]) async throws -> [ConnectionMetadata] {
+    private func metadata(from connections: [(Connection, Int)]) async throws -> [ConnectionMetadata] {
 
         var result: [ConnectionMetadata] = []
 

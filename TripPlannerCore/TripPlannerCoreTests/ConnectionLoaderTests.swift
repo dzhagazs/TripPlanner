@@ -28,8 +28,8 @@ final class ConnectionLoaderTests: XCTestCase {
 
                 decoderResult: .success([
 
-                    anyConnection("a"),
-                    anyConnection("b")
+                    (anyConnection("a"), 1),
+                    (anyConnection("b"), 1)
                 ]),
                 providerResult: .success(anyMetadata(1, 2))
             )
@@ -61,7 +61,7 @@ final class ConnectionLoaderTests: XCTestCase {
             Error.first,
             on: makeSUT(
 
-                decoderResult: .success([anyConnection()]),
+                decoderResult: .success([(anyConnection(), 1)]),
                 providerResult: .failure(Error.first)
             )
         )

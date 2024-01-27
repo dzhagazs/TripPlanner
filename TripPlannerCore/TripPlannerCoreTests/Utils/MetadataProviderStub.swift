@@ -13,7 +13,7 @@ final class MetadataProviderStub: MetadataProvider {
 
     // MARK: MetadataProvider
 
-    func metadata(for connection: Connection) async throws -> ConnectionMetadata {
+    func metadata(for connection: (Connection, Int)) async throws -> ConnectionMetadata {
 
         try result.get()
     }

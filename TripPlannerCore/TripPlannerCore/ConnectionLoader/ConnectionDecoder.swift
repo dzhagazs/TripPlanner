@@ -9,5 +9,5 @@ import Foundation
 
 protocol ConnectionDecoder {
 
-    func decode(_ data: Data) throws -> [Connection]
+    func decode(_ data: Data) throws -> [(Connection, Int)]
 }
