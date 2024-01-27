@@ -14,3 +14,11 @@ extension Connection: Equatable {
         lhs.from == rhs.from && lhs.to == rhs.to
     }
 }
+
+extension Connection {
+
+    var asString: String {
+
+        "\"from\": \"\(from.name)\",\"to\": \"\(to.name)\", \"coordinates\": {\"from\": \(from.coordinate.asString), \"to\": \(to.coordinate.asString)"
+    }
+}

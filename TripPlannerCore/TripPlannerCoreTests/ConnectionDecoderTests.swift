@@ -104,11 +104,3 @@ extension Coordinate {
         "{\"lat\": \(latitude), \"long\": \(longitude)}"
     }
 }
-
-extension Connection {
-
-    var asString: String {
-
-        "\"from\": \"\(from.name)\",\"to\": \"\(to.name)\", \"coordinates\": {\"from\": \(from.coordinate.asString), \"to\": \(to.coordinate.asString)"
-    }
-}
