@@ -62,7 +62,7 @@ class TripPlanModel {
         }
 
         try? planner.select(from: place)
-        vm.fromValue = .init(value: planner.from?.name ?? "", placeholder: "From")
+        refreshPickers()
 
         buildRouteIfPossible()
     }
@@ -76,7 +76,7 @@ class TripPlanModel {
         }
 
         try? planner.select(to: place)
-        vm.toValue = .init(value: planner.to?.name ?? "", placeholder: "To")
+        refreshPickers()
 
         buildRouteIfPossible()
     }
@@ -86,8 +86,7 @@ class TripPlanModel {
         planner.clearSelection()
         fromPickerVM.clear()
         toPickerVM.clear()
-        vm.fromValue = .init(value: nil, placeholder: "From")
-        vm.toValue = .init(value: nil, placeholder: "To")
+        refreshPickers()
         vm.route = []
     }
 
@@ -126,6 +125,8 @@ class TripPlanModel {
                     longitude: Double($0.coordinate.longitude)
                 ))
             }
+
+            self.refreshPickerSuggestions()
         }
     }
 
@@ -140,6 +141,18 @@ class TripPlanModel {
     private func canBuildRoute() -> Bool {
 
         planner.from != nil && planner.to != nil
+    }
+
+    private func refreshPickerSuggestions() {
+
+        self.toPickerVM.suggestions = self.planner.toSuggestions(filter: "").map { $0.name }
+        self.fromPickerVM.suggestions = self.planner.fromSuggestions(filter: "").map { $0.name }
+    }
+
+    private func refreshPickers() {
+
+        vm.toValue = .init(value: planner.to?.name, placeholder: "To")
+        vm.fromValue = .init(value: planner.from?.name, placeholder: "From")
     }
 
     private let planner: TripPlanner
