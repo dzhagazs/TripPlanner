@@ -5,7 +5,7 @@
 //  Created by Oleksandr Vasildzhahaz on 27.01.2024.
 //
 
-import CoreLocation
+import CoreLocation.CLLocation
 
 final class DistanceCalculator {
 
