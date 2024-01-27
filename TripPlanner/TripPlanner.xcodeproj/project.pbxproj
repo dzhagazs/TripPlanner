@@ -109,8 +109,8 @@
 				1A67A85B2B64091F008E77D0 /* RouteView.swift */,
 				1A67A8682B64310C008E77D0 /* TripPlanView.swift */,
 				1A31151D2B6547D3008FC4AA /* TripPlanModel.swift */,
-				1A31151F2B6556C1008FC4AA /* Utils */,
 				1A67A8652B642C54008E77D0 /* InputView */,
+				1A31151F2B6556C1008FC4AA /* Utils */,
 			);
 			path = TripPlanner;
 			sourceTree = "<group>";
