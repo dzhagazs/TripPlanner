@@ -13,6 +13,7 @@ import CoreLocation.CLLocation
     var places: [PlaceAnnotation] = []
     var route: [CLLocationCoordinate2D] = []
     var loading: Bool = false
+    var price: String = ""
 
     var fromValue: PanelItemValue = .init(value: nil, placeholder: "From")
     var toValue: PanelItemValue = .init(value: nil, placeholder: "To")
@@ -45,6 +46,7 @@ struct TripPlanView: View {
                 ControlPanelView(
 
                     onClear: onClear,
+                    price: $vm.price,
                     fromValue: $vm.fromValue,
                     toValue: $vm.toValue
                 )
@@ -101,6 +103,7 @@ struct ControlPanelView: View {
 
     let onClear: () -> Void
 
+    @Binding var price: String
     @Binding var fromValue: PanelItemValue
     @Binding var toValue: PanelItemValue
 
@@ -109,6 +112,10 @@ struct ControlPanelView: View {
         VStack {
 
             HStack {
+
+                Spacer()
+
+                Text(price)
 
                 Spacer()
 

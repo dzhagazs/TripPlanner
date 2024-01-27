@@ -88,6 +88,7 @@ class TripPlanModel {
         toPickerVM.clear()
         refreshPickers()
         vm.route = []
+        vm.price = ""
     }
 
     // MARK: Private
@@ -101,7 +102,10 @@ class TripPlanModel {
             do {
 
                 let routes = try await planner.build()
-                configure(routes)
+                if let route = routes.first {
+
+                    configure(route)
+                }
 
             } catch {
 
@@ -130,11 +134,16 @@ class TripPlanModel {
         }
     }
 
-    private func configure(_ routes: [PresentableRoute]) {
+    private func configure(_ route: PresentableRoute) {
 
         performOnMain {
 
-            self.vm.route = routes.first?.places.map { CLLocationCoordinate2D(latitude: Double($0.coordinate.latitude), longitude: Double($0.coordinate.longitude)) } ?? []
+            self.vm.route = route.places.map { CLLocationCoordinate2D(latitude: Double($0.coordinate.latitude), longitude: Double($0.coordinate.longitude)) } 
+
+            if let price = route.metrics.first(where: { $0.name == "price" })?.value {
+
+                self.vm.price = "$\(Int(price))"
+            }
         }
     }
 
