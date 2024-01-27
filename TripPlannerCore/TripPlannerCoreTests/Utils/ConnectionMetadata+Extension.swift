@@ -14,4 +14,3 @@ extension ConnectionMetadata: Equatable {
         lhs.price == rhs.price && lhs.approxDistance == rhs.approxDistance
     }
 }
-
