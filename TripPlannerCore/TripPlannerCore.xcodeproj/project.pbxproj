@@ -199,7 +199,6 @@
 				1A3115252B658681008FC4AA /* RouteTag.swift */,
 				1A3115282B6586F1008FC4AA /* PresentableRoute.swift */,
 				1A31152B2B658788008FC4AA /* RouteMetric.swift */,
-				1A31152E2B6587D3008FC4AA /* TripPlannerError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -245,8 +244,8 @@
 				1A67A8722B643FFA008E77D0 /* ConnectionLoaderTests.swift */,
 				1A67A8952B6459F8008E77D0 /* ConnectionDecoderTests.swift */,
 				1A67A8A22B6525AE008E77D0 /* MetadataProviderTests.swift */,
-				1A67A7E12B6296D7008E77D0 /* Utils */,
 				1A31151A2B652F97008FC4AA /* DistanceCalculatorTests.swift */,
+				1A67A7E12B6296D7008E77D0 /* Utils */,
 			);
 			path = TripPlannerCoreTests;
 			sourceTree = "<group>";
@@ -309,6 +308,7 @@
 			children = (
 				1A67A8072B63FF70008E77D0 /* Root.swift */,
 				1A67A7F72B63CF01008E77D0 /* TripPlanner.swift */,
+				1A31152E2B6587D3008FC4AA /* TripPlannerError.swift */,
 				1A3115372B658EC2008FC4AA /* Model */,
 			);
 			path = "Public Interface";
