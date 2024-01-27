@@ -23,6 +23,17 @@ final class ConnectionDecoderTests: XCTestCase {
         ensureDecodes([(self.anyConnection("a", to: "b"), 10)])
     }
 
+    func test_decode_manyReturnsManyConnections() {
+
+        ensureDecodes([
+
+            (self.anyConnection("a", to: "b"), 1),
+            (self.anyConnection("b", to: "c"), 2),
+            (self.anyConnection("c", to: "d"), 3),
+            (self.anyConnection("d", to: "e"), 4)
+        ])
+    }
+
     // MARK: Private
 
     private func makeSUT() -> SUT {
