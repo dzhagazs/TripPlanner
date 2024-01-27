@@ -96,11 +96,3 @@ final class ConnectionDecoderTests: XCTestCase {
         "{\"connections\": [\(connections.map { "{\($0.0.asString)}, \"price\": \($0.1)}" }.joined(separator: ","))]}"
     }
 }
-
-extension Coordinate {
-
-    var asString: String {
-
-        "{\"lat\": \(latitude), \"long\": \(longitude)}"
-    }
-}
