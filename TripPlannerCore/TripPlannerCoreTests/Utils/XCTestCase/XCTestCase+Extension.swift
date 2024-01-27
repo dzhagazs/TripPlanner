@@ -97,6 +97,43 @@ extension XCTestCase {
         wait(for: [expectation], timeout: timeout)
     }
 
+    func expectToThrow(
+
+        timeout: TimeInterval = 1,
+        file: StaticString = #file,
+        line: UInt = #line,
+        _ task: @escaping (() async throws -> Void)
+
+    ) {
+
+        let expectation = expectation(description: "Wait for completion")
+
+        Task {
+
+            do {
+
+                try await task()
+
+            } catch {
+
+                expectation.fulfill()
+
+                return
+            }
+
+            expectation.fulfill()
+
+            XCTFail(
+
+                "Expected to throw, successfully finished instead.",
+                file: file,
+                line: line
+            )
+        }
+
+        wait(for: [expectation], timeout: timeout)
+    }
+
     func trackMemoryLeak(
 
         for object: AnyObject,
