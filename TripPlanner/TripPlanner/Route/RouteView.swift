@@ -8,23 +8,6 @@
 import SwiftUI
 import MapKit
 
-struct PlaceAnnotation {
-
-    let title: String
-    let coordinates: CLLocationCoordinate2D
-}
-
-extension PlaceAnnotation: Hashable {
-
-    static func == (lhs: PlaceAnnotation, rhs: PlaceAnnotation) -> Bool {
-        lhs.title == rhs.title
-    }
-
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(title)
-    }
-}
-
 struct RouteView: View {
 
     let places: [PlaceAnnotation]
