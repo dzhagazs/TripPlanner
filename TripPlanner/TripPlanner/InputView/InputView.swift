@@ -10,6 +10,7 @@ import SwiftUI
 struct InputView: View {
 
     @Bindable var vm: InputViewModel
+
     let onEdit: (String) -> Void
     let onSelect: (String) -> Void
 
@@ -27,7 +28,7 @@ struct InputView: View {
 
                     Text(suggestion)
 
-                        .onTapGesture {onSelect(suggestion) }
+                        .onTapGesture { onSelect(suggestion) }
                 }
 
                 .listStyle(.plain)
@@ -48,6 +49,7 @@ struct InputView: View {
         }
 
         .onChange(of: vm.value) { withAnimation { onEdit(vm.value) } }
+        .navigationTitle(vm.key)
     }
 }
 

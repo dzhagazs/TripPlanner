@@ -33,4 +33,11 @@ import Observation
         self.suggestions = suggestions
         self.loading = loading
     }
+
+    func clear() {
+
+        value = ""
+        suggestions = []
+        loading = false
+    }
 }
