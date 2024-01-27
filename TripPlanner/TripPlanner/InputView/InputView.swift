@@ -10,7 +10,7 @@ import SwiftUI
 struct InputView: View {
 
     @Bindable var vm: InputViewModel
-
+    @State var selection: String?
     @Environment(\.dismiss) var dismiss
 
     let onEdit: (String) -> Void
@@ -26,15 +26,9 @@ struct InputView: View {
 
             ZStack {
 
-                List(vm.suggestions, id: \.self) { suggestion in
+                List(vm.suggestions, id: \.self, selection: $selection) { suggestion in
 
                     Text(suggestion)
-
-                        .onTapGesture {
-
-                            onSelect(suggestion)
-                            dismiss()
-                        }
                 }
 
                 .listStyle(.plain)
@@ -54,7 +48,22 @@ struct InputView: View {
             }
         }
 
-        .onAppear(perform: { onEdit(vm.value) })
+        .onAppear(perform: {
+
+            selection = nil
+            onEdit(vm.value)
+        })
+        .onChange(of: selection, {
+
+            withAnimation {
+
+                if let selection = selection {
+
+                    onSelect(selection)
+                    dismiss()
+                }
+            }
+        })
         .onChange(of: vm.value) { withAnimation { onEdit(vm.value) } }
         .navigationTitle(vm.key)
     }
