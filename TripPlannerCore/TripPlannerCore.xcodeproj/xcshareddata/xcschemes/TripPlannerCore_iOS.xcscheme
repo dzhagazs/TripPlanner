@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1A67A83F2B640395008E77D0"
-               BuildableName = "TripPlannerCore_iOS.framework"
+               BuildableName = "TripPlannerCore.framework"
                BlueprintName = "TripPlannerCore_iOS"
                ReferencedContainer = "container:TripPlannerCore.xcodeproj">
             </BuildableReference>
@@ -50,7 +50,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1A67A83F2B640395008E77D0"
-            BuildableName = "TripPlannerCore_iOS.framework"
+            BuildableName = "TripPlannerCore.framework"
             BlueprintName = "TripPlannerCore_iOS"
             ReferencedContainer = "container:TripPlannerCore.xcodeproj">
          </BuildableReference>
