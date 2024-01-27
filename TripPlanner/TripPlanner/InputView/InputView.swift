@@ -11,6 +11,7 @@ struct InputView: View {
 
     @Bindable var vm: InputViewModel
     let onEdit: (String) -> Void
+    let onSelect: (String) -> Void
 
     var body: some View {
 
@@ -25,6 +26,8 @@ struct InputView: View {
                 List(vm.suggestions, id: \.self) { suggestion in
 
                     Text(suggestion)
+
+                        .onTapGesture {onSelect(suggestion) }
                 }
 
                 .listStyle(.plain)
@@ -58,5 +61,5 @@ struct InputView: View {
         loading: false
     )
 
-    return InputView(vm: vm) { _ in }
+    return InputView(vm: vm, onEdit: { _ in }, onSelect: { _ in })
 }
