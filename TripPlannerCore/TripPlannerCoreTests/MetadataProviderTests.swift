@@ -17,11 +17,32 @@ final class MetadataProviderTests: XCTestCase {
 
         execute {
 
-            let sut = self.makeSUT()
+            var distance: Float = 0
+            let calculator: ((Coordinate, Coordinate) -> Float) = { _, _ in
 
-            let result = try await sut.metadata(for: (self.anyConnection(), 10))
+                distance += 1
 
-            XCTAssertEqual(result, .init(price: 10, approxDistance: 1))
+                return distance
+            }
+
+            let sut = self.makeSUT(distanceCalculator: calculator)
+            let connections = [
+
+                (self.anyConnection("a"), 10),
+                (self.anyConnection("b"), 20),
+                (self.anyConnection("c"), 30),
+                (self.anyConnection("d"), 40),
+                (self.anyConnection("e"), 50)
+            ]
+
+            var index = 1
+            try await connections.asyncForEach { connection in
+
+                let metadata = try await sut.metadata(for: connection)
+
+                XCTAssertEqual(metadata, .init(price: index * 10, approxDistance: Float(index)))
+                index += 1
+            }
         }
     }
 
