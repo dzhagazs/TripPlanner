@@ -23,11 +23,6 @@ public protocol TripPlanner {
     func build() async throws -> [PresentableRoute]
 }
 
-public struct RouteTag {
-
-    public let rawValue: String
-}
-
 extension RouteTag {
 
     public static let cheapest = RouteTag(rawValue: "cheapest")
