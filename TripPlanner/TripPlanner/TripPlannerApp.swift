@@ -10,9 +10,22 @@ import TripPlannerCore
 
 @main
 struct TripPlannerApp: App {
+
+    let tripModel = TripPlanModel(planner: start())
+
     var body: some Scene {
+
         WindowGroup {
-            RouteView(places: [], route: nil)
+
+            TripPlanView(
+
+                vm: tripModel.vm,
+                onClear: tripModel.clear,
+                fromSource: { (tripModel.fromPickerVM, tripModel.filterFrom, tripModel.selectFrom) },
+                toSource: { (tripModel.toPickerVM, tripModel.filterTo, tripModel.selectTo) }
+            )
+
+            .onAppear(perform: tripModel.load)
         }
     }
 }
