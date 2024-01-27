@@ -182,6 +182,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A3115372B658EC2008FC4AA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1A67A7D32B627DCE008E77D0 /* Coordinate.swift */,
+				1A67A7D52B627E2A008E77D0 /* Place.swift */,
+				1A3115252B658681008FC4AA /* RouteTag.swift */,
+				1A3115282B6586F1008FC4AA /* PresentableRoute.swift */,
+				1A31152B2B658788008FC4AA /* RouteMetric.swift */,
+				1A31152E2B6587D3008FC4AA /* TripPlannerError.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		1A67A7B02B627D37008E77D0 = {
 			isa = PBXGroup;
 			children = (
@@ -207,7 +220,6 @@
 				1A67A7F62B63CEDC008E77D0 /* Public Interface */,
 				1A67A89B2B652379008E77D0 /* TripPlanner */,
 				1A67A7E42B62B76B008E77D0 /* RouteBuilder */,
-				1A67A7D22B627D89008E77D0 /* Model */,
 				1A67A86A2B643914008E77D0 /* ConnectionLoader */,
 				1A67A7EF2B62DDE3008E77D0 /* Utils */,
 				1A67A89C2B652390008E77D0 /* Definitions.swift */,
@@ -228,20 +240,6 @@
 				1A31151A2B652F97008FC4AA /* DistanceCalculatorTests.swift */,
 			);
 			path = TripPlannerCoreTests;
-			sourceTree = "<group>";
-		};
-		1A67A7D22B627D89008E77D0 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				1A67A7D32B627DCE008E77D0 /* Coordinate.swift */,
-				1A67A7D52B627E2A008E77D0 /* Place.swift */,
-				1A3115252B658681008FC4AA /* RouteTag.swift */,
-				1A67A7D72B627E7F008E77D0 /* Connection.swift */,
-				1A3115282B6586F1008FC4AA /* PresentableRoute.swift */,
-				1A31152B2B658788008FC4AA /* RouteMetric.swift */,
-				1A31152E2B6587D3008FC4AA /* TripPlannerError.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		1A67A7E12B6296D7008E77D0 /* Utils */ = {
@@ -299,6 +297,7 @@
 			children = (
 				1A67A8072B63FF70008E77D0 /* Root.swift */,
 				1A67A7F72B63CF01008E77D0 /* TripPlanner.swift */,
+				1A3115372B658EC2008FC4AA /* Model */,
 			);
 			path = "Public Interface";
 			sourceTree = "<group>";
@@ -310,6 +309,7 @@
 				1A67A8892B645690008E77D0 /* ConnectionDataSource.swift */,
 				1A67A88C2B6456E5008E77D0 /* ConnectionDecoder.swift */,
 				1A67A88F2B645720008E77D0 /* MetadataProvider.swift */,
+				1A67A7D72B627E7F008E77D0 /* Connection.swift */,
 				1A67A86E2B643B31008E77D0 /* Impl */,
 			);
 			path = ConnectionLoader;
