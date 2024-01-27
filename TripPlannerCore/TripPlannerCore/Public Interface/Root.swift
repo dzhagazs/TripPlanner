@@ -24,49 +24,36 @@ public func start() -> TripPlanner {
 
             connections = try await loader.load()
 
-            var places = Set<Place>()
+            var places = Set<HashablePlace>()
 
             connections.forEach { connection in
 
-                places.insert(connection.0.from)
-                places.insert(connection.0.to)
+                places.insert(connection.0.from.hashable)
+                places.insert(connection.0.to.hashable)
             }
 
-            return Array(places)
+            return Array(places.map { $0.original })
         },
         validator: { _ in },
         routeBuilder: { from, to in
 
             try DijkstrasRouteBuilder.build(
 
-                from: from,
-                to: to,
-                connections: connections.map { ($0.0.from, $0.0.to, $0.1.price) }).map { .init(
+                from: from.hashable,
+                to: to.hashable,
+                connections: connections.map { ($0.0.from.hashable, $0.0.to.hashable, $0.1.price) }
+            )
 
-                    places: $0.path,
-                    tags: [.cheapest],
-                    metrics: [.init(name: RouteMetric.price, value: Float($0.weight))])
-                }
+            .map { .init(
+
+                places: $0.path.map { $0.original },
+                tags: [.cheapest],
+                metrics: [.init(name: RouteMetric.price, value: Float($0.weight))])
+            }
         }
     )
 }
 
-extension Coordinate: Hashable {
-
-    public func hash(into hasher: inout Hasher) {
-
-        hasher.combine(latitude)
-        hasher.combine(longitude)
-    }
-}
-extension Place: Hashable {
-
-    public func hash(into hasher: inout Hasher) {
-
-        hasher.combine(name)
-        hasher.combine(coordinate)
-    }
-}
 extension Int: Number {
 
     static var upperBound: Int { .max }
