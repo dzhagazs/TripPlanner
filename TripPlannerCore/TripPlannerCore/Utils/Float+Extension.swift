@@ -2,7 +2,10 @@
 //  Float+Extension.swift
 //  TripPlannerCore
 //
-//  Created by Alexandr Vasildzhagaz on 28.01.2024.
+//  Created by Oleksandr Vasildzhahaz on 28.01.2024.
 //
 
-import Foundation
+extension Float: Number {
+
+    static var upperBound: Float { .infinity }
+}

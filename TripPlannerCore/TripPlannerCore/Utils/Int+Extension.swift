@@ -9,4 +9,3 @@ extension Int: Number {
 
     static var upperBound: Int { .max }
 }
-
