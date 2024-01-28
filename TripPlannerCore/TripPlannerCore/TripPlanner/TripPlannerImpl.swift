@@ -7,7 +7,7 @@
 
 final class TripPlannerImpl: TripPlanner {
 
-    typealias Loader = () async throws -> [Place]
+    typealias Loader = ConnectionLoader
     typealias Validator = ([Place]) throws -> Void
     typealias RouteBuilder = (Place, Place) async throws -> [PresentableRoute]
     typealias Error = TripPlannerError
@@ -19,7 +19,9 @@ final class TripPlannerImpl: TripPlanner {
 
     func loadPlaces() async throws -> [Place] {
 
-        let places = try await loader()
+        let connections = try await loader.load()
+
+        let places = places(from: connections)
         try validator(places)
 
         self.places = places
@@ -87,7 +89,7 @@ final class TripPlannerImpl: TripPlanner {
 
     init(
 
-        loader: @escaping Loader,
+        loader: Loader,
         validator: @escaping Validator,
         routeBuilder: @escaping RouteBuilder
 
@@ -99,6 +101,19 @@ final class TripPlannerImpl: TripPlanner {
     }
 
     // MARK: Private
+
+    private func places(from connections: [(Connection, ConnectionMetadata)]) -> [Place] {
+
+        var places = Set<HashablePlace>()
+
+        connections.forEach { connection in
+
+            places.insert(connection.0.from.hashable)
+            places.insert(connection.0.to.hashable)
+        }
+
+        return Array(places.map { $0.original }).sorted(by: { $0.name < $1.name })
+    }
 
     private let loader: Loader
     private let validator: Validator
