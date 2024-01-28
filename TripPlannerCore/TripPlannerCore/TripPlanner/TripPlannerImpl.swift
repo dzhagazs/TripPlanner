@@ -7,9 +7,7 @@
 
 final class TripPlannerImpl: TripPlanner {
 
-    typealias Loader = ConnectionLoader
     typealias ConnectionData = (Connection, ConnectionMetadata)
-    typealias RouteBuilder = (Place, Place, [ConnectionData]) async throws -> [PresentableRoute]
     typealias Error = TripPlannerError
 
     // MARK: TripPlanner
@@ -81,13 +79,13 @@ final class TripPlannerImpl: TripPlanner {
         guard let connections = connections else { throw Error.notLoaded }
         guard let from = from, let to = to else { throw Error.incompleteSelection }
 
-        return try await routeBuilder(from, to, connections)
+        return try await routeBuilder.build(from: from, to: to, connections: connections)
     }
 
     init(
 
-        loader: Loader,
-        routeBuilder: @escaping RouteBuilder
+        loader: ConnectionLoader,
+        routeBuilder: TripRouteBuilder
 
     ) {
 
@@ -117,7 +115,7 @@ final class TripPlannerImpl: TripPlanner {
         return Array(places.map { $0.original }).sorted(by: { $0.name < $1.name })
     }
 
-    private let loader: Loader
-    private let routeBuilder: RouteBuilder
+    private let loader: ConnectionLoader
+    private let routeBuilder: TripRouteBuilder
     private var connections: [ConnectionData]? = nil
 }

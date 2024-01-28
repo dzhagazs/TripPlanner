@@ -15,14 +15,14 @@ extension TripPlannerTests {
 
         _ connections: [Element] = [],
         loaderError: Error? = nil,
-        routeBuilder: @escaping (Place, Place, [(Connection, ConnectionMetadata)]) async throws -> [PresentableRoute] = { _, _, _ in [] }
+        routeBuilderResult: TripRouteBuilderStub.Value = .success([])
 
     ) -> SUT {
 
         let sut = TripPlannerImpl(
 
             loader: ConnectionLoaderStub(result: loaderError == nil ? .success(connections) : .failure(loaderError!)),
-            routeBuilder: routeBuilder
+            routeBuilder: TripRouteBuilderStub(result: routeBuilderResult)
         )
 
         trackMemoryLeak(for: sut)
@@ -42,4 +42,3 @@ extension TripPlannerTests {
         (anyConnection(from, to: to), anyMetadata(price, distance))
     }
 }
-

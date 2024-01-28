@@ -263,7 +263,6 @@ final class TripPlannerTests: XCTestCase {
 
         execute {
 
-            var routeBuilderCalls: [(Place, Place, [(Connection, ConnectionMetadata)])] = []
             let routeBuilderResult: [PresentableRoute] = [
 
                 .init(
@@ -278,12 +277,7 @@ final class TripPlannerTests: XCTestCase {
                 self.anyElement("a"),
                 self.anyElement("b")
 
-            ], routeBuilder: { from, to, connections in
-
-                routeBuilderCalls.append((from, to, connections))
-
-                return routeBuilderResult
-            })
+            ], routeBuilderResult: .success(routeBuilderResult))
 
             _ = try await sut.loadPlaces()
             try sut.select(to: Self.anyPlace("a"))
@@ -299,19 +293,12 @@ final class TripPlannerTests: XCTestCase {
 
         expectToThrow(Error.notFound) {
 
-            var routeBuilderCalls: [(Place, Place, [(Connection, ConnectionMetadata)])] = []
-
             let sut = self.makeSUT([
 
                 self.anyElement("a"),
                 self.anyElement("b")
 
-            ], routeBuilder: {from, to, connections in
-
-                routeBuilderCalls.append((from, to, connections))
-
-                throw Error.notFound
-            })
+            ], routeBuilderResult: .failure(Error.notFound))
 
             _ = try await sut.loadPlaces()
             try sut.select(to: Self.anyPlace("a"))
