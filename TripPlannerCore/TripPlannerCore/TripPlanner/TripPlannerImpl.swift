@@ -9,7 +9,6 @@ final class TripPlannerImpl: TripPlanner {
 
     typealias Loader = ConnectionLoader
     typealias ConnectionData = (Connection, ConnectionMetadata)
-    typealias Validator = ([Place]) throws -> Void
     typealias RouteBuilder = (Place, Place, [ConnectionData]) async throws -> [PresentableRoute]
     typealias Error = TripPlannerError
 
@@ -22,12 +21,9 @@ final class TripPlannerImpl: TripPlanner {
 
         let connections = try await loader.load()
 
-        let places = places(from: connections)
-        try validator(places)
-
         self.connections = connections
 
-        return places
+        return places(from: connections)
     }
 
     func fromSuggestions(filter: String) -> [Place] {
@@ -91,13 +87,11 @@ final class TripPlannerImpl: TripPlanner {
     init(
 
         loader: Loader,
-        validator: @escaping Validator,
         routeBuilder: @escaping RouteBuilder
 
     ) {
 
         self.loader = loader
-        self.validator = validator
         self.routeBuilder = routeBuilder
     }
 
@@ -124,7 +118,6 @@ final class TripPlannerImpl: TripPlanner {
     }
 
     private let loader: Loader
-    private let validator: Validator
     private let routeBuilder: RouteBuilder
     private var connections: [ConnectionData]? = nil
 }

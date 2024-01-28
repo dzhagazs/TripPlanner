@@ -147,40 +147,11 @@ final class TripPlannerTests: XCTestCase {
         }
     }
 
-    func test_loadPlaces_validatesPlaces() {
-
-        execute {
-
-            let elements = [
-
-                self.anyElement("a"),
-                self.anyElement("b"),
-            ]
-            var validationCalls: [[Place]] = []
-            let sut = self.makeSUT(elements) { validatedPlaces in
-
-                validationCalls.append(validatedPlaces)
-            }
-
-            _ = try await sut.loadPlaces()
-
-            XCTAssertEqual(validationCalls, [elements.map { $0.0 }.uniquePlaces])
-        }
-    }
-
     func test_loadPlaces_rethrowsLoaderError() {
 
         expectToThrow(Error.notLoaded) {
 
             _ = try await self.makeSUT(loaderError: .notLoaded).loadPlaces()
-        }
-    }
-
-    func test_loadPlaces_rethrowsValidatorError() {
-
-        expectToThrow(Error.notFound) {
-
-            _ = try await self.makeSUT(validator: { _ in throw Error.notFound }).loadPlaces()
         }
     }
 

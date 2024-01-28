@@ -15,7 +15,6 @@ extension TripPlannerTests {
 
         _ connections: [Element] = [],
         loaderError: Error? = nil,
-        validator: @escaping ([Place]) throws -> Void = { _ in },
         routeBuilder: @escaping (Place, Place, [(Connection, ConnectionMetadata)]) async throws -> [PresentableRoute] = { _, _, _ in [] }
 
     ) -> SUT {
@@ -23,7 +22,6 @@ extension TripPlannerTests {
         let sut = TripPlannerImpl(
 
             loader: ConnectionLoaderStub(result: loaderError == nil ? .success(connections) : .failure(loaderError!)),
-            validator: validator,
             routeBuilder: routeBuilder
         )
 

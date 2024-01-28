@@ -19,7 +19,6 @@ public func start() -> TripPlanner {
     return TripPlannerImpl(
 
         loader: loader,
-        validator: { _ in /*TODO: Check for duplicates*/ },
         routeBuilder: { from, to, connections in
 
             try DijkstrasRouteBuilder.build(
