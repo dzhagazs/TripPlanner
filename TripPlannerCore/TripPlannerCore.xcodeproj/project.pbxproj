@@ -310,6 +310,7 @@
 		1A67A7C62B627D37008E77D0 /* TripPlannerCoreTests */ = {
 			isa = PBXGroup;
 			children = (
+				1A3115702B669A17008FC4AA /* RootTests.swift */,
 				1A67A7DF2B62916F008E77D0 /* RouteBuilderTests.swift */,
 				1A67A7FB2B63DA58008E77D0 /* TripPlannerTests.swift */,
 				1A67A8722B643FFA008E77D0 /* ConnectionLoaderTests.swift */,
@@ -320,7 +321,6 @@
 				1A31156C2B6698EA008FC4AA /* TripRouteBuilderFactoryTests.swift */,
 				1A31156E2B669983008FC4AA /* ConnectionLoaderFactoryTests.swift */,
 				1A67A7E12B6296D7008E77D0 /* Utils */,
-				1A3115702B669A17008FC4AA /* RootTests.swift */,
 			);
 			path = TripPlannerCoreTests;
 			sourceTree = "<group>";
