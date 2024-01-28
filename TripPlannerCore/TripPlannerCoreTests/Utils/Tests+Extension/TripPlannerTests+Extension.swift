@@ -16,7 +16,7 @@ extension TripPlannerTests {
         _ connections: [Element] = [],
         loaderError: Error? = nil,
         validator: @escaping ([Place]) throws -> Void = { _ in },
-        routeBuilder: @escaping (Place, Place) async throws -> [PresentableRoute] = { _, _ in [] }
+        routeBuilder: @escaping (Place, Place, [(Connection, ConnectionMetadata)]) async throws -> [PresentableRoute] = { _, _, _ in [] }
 
     ) -> SUT {
 

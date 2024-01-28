@@ -8,8 +8,9 @@
 final class TripPlannerImpl: TripPlanner {
 
     typealias Loader = ConnectionLoader
+    typealias ConnectionData = (Connection, ConnectionMetadata)
     typealias Validator = ([Place]) throws -> Void
-    typealias RouteBuilder = (Place, Place) async throws -> [PresentableRoute]
+    typealias RouteBuilder = (Place, Place, [ConnectionData]) async throws -> [PresentableRoute]
     typealias Error = TripPlannerError
 
     // MARK: TripPlanner
@@ -24,7 +25,7 @@ final class TripPlannerImpl: TripPlanner {
         let places = places(from: connections)
         try validator(places)
 
-        self.places = places
+        self.connections = connections
 
         return places
     }
@@ -81,10 +82,10 @@ final class TripPlannerImpl: TripPlanner {
 
     func build() async throws -> [PresentableRoute] {
 
-        guard let _ = places else { throw Error.notLoaded }
+        guard let connections = connections else { throw Error.notLoaded }
         guard let from = from, let to = to else { throw Error.incompleteSelection }
 
-        return try await routeBuilder(from, to)
+        return try await routeBuilder(from, to, connections)
     }
 
     init(
@@ -102,6 +103,13 @@ final class TripPlannerImpl: TripPlanner {
 
     // MARK: Private
 
+    private var places: [Place]? {
+
+        guard let connections = connections else { return nil }
+
+        return places(from: connections)
+    }
+
     private func places(from connections: [(Connection, ConnectionMetadata)]) -> [Place] {
 
         var places = Set<HashablePlace>()
@@ -118,5 +126,5 @@ final class TripPlannerImpl: TripPlanner {
     private let loader: Loader
     private let validator: Validator
     private let routeBuilder: RouteBuilder
-    private var places: [Place]? = nil
+    private var connections: [ConnectionData]? = nil
 }

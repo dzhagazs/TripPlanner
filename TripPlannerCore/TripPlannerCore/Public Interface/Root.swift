@@ -16,13 +16,11 @@ public func start() -> TripPlanner {
         provider: MetadataProviderImpl(distanceCalculator: DistanceCalculator.distance(from:to:))
     )
 
-    let connections: [(Connection, ConnectionMetadata)] = []
-
     return TripPlannerImpl(
 
         loader: loader,
-        validator: { _ in },
-        routeBuilder: { from, to in
+        validator: { _ in /*TODO: Check for duplicates*/ },
+        routeBuilder: { from, to, connections in
 
             try DijkstrasRouteBuilder.build(
 

@@ -292,7 +292,7 @@ final class TripPlannerTests: XCTestCase {
 
         execute {
 
-            var routeBuilderCalls: [(Place, Place)] = []
+            var routeBuilderCalls: [(Place, Place, [(Connection, ConnectionMetadata)])] = []
             let routeBuilderResult: [PresentableRoute] = [
 
                 .init(
@@ -307,9 +307,9 @@ final class TripPlannerTests: XCTestCase {
                 self.anyElement("a"),
                 self.anyElement("b")
 
-            ], routeBuilder: { from, to in
+            ], routeBuilder: { from, to, connections in
 
-                routeBuilderCalls.append((from, to))
+                routeBuilderCalls.append((from, to, connections))
 
                 return routeBuilderResult
             })
@@ -328,16 +328,16 @@ final class TripPlannerTests: XCTestCase {
 
         expectToThrow(Error.notFound) {
 
-            var routeBuilderCalls: [(Place, Place)] = []
+            var routeBuilderCalls: [(Place, Place, [(Connection, ConnectionMetadata)])] = []
 
             let sut = self.makeSUT([
 
                 self.anyElement("a"),
                 self.anyElement("b")
 
-            ], routeBuilder: {from, to in
+            ], routeBuilder: {from, to, connections in
 
-                routeBuilderCalls.append((from, to))
+                routeBuilderCalls.append((from, to, connections))
 
                 throw Error.notFound
             })
