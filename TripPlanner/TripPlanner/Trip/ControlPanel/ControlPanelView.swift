@@ -11,7 +11,6 @@ struct ControlPanelView: View {
 
     let onClear: () -> Void
 
-    @Binding var price: String
     @Binding var fromValue: PanelItemValue
     @Binding var toValue: PanelItemValue
 
@@ -20,10 +19,6 @@ struct ControlPanelView: View {
         VStack {
 
             HStack {
-
-                Spacer()
-
-                Text(price)
 
                 Spacer()
 

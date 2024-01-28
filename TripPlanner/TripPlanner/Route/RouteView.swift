@@ -11,62 +11,33 @@ import MapKit
 struct RouteView: View {
 
     let places: [PlaceAnnotation]
-    let route: [CLLocationCoordinate2D]?
+    let routes: [RouteInfo]
+
+    @Binding var selectedRoute: RouteInfo?
 
     var body: some View {
 
-        Map {
+        VStack {
 
-            ForEach(places, id: \.self) { place in
+            Map {
 
-                Marker(place.title, coordinate: place.coordinates)
+                ForEach(places, id: \.self) { place in
+
+                    Marker(place.title, coordinate: place.coordinates)
+                }
+
+                if let route = selectedRoute {
+
+                    MapPolyline(coordinates: route.route.map { $0.coordinates })
+
+                        .stroke(.blue, lineWidth: 10)
+                }
             }
 
-            if let route = route {
+            RoutesListView(routes: routes, selectedRoute: $selectedRoute)
 
-                MapPolyline(coordinates: route)
+                .frame(height: routes.isEmpty ? 0 : 150)
 
-                    .stroke(.blue, lineWidth: 10)
-            }
         }
     }
-}
-
-#Preview {
-
-    RouteView(places: [
-
-        .init(
-
-            title: "London",
-            coordinates: .init(latitude: 51.5285582, longitude: -0.241681)
-        ),
-        .init(
-
-            title: "Lyon",
-            coordinates: .init(latitude: 45.743061, longitude: 4.869658)
-        ),
-        .init(
-
-            title: "Kharkiv",
-            coordinates: .init(latitude: 49.955091, longitude: 36.337248)
-        ),
-        .init(
-
-            title: "Dubai",
-            coordinates: .init(latitude: 25.160947, longitude: 55.297016)
-        ),
-        .init(
-
-            title: "Tokyo",
-            coordinates: .init(latitude: 35.652832, longitude: 139.839478)
-        ),
-    ], route: [
-
-        .init(latitude: 51.5285582, longitude: -0.241681),
-        .init(latitude: 45.743061, longitude: 4.869658),
-        .init(latitude: 49.955091, longitude: 36.337248),
-        .init(latitude: 25.160947, longitude: 55.297016),
-        .init(latitude: 35.652832, longitude: 139.839478)
-    ])
 }

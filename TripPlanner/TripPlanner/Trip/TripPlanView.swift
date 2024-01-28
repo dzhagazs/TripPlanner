@@ -22,19 +22,23 @@ struct TripPlanView: View {
 
             VStack {
 
-                RouteView(places: vm.places, route: vm.route)
+                RouteView(
 
-                    .overlay {
+                    places: vm.places,
+                    routes: vm.routes,
+                    selectedRoute: $vm.selectedRoute
+                )
 
-                        ProgressView()
+                .overlay {
 
-                            .opacity(vm.loading ? 1 : 0)
-                    }
+                    ProgressView()
+
+                        .opacity(vm.loading ? 1 : 0)
+                }
 
                 ControlPanelView(
 
                     onClear: onClear,
-                    price: $vm.price,
                     fromValue: $vm.fromValue,
                     toValue: $vm.toValue
                 )

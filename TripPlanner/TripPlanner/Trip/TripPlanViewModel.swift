@@ -11,9 +11,9 @@ import CoreLocation.CLLocation
 @Observable class TripPlanViewModel {
 
     var places: [PlaceAnnotation] = []
-    var route: [CLLocationCoordinate2D] = []
+    var routes: [RouteInfo] = []
+    var selectedRoute: RouteInfo?
     var loading: Bool = false
-    var price: String = ""
 
     var fromValue: PanelItemValue = .init(value: nil, placeholder: "From")
     var toValue: PanelItemValue = .init(value: nil, placeholder: "To")
