@@ -2,7 +2,7 @@
 //  TripRouteBuilderTests.swift
 //  TripPlannerCoreTests
 //
-//  Created by Alexandr Vasildzhagaz on 28.01.2024.
+//  Created by Oleksandr Vasildzhahaz on 28.01.2024.
 //
 
 @testable import TripPlannerCore
