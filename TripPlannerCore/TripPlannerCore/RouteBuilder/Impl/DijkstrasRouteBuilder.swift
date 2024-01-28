@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder {
+internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: ShortestRouteBuilder {
 
     typealias Weight = W
     typealias RouteElement = E
@@ -20,7 +20,7 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
         to: E,
         connections: [Connection]
 
-    ) throws -> [Route<E, W>] {
+    ) throws -> Route<E, W> {
 
         try validate(from: from, to: to, connections: connections)
 
@@ -29,7 +29,6 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
 
         var weights = initialWeights(for: from, fromNeighbors: fromNeighbors, from: allNodes)
         var parents = initialParents(for: from, fromNeighbors: fromNeighbors)
-        var routes = initialRoutes(from: from, to: to, connections: connections)
 
         let graph = try initialGraph(for: allNodes, connections: connections)
 
@@ -38,14 +37,15 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
             with: graph,
             from: from,
             to: to,
-            routes: &routes,
             weights: &weights,
             parents: &parents
         )
 
-        guard routes.count > 0 else { throw Error.notFound }
+        let path = try path(from: from, to: to,parents: parents)
 
-        return routes.sorted(by: { $0.weight < $1.weight })
+        guard let weight = weights[to], !path.isEmpty else { throw Error.notFound}
+
+        return .init(path: path, weight: weight)
     }
 
     // MARK: Private
@@ -126,18 +126,6 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
         return parents
     }
 
-    private static func initialRoutes(from: E, to: E, connections: [Connection]) -> [Route<E, W>] {
-
-        var routes: [Route<E, W>] = []
-
-        if let direct = directConnectionRouteIfExists(from: from, to: to, connections: connections) {
-
-            routes.append(direct)
-        }
-
-        return routes
-    }
-
     private static func initialGraph(for nodes: [E], connections: [Connection]) throws -> [E: [E: W]] {
 
         var graph: [E: [E: W]] = [:]
@@ -167,7 +155,6 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
         with graph: [E: [E: W]],
         from: E,
         to: E,
-        routes: inout [Route<E, W>],
         weights: inout [E: W],
         parents: inout [E: E]
     ) {
@@ -188,33 +175,12 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
 
                     weights[neighbor] = newWeight
                     parents[neighbor] = element
-                    if weights[to]! < .upperBound {
-
-                        routes.append(.init(
-
-                            path: [from] + path(from: from, to: to, parents: parents),
-                            weight: weights[to]!
-                        ))
-                    }
                 }
             }
             processed.append(element)
             processedElement = lowestWeightElement(weights, processed: processed)
 
         } while processedElement != nil
-    }
-
-    private static func directConnectionRouteIfExists(
-
-        from: E,
-        to: E,
-        connections: [Connection]
-
-    ) -> Route<E, W>? {
-
-        guard let directConnection = connections.first(where: { $0.0 == from && $0.1 == to }) else { return nil }
-
-        return .init(path: [from, to], weight: directConnection.2)
     }
 
     private static func lowestWeightElement(_ weights: [E: W], processed: [E]) -> E? {
@@ -234,16 +200,19 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: RouteBuilder
         return result
     }
 
-    private static func path(from: E, to: E, parents: [E: E]) -> [E] {
+    private static func path(from: E, to: E, parents: [E: E]) throws -> [E] {
 
         var path: [E] = []
         var element = to
         repeat {
 
             path.append(element)
-            element = parents[element]!
+            guard let next = parents[element] else { throw Error.notFound }
+            element = next
 
         } while element != from
+
+        path.append(from)
 
         return path.reversed()
     }

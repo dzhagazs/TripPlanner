@@ -36,7 +36,7 @@
 		1A67A7D42B627DCE008E77D0 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7D32B627DCE008E77D0 /* Coordinate.swift */; };
 		1A67A7D62B627E2A008E77D0 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7D52B627E2A008E77D0 /* Place.swift */; };
 		1A67A7D82B627E7F008E77D0 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7D72B627E7F008E77D0 /* Connection.swift */; };
-		1A67A7DE2B628703008E77D0 /* RouteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7DD2B628703008E77D0 /* RouteBuilder.swift */; };
+		1A67A7DE2B628703008E77D0 /* ShortestRouteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7DD2B628703008E77D0 /* ShortestRouteBuilder.swift */; };
 		1A67A7E02B62916F008E77D0 /* RouteBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7DF2B62916F008E77D0 /* RouteBuilderTests.swift */; };
 		1A67A7E32B6296E4008E77D0 /* XCTestCase+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7E22B6296E4008E77D0 /* XCTestCase+Extension.swift */; };
 		1A67A7E82B62B7C3008E77D0 /* DijkstrasRouteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7E72B62B7C3008E77D0 /* DijkstrasRouteBuilder.swift */; };
@@ -60,7 +60,7 @@
 		1A67A8472B640395008E77D0 /* Root.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8072B63FF70008E77D0 /* Root.swift */; };
 		1A67A8492B640395008E77D0 /* TripPlannerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7F92B63D9F3008E77D0 /* TripPlannerImpl.swift */; };
 		1A67A84A2B640395008E77D0 /* Sequence+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7F02B62DDF3008E77D0 /* Sequence+Extension.swift */; };
-		1A67A84B2B640395008E77D0 /* RouteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7DD2B628703008E77D0 /* RouteBuilder.swift */; };
+		1A67A84B2B640395008E77D0 /* ShortestRouteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7DD2B628703008E77D0 /* ShortestRouteBuilder.swift */; };
 		1A67A84C2B640395008E77D0 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7D72B627E7F008E77D0 /* Connection.swift */; };
 		1A67A84D2B640395008E77D0 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7D52B627E2A008E77D0 /* Place.swift */; };
 		1A67A86C2B643A04008E77D0 /* ConnectionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A86B2B643A04008E77D0 /* ConnectionLoader.swift */; };
@@ -126,7 +126,7 @@
 		1A67A7D32B627DCE008E77D0 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		1A67A7D52B627E2A008E77D0 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		1A67A7D72B627E7F008E77D0 /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
-		1A67A7DD2B628703008E77D0 /* RouteBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilder.swift; sourceTree = "<group>"; };
+		1A67A7DD2B628703008E77D0 /* ShortestRouteBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortestRouteBuilder.swift; sourceTree = "<group>"; };
 		1A67A7DF2B62916F008E77D0 /* RouteBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilderTests.swift; sourceTree = "<group>"; };
 		1A67A7E22B6296E4008E77D0 /* XCTestCase+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extension.swift"; sourceTree = "<group>"; };
 		1A67A7E72B62B7C3008E77D0 /* DijkstrasRouteBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DijkstrasRouteBuilder.swift; sourceTree = "<group>"; };
@@ -296,7 +296,7 @@
 		1A67A7E42B62B76B008E77D0 /* RouteBuilder */ = {
 			isa = PBXGroup;
 			children = (
-				1A67A7DD2B628703008E77D0 /* RouteBuilder.swift */,
+				1A67A7DD2B628703008E77D0 /* ShortestRouteBuilder.swift */,
 				1A67A7E92B62B80E008E77D0 /* RouteBuilderError.swift */,
 				1A67A7F42B63CC60008E77D0 /* Route.swift */,
 				1A67A7E62B62B790008E77D0 /* Impl */,
@@ -550,7 +550,7 @@
 				1A3115182B652BA9008FC4AA /* DistanceCalculator.swift in Sources */,
 				1A67A8932B645762008E77D0 /* ConnectionDecoderImpl.swift in Sources */,
 				1A3115292B6586F1008FC4AA /* PresentableRoute.swift in Sources */,
-				1A67A7DE2B628703008E77D0 /* RouteBuilder.swift in Sources */,
+				1A67A7DE2B628703008E77D0 /* ShortestRouteBuilder.swift in Sources */,
 				1A67A7D82B627E7F008E77D0 /* Connection.swift in Sources */,
 				1A67A7D62B627E2A008E77D0 /* Place.swift in Sources */,
 				1A3115392B658FAB008FC4AA /* HashablePlace.swift in Sources */,
@@ -620,7 +620,7 @@
 				1A67A8942B645762008E77D0 /* ConnectionDecoderImpl.swift in Sources */,
 				1A67A8A12B6524B6008E77D0 /* MetadataProviderImpl.swift in Sources */,
 				1A31152A2B6586F1008FC4AA /* PresentableRoute.swift in Sources */,
-				1A67A84B2B640395008E77D0 /* RouteBuilder.swift in Sources */,
+				1A67A84B2B640395008E77D0 /* ShortestRouteBuilder.swift in Sources */,
 				1A67A84C2B640395008E77D0 /* Connection.swift in Sources */,
 				1A67A84D2B640395008E77D0 /* Place.swift in Sources */,
 				1A31153A2B658FAB008FC4AA /* HashablePlace.swift in Sources */,

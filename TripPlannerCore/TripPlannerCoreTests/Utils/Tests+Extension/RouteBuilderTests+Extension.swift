@@ -11,36 +11,12 @@ import XCTest
 
 extension RouteBuilderTests {
 
-    func expectToBuildFirst(
-
-        route: Route<String, Int>,
-        from: String = "a",
-        to: String = "b",
-        with connections: [(String, String, Int)],
-        file: StaticString = #file,
-        line: UInt = #line
-
-    ) {
-
-        expectToBuild(
-
-            [route],
-            from: from,
-            to: to,
-            with: connections,
-            resultFilter: { ($0.first != nil) ? [$0.first!] : [] },
-            file: file,
-            line: line
-        )
-    }
-
     func expectToBuild(
 
-        _ routes: [Route<String, Int>],
+        _ route: Route<String, Int>,
         from: String = "a",
         to: String = "b",
         with connections: [(String, String, Int)],
-        resultFilter: @escaping ([Route<String, Int>]) -> [Route<String, Int>] = { $0 },
         file: StaticString = #file,
         line: UInt = #line
 
@@ -55,7 +31,7 @@ extension RouteBuilderTests {
                 connections: connections
             )
 
-            XCTAssertEqual(routes, resultFilter(result), file: file, line: line)
+            XCTAssertEqual(route, result, file: file, line: line)
         }
     }
 

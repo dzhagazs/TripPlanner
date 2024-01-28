@@ -1,11 +1,11 @@
 //
-//  RouteBuilder.swift
+//  ShortestRouteBuilder.swift
 //  TripPlannerCore
 //
 //  Created by Olexandr Vasildzhahaz on 25.01.2024.
 //
 
-protocol RouteBuilder {
+protocol ShortestRouteBuilder {
 
     associatedtype Weight: Number
     associatedtype RouteElement: Hashable, Equatable
@@ -16,7 +16,7 @@ protocol RouteBuilder {
         to: RouteElement,
         connections: [(RouteElement, RouteElement, Weight)]
 
-    ) throws -> [Route<RouteElement, Weight>]
+    ) throws -> Route<RouteElement, Weight>
 }
 
 protocol Number: Comparable, Addable {
