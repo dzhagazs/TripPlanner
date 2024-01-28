@@ -7,10 +7,10 @@
 
 extension RouteMetric {
 
-    static let price = "price"
+    public static let price = "price"
 }
 
 extension RouteMetric {
 
-    static let distance = "distance"
+    public static let distance = "distance"
 }
