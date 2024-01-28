@@ -43,6 +43,7 @@
 		1A3115652B669407008FC4AA /* TripRouteBuilderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3115632B669407008FC4AA /* TripRouteBuilderFactory.swift */; };
 		1A3115682B66942F008FC4AA /* TripRouteBuilderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3115672B66942F008FC4AA /* TripRouteBuilderImpl.swift */; };
 		1A3115692B66942F008FC4AA /* TripRouteBuilderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3115672B66942F008FC4AA /* TripRouteBuilderImpl.swift */; };
+		1A31156B2B6694FB008FC4AA /* TripRouteBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A31156A2B6694FB008FC4AA /* TripRouteBuilderTests.swift */; };
 		1A67A7C32B627D37008E77D0 /* TripPlannerCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A67A7BA2B627D37008E77D0 /* TripPlannerCore.framework */; };
 		1A67A7D42B627DCE008E77D0 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7D32B627DCE008E77D0 /* Coordinate.swift */; };
 		1A67A7D62B627E2A008E77D0 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7D52B627E2A008E77D0 /* Place.swift */; };
@@ -138,6 +139,7 @@
 		1A3115602B6693DA008FC4AA /* TripRouteBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripRouteBuilder.swift; sourceTree = "<group>"; };
 		1A3115632B669407008FC4AA /* TripRouteBuilderFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripRouteBuilderFactory.swift; sourceTree = "<group>"; };
 		1A3115672B66942F008FC4AA /* TripRouteBuilderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripRouteBuilderImpl.swift; sourceTree = "<group>"; };
+		1A31156A2B6694FB008FC4AA /* TripRouteBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripRouteBuilderTests.swift; sourceTree = "<group>"; };
 		1A67A7BA2B627D37008E77D0 /* TripPlannerCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TripPlannerCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A67A7C22B627D37008E77D0 /* TripPlannerCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TripPlannerCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A67A7D32B627DCE008E77D0 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
@@ -308,6 +310,7 @@
 				1A67A8952B6459F8008E77D0 /* ConnectionDecoderTests.swift */,
 				1A67A8A22B6525AE008E77D0 /* MetadataProviderTests.swift */,
 				1A31151A2B652F97008FC4AA /* DistanceCalculatorTests.swift */,
+				1A31156A2B6694FB008FC4AA /* TripRouteBuilderTests.swift */,
 				1A67A7E12B6296D7008E77D0 /* Utils */,
 			);
 			path = TripPlannerCoreTests;
@@ -631,6 +634,7 @@
 				1A3115552B66480D008FC4AA /* TripPlannerTests+Extension.swift in Sources */,
 				1A67A8842B6451C4008E77D0 /* XCTestCase+ConnectionMetadata.swift in Sources */,
 				1A67A7FC2B63DA58008E77D0 /* TripPlannerTests.swift in Sources */,
+				1A31156B2B6694FB008FC4AA /* TripRouteBuilderTests.swift in Sources */,
 				1A67A7EE2B62B8DA008E77D0 /* Route+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
