@@ -16,24 +16,11 @@ public func start() -> TripPlanner {
         provider: MetadataProviderImpl(distanceCalculator: DistanceCalculator.distance(from:to:))
     )
 
-    var connections: [(Connection, ConnectionMetadata)] = []
+    let connections: [(Connection, ConnectionMetadata)] = []
 
     return TripPlannerImpl(
 
-        loader: {
-
-            connections = try await loader.load()
-
-            var places = Set<HashablePlace>()
-
-            connections.forEach { connection in
-
-                places.insert(connection.0.from.hashable)
-                places.insert(connection.0.to.hashable)
-            }
-
-            return Array(places.map { $0.original })
-        },
+        loader: loader,
         validator: { _ in },
         routeBuilder: { from, to in
 
