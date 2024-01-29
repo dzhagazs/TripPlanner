@@ -127,6 +127,7 @@ class TripPlanModel {
             self.vm.places = places.asAnnotations
 
             self.refreshPickerSuggestions()
+            self.refreshPickers()
         }
     }
 
