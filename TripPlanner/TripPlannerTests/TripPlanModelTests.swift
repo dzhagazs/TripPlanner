@@ -33,6 +33,21 @@ final class TripPlanModelTests: XCTestCase {
         XCTAssertTrue(planner.calls.first == .loadPlaces)
     }
 
+    func test_load_updatesVmLoadingDuringLoading() {
+
+        let exp = expectation(description: "Wait for completion.")
+
+        let sut = makeSUT(planner, exp: exp)
+
+        sut.load()
+
+        XCTAssertEqual(sut.vm.loading, true)
+
+        wait(for: [exp])
+
+        XCTAssertEqual(sut.vm.loading, false)
+    }
+
     // MARK: Private
 
     private let planner = TripPlannerStub()
