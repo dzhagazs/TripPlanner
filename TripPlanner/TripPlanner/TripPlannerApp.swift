@@ -11,7 +11,12 @@ import TripPlannerCore
 @main
 struct TripPlannerApp: App {
 
-    let tripModel = TripPlanModel(planner: start())
+    let tripModel = TripPlanModel(
+
+        planner: start(),
+        asyncRunner: AsyncRunnerImpl(),
+        callbackRunner: MainQueueRunner()
+    )
 
     var body: some Scene {
 

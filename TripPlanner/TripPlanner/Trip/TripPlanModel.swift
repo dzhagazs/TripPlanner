@@ -18,17 +18,23 @@ class TripPlanModel {
 
     init(
 
-        planner: TripPlanner
+        planner: TripPlanner,
+        asyncRunner: AsyncRunner,
+        callbackRunner: SyncRunner
 
     ) {
 
         self.planner = planner
+        self.asyncRunner = asyncRunner
+        self.callbackRunner = callbackRunner
     }
 
     func load() {
 
         vm.loading = true
-        Task {
+        asyncRunner.perform { [weak self] in
+
+            guard let self = self else { return }
 
             do {
 
@@ -96,7 +102,9 @@ class TripPlanModel {
 
         guard canBuildRoute() else { return }
 
-        Task {
+        asyncRunner.perform { [weak self] in
+
+            guard let self = self else { return }
 
             do {
 
@@ -112,7 +120,7 @@ class TripPlanModel {
 
     private func configure(_ places: [Place]) {
 
-        performOnMain {
+        callbackRunner.perform {
 
             self.places = places
             self.vm.loading = false
@@ -132,7 +140,7 @@ class TripPlanModel {
 
     private func configure(_ routes: [PresentableRoute]) {
 
-        performOnMain {
+        callbackRunner.perform {
 
             self.vm.routes = routes.map { $0.info }
             self.vm.selectedRoute = self.vm.routes.first
@@ -157,5 +165,7 @@ class TripPlanModel {
     }
 
     private let planner: TripPlanner
+    private let asyncRunner: AsyncRunner
+    private let callbackRunner: SyncRunner
     private var places: [Place]?
 }

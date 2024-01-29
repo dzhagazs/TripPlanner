@@ -21,6 +21,7 @@
 		1A31157B2B66F38A008FC4AA /* RouteTag+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A31157A2B66F38A008FC4AA /* RouteTag+Extension.swift */; };
 		1A31157D2B66F3C7008FC4AA /* PresentableRoute+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A31157C2B66F3C7008FC4AA /* PresentableRoute+Extension.swift */; };
 		1A3115832B679956008FC4AA /* XCTestCase+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3115822B679956008FC4AA /* XCTestCase+Extension.swift */; };
+		1A3115852B67B1A9008FC4AA /* Runner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3115842B67B1A9008FC4AA /* Runner.swift */; };
 		1A67A8162B640311008E77D0 /* TripPlannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8152B640311008E77D0 /* TripPlannerApp.swift */; };
 		1A67A85C2B64091F008E77D0 /* RouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A85B2B64091F008E77D0 /* RouteView.swift */; };
 		1A67A85E2B640991008E77D0 /* TripPlannerCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A67A85D2B640991008E77D0 /* TripPlannerCore.framework */; };
@@ -69,6 +70,7 @@
 		1A31157A2B66F38A008FC4AA /* RouteTag+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RouteTag+Extension.swift"; sourceTree = "<group>"; };
 		1A31157C2B66F3C7008FC4AA /* PresentableRoute+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PresentableRoute+Extension.swift"; sourceTree = "<group>"; };
 		1A3115822B679956008FC4AA /* XCTestCase+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "XCTestCase+Extension.swift"; path = "../../../TripPlannerCore/TripPlannerCoreTests/Utils/XCTestCase/XCTestCase+Extension.swift"; sourceTree = "<group>"; };
+		1A3115842B67B1A9008FC4AA /* Runner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Runner.swift; sourceTree = "<group>"; };
 		1A67A8122B640311008E77D0 /* TripPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A67A8152B640311008E77D0 /* TripPlannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlannerApp.swift; sourceTree = "<group>"; };
 		1A67A8222B640312008E77D0 /* TripPlannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TripPlannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +107,7 @@
 				1A3115202B6556CE008FC4AA /* MainThreadCheck.swift */,
 				1A31157A2B66F38A008FC4AA /* RouteTag+Extension.swift */,
 				1A31157C2B66F3C7008FC4AA /* PresentableRoute+Extension.swift */,
+				1A3115842B67B1A9008FC4AA /* Runner.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				1A3115792B66F2D7008FC4AA /* RouteListView.swift in Sources */,
 				1A3115432B659714008FC4AA /* PlaceAnnotation.swift in Sources */,
 				1A31157B2B66F38A008FC4AA /* RouteTag+Extension.swift in Sources */,
+				1A3115852B67B1A9008FC4AA /* Runner.swift in Sources */,
 				1A67A8642B642AE4008E77D0 /* InputView.swift in Sources */,
 				1A3115212B6556CE008FC4AA /* MainThreadCheck.swift in Sources */,
 				1A31154E2B659938008FC4AA /* PanelItemValue.swift in Sources */,

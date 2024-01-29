@@ -7,7 +7,7 @@
 
 import Foundation
 
-func performOnMain(_ action: @escaping () -> Void) {
+func performOnMain(_ action: () -> Void) {
 
     if Thread.isMainThread {
 
@@ -15,10 +15,9 @@ func performOnMain(_ action: @escaping () -> Void) {
 
     } else {
 
-        DispatchQueue.main.async {
+        DispatchQueue.main.asyncAndWait {
 
             action()
         }
     }
 }
-
