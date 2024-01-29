@@ -16,14 +16,26 @@ final class TripPlanModelTests: XCTestCase {
 
     func test_init_hasNoSideEffects() {
 
-        let planner = TripPlannerStub()
-
         _ = makeSUT(planner)
 
         XCTAssertEqual(planner.calls, [])
     }
 
+    func test_load_forwardsCallToPlanner() {
+
+        let exp = expectation(description: "Wait for completion.")
+
+        let sut = makeSUT(planner, exp: exp)
+        sut.load()
+
+        wait(for: [exp])
+
+        XCTAssertTrue(planner.calls.first == .loadPlaces)
+    }
+
     // MARK: Private
+
+    private let planner = TripPlannerStub()
 
     func makeSUT(
 
