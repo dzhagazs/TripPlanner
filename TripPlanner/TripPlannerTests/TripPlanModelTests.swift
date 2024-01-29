@@ -96,10 +96,25 @@ final class TripPlanModelTests: XCTestCase {
 
         wait(for: [exp])
 
-        XCTAssertTrue(planner.calls.filter { $0 == .fromSuggestions("") }.count == 1)
-        XCTAssertTrue(planner.calls.filter { $0 == .toSuggestions("") }.count == 1)
+        XCTAssertEqual(planner.calls.filter { $0 == .fromSuggestions("") }.count, 1)
+        XCTAssertEqual(planner.calls.filter { $0 == .toSuggestions("") }.count, 1)
         XCTAssertEqual(sut.fromPickerVM.suggestions, ["a"])
         XCTAssertEqual(sut.toPickerVM.suggestions, ["b"])
+    }
+
+    func test_selectFrom_updatesSelection() {
+
+        let exp = expectation(description: "Wait for completion.")
+        let sut = makeSUT(planner, exp: exp)
+
+        planner.result.loadPlaces = .success([Self.anyPlace("from")])
+        sut.load()
+
+        wait(for: [exp])
+
+        sut.selectFrom("from")
+
+        XCTAssertEqual(planner.calls.filter { $0 == .selectFrom("from") }.count, 1)
     }
 
     // MARK: Private
