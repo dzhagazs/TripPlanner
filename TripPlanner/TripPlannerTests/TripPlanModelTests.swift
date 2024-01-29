@@ -83,6 +83,25 @@ final class TripPlanModelTests: XCTestCase {
         XCTAssertEqual(sut.vm.toValue.value, "b")
     }
 
+    func test_load_refreshesSuggestions() {
+
+        let exp = expectation(description: "Wait for completion.")
+
+        let sut = makeSUT(planner, exp: exp)
+
+        planner.result.fromSuggestions = [Self.anyPlace("a")]
+        planner.result.toSuggestions = [Self.anyPlace("b")]
+
+        sut.load()
+
+        wait(for: [exp])
+
+        XCTAssertTrue(planner.calls.contains(where: { $0 == .fromSuggestions("") }))
+        XCTAssertTrue(planner.calls.contains(where: { $0 == .toSuggestions("") }))
+        XCTAssertEqual(sut.fromPickerVM.suggestions, ["a"])
+        XCTAssertEqual(sut.toPickerVM.suggestions, ["b"])
+    }
+
     // MARK: Private
 
     private let planner = TripPlannerStub()
