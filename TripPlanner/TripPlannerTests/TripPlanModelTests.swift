@@ -140,6 +140,26 @@ final class TripPlanModelTests: XCTestCase {
         XCTAssertEqual(planner.calls.filter { $0 == .build }.count, 1)
     }
 
+    func test_selectFrom_buildsRouteIfToSelected() {
+
+        let sut = makeSUT(exp: expectation())
+
+        planner.result.loadPlaces = .success([Self.anyPlace("to"), Self.anyPlace("from")])
+        planner.from = Self.anyPlace("from")
+        planner.to = Self.anyPlace("to")
+
+        sut.load()
+
+        wait()
+        expectation()
+
+        sut.selectFrom("from")
+
+        wait()
+
+        XCTAssertEqual(planner.calls.filter { $0 == .build }.count, 1)
+    }
+
     // MARK: Private
 
     private let planner = TripPlannerStub()
