@@ -96,18 +96,3 @@ final class TripPlanModelTests: XCTestCase {
 
     }
 }
-
-extension Array where Element == Place {
-
-    var asAnnotations: [PlaceAnnotation] {
-
-        self.map { .init(
-
-            title: $0.name,
-            coordinates: .init(
-
-                latitude: Double($0.coordinate.latitude),
-                longitude: Double($0.coordinate.longitude)))
-        }
-    }
-}

@@ -124,15 +124,7 @@ class TripPlanModel {
 
             self.places = places
             self.vm.loading = false
-            self.vm.places = places.map { .init(
-
-                title: $0.name,
-                coordinates: .init(
-
-                    latitude: Double($0.coordinate.latitude),
-                    longitude: Double($0.coordinate.longitude)
-                ))
-            }
+            self.vm.places = places.asAnnotations
 
             self.refreshPickerSuggestions()
         }
