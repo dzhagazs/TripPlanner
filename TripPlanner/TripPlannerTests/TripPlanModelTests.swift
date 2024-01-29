@@ -23,26 +23,22 @@ final class TripPlanModelTests: XCTestCase {
 
     func test_load_forwardsCallToPlanner() {
 
-        let exp = expectation(description: "Wait for completion.")
-
         let sut = makeSUT(planner, exp: exp)
         sut.load()
 
-        wait(for: [exp])
+        wait()
 
         XCTAssertTrue(planner.calls.first == .loadPlaces)
     }
 
     func test_load_updatesVmLoadingDuringLoading() {
 
-        let exp = expectation(description: "Wait for completion.")
-
         let sut = makeSUT(planner, exp: exp)
         sut.load()
 
         XCTAssertEqual(sut.vm.loading, true)
 
-        wait(for: [exp])
+        wait()
 
         XCTAssertEqual(sut.vm.loading, false)
     }
@@ -56,19 +52,15 @@ final class TripPlanModelTests: XCTestCase {
         ]
         planner.result.loadPlaces = .success(places)
 
-        let exp = expectation(description: "Wait for completion.")
-
         let sut = makeSUT(planner, exp: exp)
         sut.load()
 
-        wait(for: [exp])
+        wait()
 
         XCTAssertEqual(sut.vm.places, places.asAnnotations)
     }
 
     func test_load_refreshesPickers() {
-
-        let exp = expectation(description: "Wait for completion.")
 
         let sut = makeSUT(planner, exp: exp)
 
@@ -77,15 +69,13 @@ final class TripPlanModelTests: XCTestCase {
 
         sut.load()
 
-        wait(for: [exp])
+        wait()
 
         XCTAssertEqual(sut.vm.fromValue.value, "a")
         XCTAssertEqual(sut.vm.toValue.value, "b")
     }
 
     func test_load_refreshesSuggestions() {
-
-        let exp = expectation(description: "Wait for completion.")
 
         let sut = makeSUT(planner, exp: exp)
 
@@ -94,7 +84,7 @@ final class TripPlanModelTests: XCTestCase {
 
         sut.load()
 
-        wait(for: [exp])
+        wait()
 
         XCTAssertEqual(planner.calls.filter { $0 == .fromSuggestions("") }.count, 1)
         XCTAssertEqual(planner.calls.filter { $0 == .toSuggestions("") }.count, 1)
@@ -103,14 +93,12 @@ final class TripPlanModelTests: XCTestCase {
     }
 
     func test_selectFrom_updatesSelection() {
-
-        let exp = expectation(description: "Wait for completion.")
         let sut = makeSUT(planner, exp: exp)
 
         planner.result.loadPlaces = .success([Self.anyPlace("from")])
         sut.load()
 
-        wait(for: [exp])
+        wait()
 
         sut.selectFrom("from")
 
@@ -119,13 +107,12 @@ final class TripPlanModelTests: XCTestCase {
 
     func test_selectTo_updatesSelection() {
 
-        let exp = expectation(description: "Wait for completion.")
         let sut = makeSUT(planner, exp: exp)
 
         planner.result.loadPlaces = .success([Self.anyPlace("to")])
         sut.load()
 
-        wait(for: [exp])
+        wait()
 
         sut.selectTo("to")
 
@@ -135,6 +122,7 @@ final class TripPlanModelTests: XCTestCase {
     // MARK: Private
 
     private let planner = TripPlannerStub()
+    private lazy var exp: XCTestExpectation = { expectation(description: "Wait for completion.") }()
 
     func makeSUT(
 
@@ -159,6 +147,7 @@ final class TripPlanModelTests: XCTestCase {
         asyncRunner.expectation = exp
 
         return sut
-
     }
+
+    private func wait() { wait(for: [exp], timeout: 1) }
 }
