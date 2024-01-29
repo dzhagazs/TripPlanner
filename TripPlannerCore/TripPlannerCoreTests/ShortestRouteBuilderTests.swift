@@ -9,7 +9,7 @@
 
 import XCTest
 
-final class RouteBuilderTests: XCTestCase {
+final class ShortestRouteBuilderTests: XCTestCase {
 
     typealias SUT = DijkstrasRouteBuilder<Int, String>
     typealias Error = RouteBuilderError

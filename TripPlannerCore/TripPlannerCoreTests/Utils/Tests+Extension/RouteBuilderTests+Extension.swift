@@ -1,5 +1,5 @@
 //
-//  RouteBuilderTests+Extension.swift
+//  ShortestRouteBuilderTests+Extension.swift
 //  TripPlannerCoreTests
 //
 //  Created by Olexandr Vasildzhahaz on 27.01.2024.
@@ -9,7 +9,7 @@
 
 import XCTest
 
-extension RouteBuilderTests {
+extension ShortestRouteBuilderTests {
 
     func expectToBuild(
 

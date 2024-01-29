@@ -52,7 +52,7 @@
 		1A67A7D62B627E2A008E77D0 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7D52B627E2A008E77D0 /* Place.swift */; };
 		1A67A7D82B627E7F008E77D0 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7D72B627E7F008E77D0 /* Connection.swift */; };
 		1A67A7DE2B628703008E77D0 /* ShortestRouteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7DD2B628703008E77D0 /* ShortestRouteBuilder.swift */; };
-		1A67A7E02B62916F008E77D0 /* RouteBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7DF2B62916F008E77D0 /* RouteBuilderTests.swift */; };
+		1A67A7E02B62916F008E77D0 /* ShortestRouteBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7DF2B62916F008E77D0 /* ShortestRouteBuilderTests.swift */; };
 		1A67A7E32B6296E4008E77D0 /* XCTestCase+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7E22B6296E4008E77D0 /* XCTestCase+Extension.swift */; };
 		1A67A7E82B62B7C3008E77D0 /* DijkstrasRouteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7E72B62B7C3008E77D0 /* DijkstrasRouteBuilder.swift */; };
 		1A67A7EA2B62B80E008E77D0 /* RouteBuilderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7E92B62B80E008E77D0 /* RouteBuilderError.swift */; };
@@ -152,7 +152,7 @@
 		1A67A7D52B627E2A008E77D0 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		1A67A7D72B627E7F008E77D0 /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
 		1A67A7DD2B628703008E77D0 /* ShortestRouteBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortestRouteBuilder.swift; sourceTree = "<group>"; };
-		1A67A7DF2B62916F008E77D0 /* RouteBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilderTests.swift; sourceTree = "<group>"; };
+		1A67A7DF2B62916F008E77D0 /* ShortestRouteBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortestRouteBuilderTests.swift; sourceTree = "<group>"; };
 		1A67A7E22B6296E4008E77D0 /* XCTestCase+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extension.swift"; sourceTree = "<group>"; };
 		1A67A7E72B62B7C3008E77D0 /* DijkstrasRouteBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DijkstrasRouteBuilder.swift; sourceTree = "<group>"; };
 		1A67A7E92B62B80E008E77D0 /* RouteBuilderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteBuilderError.swift; sourceTree = "<group>"; };
@@ -298,7 +298,7 @@
 				1A67A7F62B63CEDC008E77D0 /* Public Interface */,
 				1A67A89B2B652379008E77D0 /* TripPlanner */,
 				1A31155F2B6693BD008FC4AA /* TripRouteBuilder */,
-				1A67A7E42B62B76B008E77D0 /* RouteBuilder */,
+				1A67A7E42B62B76B008E77D0 /* ShortestRouteBuilder */,
 				1A67A86A2B643914008E77D0 /* ConnectionLoader */,
 				1A67A7EF2B62DDE3008E77D0 /* Utils */,
 				1A67A89C2B652390008E77D0 /* Definitions.swift */,
@@ -311,7 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				1A3115702B669A17008FC4AA /* RootTests.swift */,
-				1A67A7DF2B62916F008E77D0 /* RouteBuilderTests.swift */,
+				1A67A7DF2B62916F008E77D0 /* ShortestRouteBuilderTests.swift */,
 				1A67A7FB2B63DA58008E77D0 /* TripPlannerTests.swift */,
 				1A67A8722B643FFA008E77D0 /* ConnectionLoaderTests.swift */,
 				1A67A8952B6459F8008E77D0 /* ConnectionDecoderTests.swift */,
@@ -342,7 +342,7 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		1A67A7E42B62B76B008E77D0 /* RouteBuilder */ = {
+		1A67A7E42B62B76B008E77D0 /* ShortestRouteBuilder */ = {
 			isa = PBXGroup;
 			children = (
 				1A67A7DD2B628703008E77D0 /* ShortestRouteBuilder.swift */,
@@ -350,7 +350,7 @@
 				1A67A7F42B63CC60008E77D0 /* Route.swift */,
 				1A67A7E62B62B790008E77D0 /* Impl */,
 			);
-			path = RouteBuilder;
+			path = ShortestRouteBuilder;
 			sourceTree = "<group>";
 		};
 		1A67A7E62B62B790008E77D0 /* Impl */ = {
@@ -629,7 +629,7 @@
 				1A67A8A32B6525AE008E77D0 /* MetadataProviderTests.swift in Sources */,
 				1A67A8862B645215008E77D0 /* ConnectionLoaderTests+Extension.swift in Sources */,
 				1A67A87C2B645088008E77D0 /* Connection+Extension.swift in Sources */,
-				1A67A7E02B62916F008E77D0 /* RouteBuilderTests.swift in Sources */,
+				1A67A7E02B62916F008E77D0 /* ShortestRouteBuilderTests.swift in Sources */,
 				1A3115502B66472A008FC4AA /* ConnectionLoaderStub.swift in Sources */,
 				1A67A8982B651FC7008E77D0 /* ConnectionDecoderTests+Extension.swift in Sources */,
 				1A67A8762B644609008E77D0 /* DataSourceStub.swift in Sources */,
