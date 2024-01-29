@@ -9,7 +9,7 @@ import TripPlannerCore
 
 final class TripPlannerStub: TripPlanner {
 
-    enum Calls {
+    enum Calls: Equatable {
 
         case loadPlaces
         case fromSuggestions(String)

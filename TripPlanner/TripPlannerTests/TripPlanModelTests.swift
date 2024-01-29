@@ -14,15 +14,20 @@ final class TripPlanModelTests: XCTestCase {
 
     typealias SUT = TripPlanModel
 
-    func test_some() {
+    func test_init_hasNoSideEffects() {
 
-        
+        let planner = TripPlannerStub()
+
+        _ = makeSUT(planner)
+
+        XCTAssertEqual(planner.calls, [])
     }
 
     // MARK: Private
 
     func makeSUT(
 
+        _ planner: TripPlanner = TripPlannerStub(),
         exp: XCTestExpectation? = nil
 
     ) -> SUT {
@@ -31,7 +36,7 @@ final class TripPlanModelTests: XCTestCase {
         let syncRunner = SyncRunnerStub()
         let sut = SUT.init(
 
-            planner: TripPlannerStub(),
+            planner: planner,
             asyncRunner: asyncRunner,
             callbackRunner: syncRunner
         )
