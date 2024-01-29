@@ -16,14 +16,14 @@ final class TripPlanModelTests: XCTestCase {
 
     func test_init_hasNoSideEffects() {
 
-        _ = makeSUT(planner)
+        _ = makeSUT()
 
         XCTAssertEqual(planner.calls, [])
     }
 
     func test_load_forwardsCallToPlanner() {
 
-        let sut = makeSUT(planner, exp: exp)
+        let sut = makeSUT(exp: expectation())
         sut.load()
 
         wait()
@@ -33,7 +33,7 @@ final class TripPlanModelTests: XCTestCase {
 
     func test_load_updatesVmLoadingDuringLoading() {
 
-        let sut = makeSUT(planner, exp: exp)
+        let sut = makeSUT(exp: expectation())
         sut.load()
 
         XCTAssertEqual(sut.vm.loading, true)
@@ -52,7 +52,7 @@ final class TripPlanModelTests: XCTestCase {
         ]
         planner.result.loadPlaces = .success(places)
 
-        let sut = makeSUT(planner, exp: exp)
+        let sut = makeSUT(exp: expectation())
         sut.load()
 
         wait()
@@ -62,7 +62,7 @@ final class TripPlanModelTests: XCTestCase {
 
     func test_load_refreshesPickers() {
 
-        let sut = makeSUT(planner, exp: exp)
+        let sut = makeSUT(exp: expectation())
 
         planner.from = Self.anyPlace("a")
         planner.to = Self.anyPlace("b")
@@ -77,7 +77,7 @@ final class TripPlanModelTests: XCTestCase {
 
     func test_load_refreshesSuggestions() {
 
-        let sut = makeSUT(planner, exp: exp)
+        let sut = makeSUT(exp: expectation())
 
         planner.result.fromSuggestions = [Self.anyPlace("a")]
         planner.result.toSuggestions = [Self.anyPlace("b")]
@@ -93,7 +93,8 @@ final class TripPlanModelTests: XCTestCase {
     }
 
     func test_selectFrom_updatesSelection() {
-        let sut = makeSUT(planner, exp: exp)
+
+        let sut = makeSUT(exp: expectation())
 
         planner.result.loadPlaces = .success([Self.anyPlace("from")])
         sut.load()
@@ -107,7 +108,7 @@ final class TripPlanModelTests: XCTestCase {
 
     func test_selectTo_updatesSelection() {
 
-        let sut = makeSUT(planner, exp: exp)
+        let sut = makeSUT(exp: expectation())
 
         planner.result.loadPlaces = .success([Self.anyPlace("to")])
         sut.load()
@@ -119,19 +120,34 @@ final class TripPlanModelTests: XCTestCase {
         XCTAssertEqual(planner.calls.filter { $0 == .selectTo("to") }.count, 1)
     }
 
+    func test_selectTo_buildsRouteIfFromSelected() {
+
+        let sut = makeSUT(exp: expectation())
+
+        planner.result.loadPlaces = .success([Self.anyPlace("to"), Self.anyPlace("from")])
+        planner.from = Self.anyPlace("from")
+        planner.to = Self.anyPlace("to")
+
+        sut.load()
+
+        wait()
+        expectation()
+
+        sut.selectTo("to")
+
+        wait()
+
+        XCTAssertEqual(planner.calls.filter { $0 == .build }.count, 1)
+    }
+
     // MARK: Private
 
     private let planner = TripPlannerStub()
-    private lazy var exp: XCTestExpectation = { expectation(description: "Wait for completion.") }()
+    private let asyncRunner = AsyncRunnerStub()
+    private var exp: XCTestExpectation!
 
-    func makeSUT(
+    func makeSUT(exp: XCTestExpectation? = nil) -> SUT {
 
-        _ planner: TripPlanner = TripPlannerStub(),
-        exp: XCTestExpectation? = nil
-
-    ) -> SUT {
-
-        let asyncRunner = AsyncRunnerStub()
         let syncRunner = SyncRunnerStub()
         let sut = SUT.init(
 
@@ -141,13 +157,19 @@ final class TripPlanModelTests: XCTestCase {
         )
 
         trackMemoryLeak(for: sut)
-        trackMemoryLeak(for: asyncRunner)
         trackMemoryLeak(for: syncRunner)
-
-        asyncRunner.expectation = exp
 
         return sut
     }
 
     private func wait() { wait(for: [exp], timeout: 1) }
+
+    @discardableResult private func expectation() -> XCTestExpectation {
+
+        exp = expectation(description: "Wait for completion.")
+
+        asyncRunner.expectation = exp
+
+        return exp
+    }
 }
