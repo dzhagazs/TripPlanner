@@ -11,7 +11,11 @@ import XCTest
 
 final class AsyncRunnerStub: AsyncRunner {
 
+    private(set) var calls: Int = 0
+
     func perform(_ action: @escaping () async -> Void) {
+
+        calls += 1
 
         Task {
 
