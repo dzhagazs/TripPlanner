@@ -183,6 +183,23 @@ final class TripPlanModelTests: XCTestCase {
         XCTAssertEqual(asyncRunner.calls, 1)
     }
 
+    func test_selectFrom_doesNotBuildRouteIfToIsNotSelected() {
+
+        let sut = makeSUT(exp: expectation())
+
+        planner.result.loadPlaces = .success([Self.anyPlace("to"), Self.anyPlace("from")])
+        planner.from = Self.anyPlace("from")
+
+        sut.load()
+
+        wait()
+
+        sut.selectFrom("from")
+
+        XCTAssertEqual(planner.calls.filter { $0 == .build }.count, 0)
+        XCTAssertEqual(asyncRunner.calls, 1)
+    }
+
     // MARK: Private
 
     private let planner = TripPlannerStub()
