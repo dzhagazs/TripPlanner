@@ -96,8 +96,8 @@ final class TripPlanModelTests: XCTestCase {
 
         wait(for: [exp])
 
-        XCTAssertTrue(planner.calls.contains(where: { $0 == .fromSuggestions("") }))
-        XCTAssertTrue(planner.calls.contains(where: { $0 == .toSuggestions("") }))
+        XCTAssertTrue(planner.calls.filter { $0 == .fromSuggestions("") }.count == 1)
+        XCTAssertTrue(planner.calls.filter { $0 == .toSuggestions("") }.count == 1)
         XCTAssertEqual(sut.fromPickerVM.suggestions, ["a"])
         XCTAssertEqual(sut.toPickerVM.suggestions, ["b"])
     }
