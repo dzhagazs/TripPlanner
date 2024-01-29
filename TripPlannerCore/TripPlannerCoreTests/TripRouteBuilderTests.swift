@@ -126,6 +126,10 @@ final class TripRouteBuilderTests: XCTestCase {
 
     private func makeSUT() -> SUT {
 
-        TripRouteBuilderImpl()
+        let sut = TripRouteBuilderImpl()
+
+        trackMemoryLeak(for: sut)
+
+        return sut
     }
 }

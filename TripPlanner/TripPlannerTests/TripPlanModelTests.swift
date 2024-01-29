@@ -23,6 +23,11 @@ final class TripPlanModelTests: XCTestCase {
 
     func makeSUT() -> SUT {
 
-        .init(planner: TripPlannerStub())
+        let sut = SUT.init(planner: TripPlannerStub())
+
+        trackMemoryLeak(for: sut)
+
+        return sut
+
     }
 }

@@ -54,6 +54,10 @@ final class MetadataProviderTests: XCTestCase {
 
     ) -> SUT {
 
-        MetadataProviderImpl(distanceCalculator: distanceCalculator)
+        let sut = MetadataProviderImpl(distanceCalculator: distanceCalculator)
+
+        trackMemoryLeak(for: sut)
+
+        return sut
     }
 }
