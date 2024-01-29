@@ -21,11 +21,26 @@ final class TripPlanModelTests: XCTestCase {
 
     // MARK: Private
 
-    func makeSUT() -> SUT {
+    func makeSUT(
 
-        let sut = SUT.init(planner: TripPlannerStub())
+        exp: XCTestExpectation? = nil
+
+    ) -> SUT {
+
+        let asyncRunner = AsyncRunnerStub()
+        let syncRunner = SyncRunnerStub()
+        let sut = SUT.init(
+
+            planner: TripPlannerStub(),
+            asyncRunner: asyncRunner,
+            callbackRunner: syncRunner
+        )
 
         trackMemoryLeak(for: sut)
+        trackMemoryLeak(for: asyncRunner)
+        trackMemoryLeak(for: syncRunner)
+
+        asyncRunner.expectation = exp
 
         return sut
 

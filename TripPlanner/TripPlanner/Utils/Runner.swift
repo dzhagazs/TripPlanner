@@ -2,7 +2,7 @@
 //  Runner.swift
 //  TripPlanner
 //
-//  Created by Alexandr Vasildzhagaz on 29.01.2024.
+//  Created by Oleksandr Vasildzhahaz on 29.01.2024.
 //
 
 import Foundation
