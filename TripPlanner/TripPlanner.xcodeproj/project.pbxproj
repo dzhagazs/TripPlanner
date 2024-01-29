@@ -20,7 +20,7 @@
 		1A3115792B66F2D7008FC4AA /* RouteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3115782B66F2D7008FC4AA /* RouteListView.swift */; };
 		1A31157B2B66F38A008FC4AA /* RouteTag+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A31157A2B66F38A008FC4AA /* RouteTag+Extension.swift */; };
 		1A31157D2B66F3C7008FC4AA /* PresentableRoute+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A31157C2B66F3C7008FC4AA /* PresentableRoute+Extension.swift */; };
-		1A3115802B678D93008FC4AA /* XCTestCase+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A31157F2B678D93008FC4AA /* XCTestCase+Extension.swift */; };
+		1A3115832B679956008FC4AA /* XCTestCase+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3115822B679956008FC4AA /* XCTestCase+Extension.swift */; };
 		1A67A8162B640311008E77D0 /* TripPlannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8152B640311008E77D0 /* TripPlannerApp.swift */; };
 		1A67A85C2B64091F008E77D0 /* RouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A85B2B64091F008E77D0 /* RouteView.swift */; };
 		1A67A85E2B640991008E77D0 /* TripPlannerCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A67A85D2B640991008E77D0 /* TripPlannerCore.framework */; };
@@ -68,7 +68,7 @@
 		1A3115782B66F2D7008FC4AA /* RouteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteListView.swift; sourceTree = "<group>"; };
 		1A31157A2B66F38A008FC4AA /* RouteTag+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RouteTag+Extension.swift"; sourceTree = "<group>"; };
 		1A31157C2B66F3C7008FC4AA /* PresentableRoute+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PresentableRoute+Extension.swift"; sourceTree = "<group>"; };
-		1A31157F2B678D93008FC4AA /* XCTestCase+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "XCTestCase+Extension.swift"; path = "../../../TripPlannerCore/TripPlannerCoreTests/Utils/XCTestCase/XCTestCase+Extension.swift"; sourceTree = "<group>"; };
+		1A3115822B679956008FC4AA /* XCTestCase+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "XCTestCase+Extension.swift"; path = "../../../TripPlannerCore/TripPlannerCoreTests/Utils/XCTestCase/XCTestCase+Extension.swift"; sourceTree = "<group>"; };
 		1A67A8122B640311008E77D0 /* TripPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A67A8152B640311008E77D0 /* TripPlannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlannerApp.swift; sourceTree = "<group>"; };
 		1A67A8222B640312008E77D0 /* TripPlannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TripPlannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,10 +149,10 @@
 			path = PanelItem;
 			sourceTree = "<group>";
 		};
-		1A31157E2B678D87008FC4AA /* Utils */ = {
+		1A3115812B67993B008FC4AA /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				1A31157F2B678D93008FC4AA /* XCTestCase+Extension.swift */,
+				1A3115822B679956008FC4AA /* XCTestCase+Extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -193,7 +193,7 @@
 			children = (
 				1A3115722B66CADE008FC4AA /* TripPlanModelTests.swift */,
 				1A3115742B66CC01008FC4AA /* TripPlannerStub.swift */,
-				1A31157E2B678D87008FC4AA /* Utils */,
+				1A3115812B67993B008FC4AA /* Utils */,
 			);
 			path = TripPlannerTests;
 			sourceTree = "<group>";
@@ -339,7 +339,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A3115802B678D93008FC4AA /* XCTestCase+Extension.swift in Sources */,
+				1A3115832B679956008FC4AA /* XCTestCase+Extension.swift in Sources */,
 				1A3115732B66CADE008FC4AA /* TripPlanModelTests.swift in Sources */,
 				1A3115752B66CC01008FC4AA /* TripPlannerStub.swift in Sources */,
 			);

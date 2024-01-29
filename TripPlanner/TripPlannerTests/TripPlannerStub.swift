@@ -44,26 +44,37 @@ final class TripPlannerStub: TripPlanner {
 
     func loadPlaces() async throws -> [Place] {
 
-        []
+        calls.append(.loadPlaces)
+
+        return try result.loadPlaces.get()
     }
 
     func fromSuggestions(filter: String) -> [Place] {
 
-        []
+        calls.append(.fromSuggestions(filter))
+
+        return result.fromSuggestions
     }
 
     func toSuggestions(filter: String) -> [Place] {
 
-        []
+        calls.append(.toSuggestions(filter))
+
+        return result.toSuggestions
     }
 
     func select(from: Place) throws {
 
+        calls.append(.selectFrom(from.name))
+
+        if let error = result.selectFrom { throw error }
     }
 
     func select(to: Place) throws {
 
-        
+        calls.append(.selectTo(to.name))
+
+        if let error = result.selectTo { throw error }
     }
 
     var from: Place?
@@ -71,11 +82,13 @@ final class TripPlannerStub: TripPlanner {
 
     func clearSelection() {
 
-        
+        calls.append(.clearSelection)
     }
 
     func build() async throws -> [PresentableRoute] {
 
-        []
+        calls.append(.build)
+
+        return try result.build.get()
     }
 }
