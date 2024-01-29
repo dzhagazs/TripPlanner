@@ -38,7 +38,6 @@ final class TripPlanModelTests: XCTestCase {
         let exp = expectation(description: "Wait for completion.")
 
         let sut = makeSUT(planner, exp: exp)
-
         sut.load()
 
         XCTAssertEqual(sut.vm.loading, true)
@@ -46,6 +45,25 @@ final class TripPlanModelTests: XCTestCase {
         wait(for: [exp])
 
         XCTAssertEqual(sut.vm.loading, false)
+    }
+
+    func test_load_reflectsPlannerPlaces() {
+
+        let places = [
+
+            Self.anyPlace("a"),
+            Self.anyPlace("b")
+        ]
+        planner.result.loadPlaces = .success(places)
+
+        let exp = expectation(description: "Wait for completion.")
+
+        let sut = makeSUT(planner, exp: exp)
+        sut.load()
+
+        wait(for: [exp])
+
+        XCTAssertEqual(sut.vm.places, places.asAnnotations)
     }
 
     // MARK: Private
@@ -76,5 +94,20 @@ final class TripPlanModelTests: XCTestCase {
 
         return sut
 
+    }
+}
+
+extension Array where Element == Place {
+
+    var asAnnotations: [PlaceAnnotation] {
+
+        self.map { .init(
+
+            title: $0.name,
+            coordinates: .init(
+
+                latitude: Double($0.coordinate.latitude),
+                longitude: Double($0.coordinate.longitude)))
+        }
     }
 }

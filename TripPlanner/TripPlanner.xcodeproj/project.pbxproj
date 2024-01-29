@@ -24,6 +24,8 @@
 		1A3115852B67B1A9008FC4AA /* Runner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3115842B67B1A9008FC4AA /* Runner.swift */; };
 		1A3115872B67B385008FC4AA /* SyncRunnerStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3115862B67B385008FC4AA /* SyncRunnerStub.swift */; };
 		1A3115892B67B3C6008FC4AA /* AsyncRunnerStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3115882B67B3C6008FC4AA /* AsyncRunnerStub.swift */; };
+		1A31158B2B67B83D008FC4AA /* XCTestCase+Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A31158A2B67B83D008FC4AA /* XCTestCase+Places.swift */; };
+		1A31158D2B67B872008FC4AA /* Coordinate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A31158C2B67B872008FC4AA /* Coordinate+Extension.swift */; };
 		1A67A8162B640311008E77D0 /* TripPlannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A8152B640311008E77D0 /* TripPlannerApp.swift */; };
 		1A67A85C2B64091F008E77D0 /* RouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A85B2B64091F008E77D0 /* RouteView.swift */; };
 		1A67A85E2B640991008E77D0 /* TripPlannerCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A67A85D2B640991008E77D0 /* TripPlannerCore.framework */; };
@@ -75,6 +77,8 @@
 		1A3115842B67B1A9008FC4AA /* Runner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Runner.swift; sourceTree = "<group>"; };
 		1A3115862B67B385008FC4AA /* SyncRunnerStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncRunnerStub.swift; sourceTree = "<group>"; };
 		1A3115882B67B3C6008FC4AA /* AsyncRunnerStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncRunnerStub.swift; sourceTree = "<group>"; };
+		1A31158A2B67B83D008FC4AA /* XCTestCase+Places.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "XCTestCase+Places.swift"; path = "../../../TripPlannerCore/TripPlannerCoreTests/Utils/XCTestCase/XCTestCase+Places.swift"; sourceTree = "<group>"; };
+		1A31158C2B67B872008FC4AA /* Coordinate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Coordinate+Extension.swift"; path = "../../../TripPlannerCore/TripPlannerCoreTests/Utils/Coordinate+Extension.swift"; sourceTree = "<group>"; };
 		1A67A8122B640311008E77D0 /* TripPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A67A8152B640311008E77D0 /* TripPlannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlannerApp.swift; sourceTree = "<group>"; };
 		1A67A8222B640312008E77D0 /* TripPlannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TripPlannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,7 +163,9 @@
 		1A3115812B67993B008FC4AA /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				1A31158C2B67B872008FC4AA /* Coordinate+Extension.swift */,
 				1A3115822B679956008FC4AA /* XCTestCase+Extension.swift */,
+				1A31158A2B67B83D008FC4AA /* XCTestCase+Places.swift */,
 				1A3115862B67B385008FC4AA /* SyncRunnerStub.swift */,
 				1A3115882B67B3C6008FC4AA /* AsyncRunnerStub.swift */,
 			);
@@ -351,6 +357,8 @@
 			files = (
 				1A3115872B67B385008FC4AA /* SyncRunnerStub.swift in Sources */,
 				1A3115832B679956008FC4AA /* XCTestCase+Extension.swift in Sources */,
+				1A31158D2B67B872008FC4AA /* Coordinate+Extension.swift in Sources */,
+				1A31158B2B67B83D008FC4AA /* XCTestCase+Places.swift in Sources */,
 				1A3115732B66CADE008FC4AA /* TripPlanModelTests.swift in Sources */,
 				1A3115892B67B3C6008FC4AA /* AsyncRunnerStub.swift in Sources */,
 				1A3115752B66CC01008FC4AA /* TripPlannerStub.swift in Sources */,
