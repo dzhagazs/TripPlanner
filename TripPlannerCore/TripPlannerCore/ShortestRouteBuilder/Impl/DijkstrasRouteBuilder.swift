@@ -41,9 +41,9 @@ internal final class DijkstrasRouteBuilder<W: Number, E: Hashable>: ShortestRout
             parents: &parents
         )
 
-        let path = try path(from: from, to: to,parents: parents)
+        let path = try path(from: from, to: to, parents: parents)
 
-        guard let weight = weights[to], !path.isEmpty else { throw Error.notFound}
+        guard let weight = weights[to], !path.isEmpty else { throw Error.notFound }
 
         return .init(path: path, weight: weight)
     }
