@@ -48,7 +48,7 @@ extension ShortestRouteBuilderTests {
 
         expectToThrow(error, file: file, line: line) {
 
-            let _ = try SUT.build(
+            _ = try SUT.build(
 
                 from: from,
                 to: to,

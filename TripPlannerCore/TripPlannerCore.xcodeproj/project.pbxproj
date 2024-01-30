@@ -47,6 +47,15 @@
 		1A31156D2B6698EA008FC4AA /* TripRouteBuilderFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A31156C2B6698EA008FC4AA /* TripRouteBuilderFactoryTests.swift */; };
 		1A31156F2B669983008FC4AA /* ConnectionLoaderFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A31156E2B669983008FC4AA /* ConnectionLoaderFactoryTests.swift */; };
 		1A3115712B669A17008FC4AA /* RootTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3115702B669A17008FC4AA /* RootTests.swift */; };
+		1A3115912B68EF3D008FC4AA /* ConnectionDataSourceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3115902B68EF3C008FC4AA /* ConnectionDataSourceFactory.swift */; };
+		1A3115922B68EF3D008FC4AA /* ConnectionDataSourceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3115902B68EF3C008FC4AA /* ConnectionDataSourceFactory.swift */; };
+		1A3115942B68EFE8008FC4AA /* ConnectionDataSourceFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3115932B68EFE8008FC4AA /* ConnectionDataSourceFactoryTests.swift */; };
+		1A3115972B68F04C008FC4AA /* ConnectionDecoderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3115962B68F04C008FC4AA /* ConnectionDecoderFactory.swift */; };
+		1A3115982B68F053008FC4AA /* ConnectionDecoderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3115962B68F04C008FC4AA /* ConnectionDecoderFactory.swift */; };
+		1A31159A2B68F091008FC4AA /* ConnectionDecoderFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3115992B68F091008FC4AA /* ConnectionDecoderFactoryTests.swift */; };
+		1A31159C2B68F0E5008FC4AA /* MetadataProviderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A31159B2B68F0E5008FC4AA /* MetadataProviderFactory.swift */; };
+		1A31159D2B68F0E6008FC4AA /* MetadataProviderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A31159B2B68F0E5008FC4AA /* MetadataProviderFactory.swift */; };
+		1A31159F2B68F12D008FC4AA /* MetadataProviderFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A31159E2B68F12D008FC4AA /* MetadataProviderFactoryTests.swift */; };
 		1A67A7C32B627D37008E77D0 /* TripPlannerCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A67A7BA2B627D37008E77D0 /* TripPlannerCore.framework */; };
 		1A67A7D42B627DCE008E77D0 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7D32B627DCE008E77D0 /* Coordinate.swift */; };
 		1A67A7D62B627E2A008E77D0 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67A7D52B627E2A008E77D0 /* Place.swift */; };
@@ -146,6 +155,12 @@
 		1A31156C2B6698EA008FC4AA /* TripRouteBuilderFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripRouteBuilderFactoryTests.swift; sourceTree = "<group>"; };
 		1A31156E2B669983008FC4AA /* ConnectionLoaderFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionLoaderFactoryTests.swift; sourceTree = "<group>"; };
 		1A3115702B669A17008FC4AA /* RootTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTests.swift; sourceTree = "<group>"; };
+		1A3115902B68EF3C008FC4AA /* ConnectionDataSourceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionDataSourceFactory.swift; sourceTree = "<group>"; };
+		1A3115932B68EFE8008FC4AA /* ConnectionDataSourceFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionDataSourceFactoryTests.swift; sourceTree = "<group>"; };
+		1A3115962B68F04C008FC4AA /* ConnectionDecoderFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionDecoderFactory.swift; sourceTree = "<group>"; };
+		1A3115992B68F091008FC4AA /* ConnectionDecoderFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionDecoderFactoryTests.swift; sourceTree = "<group>"; };
+		1A31159B2B68F0E5008FC4AA /* MetadataProviderFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataProviderFactory.swift; sourceTree = "<group>"; };
+		1A31159E2B68F12D008FC4AA /* MetadataProviderFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataProviderFactoryTests.swift; sourceTree = "<group>"; };
 		1A67A7BA2B627D37008E77D0 /* TripPlannerCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TripPlannerCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A67A7C22B627D37008E77D0 /* TripPlannerCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TripPlannerCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A67A7D32B627DCE008E77D0 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
@@ -273,6 +288,37 @@
 			path = Impl;
 			sourceTree = "<group>";
 		};
+		1A3115A02B68F169008FC4AA /* ConnectionDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				1A67A8892B645690008E77D0 /* ConnectionDataSource.swift */,
+				1A3115902B68EF3C008FC4AA /* ConnectionDataSourceFactory.swift */,
+				1A67A8872B6452B8008E77D0 /* URLSession+Extension.swift */,
+			);
+			path = ConnectionDataSource;
+			sourceTree = "<group>";
+		};
+		1A3115A12B68F188008FC4AA /* ConnectionDecoder */ = {
+			isa = PBXGroup;
+			children = (
+				1A67A88C2B6456E5008E77D0 /* ConnectionDecoder.swift */,
+				1A3115962B68F04C008FC4AA /* ConnectionDecoderFactory.swift */,
+				1A67A8922B645762008E77D0 /* ConnectionDecoderImpl.swift */,
+			);
+			path = ConnectionDecoder;
+			sourceTree = "<group>";
+		};
+		1A3115A22B68F19A008FC4AA /* MetadataProvider */ = {
+			isa = PBXGroup;
+			children = (
+				1A67A89F2B6524B6008E77D0 /* MetadataProviderImpl.swift */,
+				1A67A88F2B645720008E77D0 /* MetadataProvider.swift */,
+				1A31159B2B68F0E5008FC4AA /* MetadataProviderFactory.swift */,
+				1A3115172B652BA9008FC4AA /* DistanceCalculator.swift */,
+			);
+			path = MetadataProvider;
+			sourceTree = "<group>";
+		};
 		1A67A7B02B627D37008E77D0 = {
 			isa = PBXGroup;
 			children = (
@@ -320,6 +366,9 @@
 				1A31156A2B6694FB008FC4AA /* TripRouteBuilderTests.swift */,
 				1A31156C2B6698EA008FC4AA /* TripRouteBuilderFactoryTests.swift */,
 				1A31156E2B669983008FC4AA /* ConnectionLoaderFactoryTests.swift */,
+				1A3115932B68EFE8008FC4AA /* ConnectionDataSourceFactoryTests.swift */,
+				1A3115992B68F091008FC4AA /* ConnectionDecoderFactoryTests.swift */,
+				1A31159E2B68F12D008FC4AA /* MetadataProviderFactoryTests.swift */,
 				1A67A7E12B6296D7008E77D0 /* Utils */,
 			);
 			path = TripPlannerCoreTests;
@@ -389,27 +438,15 @@
 		1A67A86A2B643914008E77D0 /* ConnectionLoader */ = {
 			isa = PBXGroup;
 			children = (
-				1A31155C2B66937B008FC4AA /* ConnectionLoaderFactory.swift */,
 				1A67A86B2B643A04008E77D0 /* ConnectionLoader.swift */,
-				1A67A8892B645690008E77D0 /* ConnectionDataSource.swift */,
-				1A67A88C2B6456E5008E77D0 /* ConnectionDecoder.swift */,
-				1A67A88F2B645720008E77D0 /* MetadataProvider.swift */,
+				1A31155C2B66937B008FC4AA /* ConnectionLoaderFactory.swift */,
+				1A67A86F2B643B7D008E77D0 /* ConnectionLoaderImpl.swift */,
 				1A67A7D72B627E7F008E77D0 /* Connection.swift */,
-				1A67A86E2B643B31008E77D0 /* Impl */,
+				1A3115A02B68F169008FC4AA /* ConnectionDataSource */,
+				1A3115A12B68F188008FC4AA /* ConnectionDecoder */,
+				1A3115A22B68F19A008FC4AA /* MetadataProvider */,
 			);
 			path = ConnectionLoader;
-			sourceTree = "<group>";
-		};
-		1A67A86E2B643B31008E77D0 /* Impl */ = {
-			isa = PBXGroup;
-			children = (
-				1A67A86F2B643B7D008E77D0 /* ConnectionLoaderImpl.swift */,
-				1A67A8872B6452B8008E77D0 /* URLSession+Extension.swift */,
-				1A67A8922B645762008E77D0 /* ConnectionDecoderImpl.swift */,
-				1A67A89F2B6524B6008E77D0 /* MetadataProviderImpl.swift */,
-				1A3115172B652BA9008FC4AA /* DistanceCalculator.swift */,
-			);
-			path = Impl;
 			sourceTree = "<group>";
 		};
 		1A67A8742B644538008E77D0 /* XCTestCase */ = {
@@ -575,6 +612,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A31159C2B68F0E5008FC4AA /* MetadataProviderFactory.swift in Sources */,
 				1A3115262B658681008FC4AA /* RouteTag.swift in Sources */,
 				1A67A88A2B645690008E77D0 /* ConnectionDataSource.swift in Sources */,
 				1A67A8902B645720008E77D0 /* MetadataProvider.swift in Sources */,
@@ -586,12 +624,14 @@
 				1A67A89D2B652390008E77D0 /* Definitions.swift in Sources */,
 				1A67A7D42B627DCE008E77D0 /* Coordinate.swift in Sources */,
 				1A67A7EA2B62B80E008E77D0 /* RouteBuilderError.swift in Sources */,
+				1A3115972B68F04C008FC4AA /* ConnectionDecoderFactory.swift in Sources */,
 				1A3115322B658887008FC4AA /* RouteTag+Extension.swift in Sources */,
 				1A67A88D2B6456E5008E77D0 /* ConnectionDecoder.swift in Sources */,
 				1A67A7F82B63CF01008E77D0 /* TripPlanner.swift in Sources */,
 				1A3115612B6693DB008FC4AA /* TripRouteBuilder.swift in Sources */,
 				1A67A7E82B62B7C3008E77D0 /* DijkstrasRouteBuilder.swift in Sources */,
 				1A31153F2B659495008FC4AA /* Int+Extension.swift in Sources */,
+				1A3115912B68EF3D008FC4AA /* ConnectionDataSourceFactory.swift in Sources */,
 				1A67A8A02B6524B6008E77D0 /* MetadataProviderImpl.swift in Sources */,
 				1A67A8082B63FF70008E77D0 /* Root.swift in Sources */,
 				1A67A7FA2B63D9F3008E77D0 /* TripPlannerImpl.swift in Sources */,
@@ -624,6 +664,8 @@
 				1A67A8042B63FCA0008E77D0 /* PresentableRoute+Extension.swift in Sources */,
 				1A67A87E2B6450D3008E77D0 /* ConnectionMetadata+Extension.swift in Sources */,
 				1A67A89A2B652053008E77D0 /* RouteBuilderTests+Extension.swift in Sources */,
+				1A3115942B68EFE8008FC4AA /* ConnectionDataSourceFactoryTests.swift in Sources */,
+				1A31159F2B68F12D008FC4AA /* MetadataProviderFactoryTests.swift in Sources */,
 				1A67A8802B64510A008E77D0 /* TestError.swift in Sources */,
 				1A3115522B66476F008FC4AA /* Array+Extension.swift in Sources */,
 				1A67A8A32B6525AE008E77D0 /* MetadataProviderTests.swift in Sources */,
@@ -643,6 +685,7 @@
 				1A67A8962B6459F8008E77D0 /* ConnectionDecoderTests.swift in Sources */,
 				1A3115552B66480D008FC4AA /* TripPlannerTests+Extension.swift in Sources */,
 				1A31156F2B669983008FC4AA /* ConnectionLoaderFactoryTests.swift in Sources */,
+				1A31159A2B68F091008FC4AA /* ConnectionDecoderFactoryTests.swift in Sources */,
 				1A67A8842B6451C4008E77D0 /* XCTestCase+ConnectionMetadata.swift in Sources */,
 				1A67A7FC2B63DA58008E77D0 /* TripPlannerTests.swift in Sources */,
 				1A3115712B669A17008FC4AA /* RootTests.swift in Sources */,
@@ -655,6 +698,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A31159D2B68F0E6008FC4AA /* MetadataProviderFactory.swift in Sources */,
 				1A3115272B658681008FC4AA /* RouteTag.swift in Sources */,
 				1A67A8712B643B7D008E77D0 /* ConnectionLoaderImpl.swift in Sources */,
 				1A67A8422B640395008E77D0 /* Route.swift in Sources */,
@@ -666,12 +710,14 @@
 				1A67A8442B640395008E77D0 /* RouteBuilderError.swift in Sources */,
 				1A3115192B652BA9008FC4AA /* DistanceCalculator.swift in Sources */,
 				1A67A8452B640395008E77D0 /* TripPlanner.swift in Sources */,
+				1A3115982B68F053008FC4AA /* ConnectionDecoderFactory.swift in Sources */,
 				1A3115332B658887008FC4AA /* RouteTag+Extension.swift in Sources */,
 				1A67A8462B640395008E77D0 /* DijkstrasRouteBuilder.swift in Sources */,
 				1A67A8472B640395008E77D0 /* Root.swift in Sources */,
 				1A3115622B6693DB008FC4AA /* TripRouteBuilder.swift in Sources */,
 				1A67A88E2B6456E5008E77D0 /* ConnectionDecoder.swift in Sources */,
 				1A3115402B659495008FC4AA /* Int+Extension.swift in Sources */,
+				1A3115922B68EF3D008FC4AA /* ConnectionDataSourceFactory.swift in Sources */,
 				1A67A88B2B645690008E77D0 /* ConnectionDataSource.swift in Sources */,
 				1A67A89E2B652390008E77D0 /* Definitions.swift in Sources */,
 				1A67A8912B645720008E77D0 /* MetadataProvider.swift in Sources */,

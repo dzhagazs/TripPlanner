@@ -13,9 +13,9 @@ final class ConnectionLoaderFactory {
 
         ConnectionLoaderImpl(
 
-            client: URLSession.shared,
-            decoder: ConnectionDecoderImpl(),
-            provider: MetadataProviderImpl(distanceCalculator: DistanceCalculator.distance(from:to:))
+            client: ConnectionDataSourceFactory.create(),
+            decoder: ConnectionDecoderFactory.create(),
+            provider: MetadataProviderFactory.create()
         )
     }
 }
